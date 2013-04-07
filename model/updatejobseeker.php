@@ -34,25 +34,35 @@ class updatejobseekerModel extends DBConnect{
 		if (require_once 'library/serverValidation.class.php'){
 			$abc='';
 			$obj = new serverValidation();
-				if(($obj->alphabeticValidation($arrPersonal['firstname']))==0){	
-					$abc[]='Firstname is not alphabetic';
+				if ($arrPersonal['firstname']!=''){
+					if(($obj->alphabeticValidation($arrPersonal['firstname']))==0){	
+						$abc[]='Firstname is not alphabetic';
+					}
 				}
 				if ($arrPersonal['middlename']!=''){
 					if(($obj->alphabeticValidation($arrPersonal['middlename']))==0){	
 						$abc[]='Middlename is not alphabetic';
 					}
 				}
-				if(($obj->alphabeticValidation($arrPersonal['lastname']))==0){	
-					$abc[]='Lastname is not alphabetic';
+				if ($arrPersonal['lastname']!=''){
+					if(($obj->alphabeticValidation($arrPersonal['lastname']))==0){	
+						$abc[]='Lastname is not alphabetic';
+					}
 				}
-				if(($obj->dateValidator($arrPersonal['dob']))==0){	
-					$abc[]='Please Check the Date';
+				if ($arrPersonal['dob']!=''){
+					if(($obj->dateValidator($arrPersonal['dob']))==0){	
+						$abc[]='Please Check the Date';
+					}
 				}
-				if(($obj->numericValidation($arrPersonal['phno']))==0){	
-					$abc[]='Phone number is not numeric';
+				if ($arrPersonal['phno']!=''){
+					if(($obj->numericValidation($arrPersonal['phno']))==0){	
+						$abc[]='Phone number is not numeric';
+					}
 				}
-				if(($obj->numericValidation($arrPersonal['pincode']))==0){	
-					$abc[]='Pincode is not numeric';
+				if ($arrPersonal['pincode']!=''){
+					if(($obj->numericValidation($arrPersonal['pincode']))==0){	
+						$abc[]='Pincode is not numeric';
+					}
 				}
 				
 				$tempDataHolder = '';
@@ -62,10 +72,11 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(',','',$tempDataHolder);
 				$tempDataHolder = str_replace('/','',$tempDataHolder);
 		
-				if(($obj->alphaNumericValidation($tempDataHolder))==0){	
-					$abc[]='Permanent Address should be Alpha numeric only';
+				if ($arrPersonal['paddress']!=''){
+					if(($obj->alphaNumericValidation($tempDataHolder))==0){	
+						$abc[]='Permanent Address should be Alpha numeric only';
+					}
 				}
-				
 				$tempDataHolder = '';
 				$tempDataHolder = $arrPersonal['caddress'];
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
@@ -73,26 +84,34 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(',','',$tempDataHolder);
 				$tempDataHolder = str_replace('/','',$tempDataHolder);
 				
-				if(($obj->alphaNumericValidation($tempDataHolder))==0){	
-					$abc[]='Current Address should be Alpha numeric only';
+				if ($arrPersonal['caddress']!=''){
+					if(($obj->alphaNumericValidation($tempDataHolder))==0){	
+						$abc[]='Current Address should be Alpha numeric only';
+					}
 				}
 				$tempDataHolder = '';
 				$tempDataHolder = $arrPersonal['city'];
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
-				if(($obj->alphabeticValidation($tempDataHolder))==0){	
-					$abc[]='City is not alphabetic';
+				if ($arrPersonal['city']!=''){
+					if(($obj->alphabeticValidation($tempDataHolder))==0){	
+						$abc[]='City is not alphabetic';
+					}
 				}
 				$tempDataHolder = '';
 				$tempDataHolder = $arrPersonal['state'];
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
-				if(($obj->alphabeticValidation($tempDataHolder))==0){	
-					$abc[]='State is not alphabetic';
+				if ($arrPersonal['state']!=''){
+					if(($obj->alphabeticValidation($tempDataHolder))==0){	
+						$abc[]='State is not alphabetic';
+					}
 				}
 				$tempDataHolder = '';
 				$tempDataHolder = $arrPersonal['country'];
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
-				if(($obj->alphabeticValidation($tempDataHolder))==0){	
-					$abc[]='Country is not alphabetic';
+				if ($arrPersonal['country']!=''){
+					if(($obj->alphabeticValidation($tempDataHolder))==0){	
+						$abc[]='Country is not alphabetic';
+					}
 				}
 				
 		} else {

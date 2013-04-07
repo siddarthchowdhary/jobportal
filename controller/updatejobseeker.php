@@ -55,7 +55,6 @@
 						foreach ($boolResult as $key => $val) {
 								echo $val.'   ';
 						}
-						echo "in updatejobseeker controller , Above Validation Failed try Again";
 					}
 			}
                         
@@ -92,7 +91,6 @@
 						foreach ($boolResult as $key => $val) {
 								echo $val.'   ';
 						}
-						echo "<br>in updatejobseeker controller<br>Validation Failed try Again include that page here in controller";
 					}
 			}
 			
@@ -122,7 +120,6 @@
 						foreach ($boolResult as $key => $val) {
 								echo $val.'   ';
 						}
-						echo "<br>in updatejobseeker controller<br>Validation Failed try Again include that page here in controller";
 					}
 					
 			}

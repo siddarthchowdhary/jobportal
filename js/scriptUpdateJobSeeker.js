@@ -1,78 +1,55 @@
 $(document).ready(function(){
+	jQuery.validator.addMethod("lettersonly", function(value, element) {
+	return this.optional(element) || /^[a-z]+$/i.test(value);
+	}, "Textual data only!");
+	$.validator.addMethod("loginRegex", function(value, element) {
+        return this.optional(element) || /^[a-z0-9\-\s]+$/i.test(value);
+    }, "only letters, numbers, or dashes.");
 	
 	var validator = $("#frmPersonal").validate({
 		rules: {
 			fname: {
-				required: true,
-				minlength: 3
+				lettersonly: true
+			},
+			mname: {
+				lettersonly: true
 			},
 			lname: {
-				required: true,
-				minlength:3
+				lettersonly: true
 			},
-			gender: {
-				required: true
+			dob: {
+				date: true
 			},
 			phno: {
-				required: true,
 				minlength:10,
 				number: true
 			},
 			paddress: {
-				required: true
+				loginRegex: true
 			},
 			caddress: {
-				required: true
+				loginRegex: true
 			},
 			city: {
-				required: true
+				loginRegex: true
 			},
 			state: {
-				required: true
+				loginRegex: true
 			},
 			country: {
-				required: true
+				lettersonly: true
 			},
 			pincode: {
-				required: true,
 				minlength:6,
 				number: true
 			}
 		},
 		messages: {
-			fname: {
-				required: "Please enter your name",
-				minlength: jQuery.format("Your first name needs to be at least {0} characters")
-			},
-			lname:{
-				required: "Please enter last name",
-				minlength: jQuery.format("Your first name needs to be at least {0} characters")
-			},
-			gender: {
-				required: "Please select a gender"
-			},
 			phno: {
-				required: "Please enter phone number",
 				minlength: jQuery.format("Your phone number needs to be at least {0} characters"),
 				number: "numeric data only"
 			},
-			paddress: {
-				required: "Please enter Permanent Address"
-			},
-			caddress: {
-				required: "Please enter Current Address"
-			},
-			city: {
-				required: "Please enter City"
-			},
-			state: {
-				required: "Please enter State"
-			},
-			country: {
-				required: "Please enter Country"
-			},
 			pincode: {
-				required: "Please enter pincode",
 				minlength: jQuery.format("Your pincode needs to be at least {0} characters"),
 				number: "numeric data only"
 			}

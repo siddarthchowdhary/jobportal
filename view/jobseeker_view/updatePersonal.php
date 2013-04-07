@@ -10,10 +10,10 @@
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
-	<!--<script type="text/javascript" src="<?php echo JS_PATH;?>scriptUpdateJobSeeker.js" ></script>
+	<script type="text/javascript" src="<?php echo JS_PATH;?>scriptUpdateJobSeeker.js" ></script>
 	
 <!--for dob but validations not working-->
-
+<!--
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />	
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
@@ -22,11 +22,13 @@ $(function() {
 $( "#dob" ).datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: true });
 });
 </script>
+-->
 
 <!--ajax script for result of update educational-->
 	<script>
 		$(document).ready(function(){
 		$("#update").click(function(){
+			$("#frmPersonal").valid();            //(v.imp)calling own script for validation
 			$.ajax({
 				type:"POST",		
 				url:"<?php echo SITE_PATH;?>indexMain.php?controller=updatejobseeker&function=personal", 
