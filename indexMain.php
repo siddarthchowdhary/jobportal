@@ -2,10 +2,10 @@
 ini_set("display_errors","1");
 ini_set( 'error_reporting', "E_ALL" );
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/library/database/usage.class.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/classes/common.class.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/classes/DBConnect.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/constants.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/library/database/usage.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/common.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/DBConnect.php');
 
 if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
       $controller =$_REQUEST['controller']; //echo $controller;die();
