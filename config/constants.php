@@ -1,8 +1,8 @@
 <?php
 #project paths
 	define('DOC_ROOT',$_SERVER['DOCUMENT_ROOT']);
-	define('SITE_ROOT',DOC_ROOT.'/jobportal/trunk/');
-	define('SITE_PATH','http://'.$_SERVER['HTTP_HOST'].'/jobportal/trunk/');
+	define('SITE_ROOT',DOC_ROOT.'/jobportal/');
+	define('SITE_PATH','http://'.$_SERVER['HTTP_HOST'].'/jobportal/');
 	define('IMAGE_PATH',SITE_PATH.'images/');
 	define('CSS_PATH',SITE_PATH.'css/');
 	define('JS_PATH',SITE_PATH.'js/');
