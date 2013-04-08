@@ -37,36 +37,36 @@ class updatejobseekerModel extends DBConnect{
      * o/p - Validations array is some validations failed
      */
 		if (require_once 'library/serverValidation.class.php'){
-			$abc='';
+			$arrValidationMessages='';
 			$obj = new serverValidation();
 				if ($arrPersonal['firstname']!=''){
 					if(($obj->alphabeticValidation($arrPersonal['firstname']))==0){	
-						$abc[]='Firstname is not alphabetic';
+						$arrValidationMessages[]='Firstname is not alphabetic';
 					}
 				}
 				if ($arrPersonal['middlename']!=''){
 					if(($obj->alphabeticValidation($arrPersonal['middlename']))==0){	
-						$abc[]='Middlename is not alphabetic';
+						$arrValidationMessages[]='Middlename is not alphabetic';
 					}
 				}
 				if ($arrPersonal['lastname']!=''){
 					if(($obj->alphabeticValidation($arrPersonal['lastname']))==0){	
-						$abc[]='Lastname is not alphabetic';
+						$arrValidationMessages[]='Lastname is not alphabetic';
 					}
 				}
 				if ($arrPersonal['dob']!=''){
 					if(($obj->dateValidator($arrPersonal['dob']))==0){	
-						$abc[]='Please Check the Date';
+						$arrValidationMessages[]='Please Check the Date';
 					}
 				}
 				if ($arrPersonal['phno']!=''){
 					if(($obj->numericValidation($arrPersonal['phno']))==0){	
-						$abc[]='Phone number is not numeric';
+						$arrValidationMessages[]='Phone number is not numeric';
 					}
 				}
 				if ($arrPersonal['pincode']!=''){
 					if(($obj->numericValidation($arrPersonal['pincode']))==0){	
-						$abc[]='Pincode is not numeric';
+						$arrValidationMessages[]='Pincode is not numeric';
 					}
 				}
 				
@@ -79,7 +79,7 @@ class updatejobseekerModel extends DBConnect{
 		
 				if ($arrPersonal['paddress']!=''){
 					if(($obj->alphaNumericValidation($tempDataHolder))==0){	
-						$abc[]='Permanent Address should be Alpha numeric only';
+						$arrValidationMessages[]='Permanent Address should be Alpha numeric only';
 					}
 				}
 				$tempDataHolder = '';
@@ -91,7 +91,7 @@ class updatejobseekerModel extends DBConnect{
 				
 				if ($arrPersonal['caddress']!=''){
 					if(($obj->alphaNumericValidation($tempDataHolder))==0){	
-						$abc[]='Current Address should be Alpha numeric only';
+						$arrValidationMessages[]='Current Address should be Alpha numeric only';
 					}
 				}
 				$tempDataHolder = '';
@@ -99,7 +99,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				if ($arrPersonal['city']!=''){
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='City is not alphabetic';
+						$arrValidationMessages[]='City is not alphabetic';
 					}
 				}
 				$tempDataHolder = '';
@@ -107,7 +107,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				if ($arrPersonal['state']!=''){
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='State is not alphabetic';
+						$arrValidationMessages[]='State is not alphabetic';
 					}
 				}
 				$tempDataHolder = '';
@@ -115,7 +115,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				if ($arrPersonal['country']!=''){
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='Country is not alphabetic';
+						$arrValidationMessages[]='Country is not alphabetic';
 					}
 				}
 				
@@ -124,7 +124,7 @@ class updatejobseekerModel extends DBConnect{
 			die();
 		}
 		
-		return $abc;
+		return $arrValidationMessages;
     }
     
     
@@ -183,7 +183,7 @@ class updatejobseekerModel extends DBConnect{
     public function validateEducational($arrEducational){   
 		if (require_once 'library/serverValidation.class.php'){
 			
-			$abc='';
+			$arrValidationMessages='';
 			$obj = new serverValidation();	
 			
 				if ($arrEducational['post_graduation_degree']!=''){       #apply validation only if some values are passed to us
@@ -192,7 +192,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				$tempDataHolder = str_replace('.','',$tempDataHolder);
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='Post Grad is not alphabetic';
+						$arrValidationMessages[]='Post Grad is not alphabetic';
 					}
 				}
 				
@@ -202,7 +202,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				$tempDataHolder = str_replace('.','',$tempDataHolder);
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='Phd is not alphabetic';
+						$arrValidationMessages[]='Phd is not alphabetic';
 					}
 				}
 				
@@ -216,7 +216,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace('-','',$tempDataHolder);
 				$tempDataHolder = str_replace('/','',$tempDataHolder);
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='please check other qualifications';
+						$arrValidationMessages[]='please check other qualifications';
 					}
 				}
 				
@@ -224,7 +224,7 @@ class updatejobseekerModel extends DBConnect{
 			echo "Could not find validate data page (class) at server , Please try again !";
 			die();
 		}
-        return $abc;
+        return $arrValidationMessages;
 	}
 	
 	/*documentation -
@@ -272,12 +272,12 @@ class updatejobseekerModel extends DBConnect{
      */
     public function validateProfessional($arrProfessional){   
 		if (require_once 'library/serverValidation.class.php'){
-			$abc='';
+			$arrValidationMessages='';
 			$obj = new serverValidation();	
 			
 			if ($arrProfessional['experience']!=''){      #apply validation only if some values are passed to us
 				if(($obj->numericValidation($arrProfessional['experience']))==0){	
-						$abc[]='Experience should be in no of years only';
+						$arrValidationMessages[]='Experience should be in no of years only';
 				}
 			}
 			
@@ -287,7 +287,7 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				$tempDataHolder = str_replace(',','',$tempDataHolder);
 				if(($obj->alphabeticValidation($tempDataHolder))==0){	
-					$abc[]='Keyskills is not alphabetic';
+					$arrValidationMessages[]='Keyskills is not alphabetic';
 				}
 			}
 			if ($arrProfessional['functional_area']!=''){       #apply validation only if some values are passed to us
@@ -296,14 +296,14 @@ class updatejobseekerModel extends DBConnect{
 				$tempDataHolder = str_replace(' ','',$tempDataHolder);
 				$tempDataHolder = str_replace(',','',$tempDataHolder);
 					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-					$abc[]='Functional Area is not alphabetic';
+					$arrValidationMessages[]='Functional Area is not alphabetic';
 				}
 			}
 		 } else {
 			echo "Could not find validate data page (class) at server , Please try again !";
 			die();
 		}
-        return $abc;
+        return $arrValidationMessages;
 	}
 		/*documentation -
          *the array that has been passed conatins all the details of the educational_details table
