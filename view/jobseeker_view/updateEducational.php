@@ -102,8 +102,8 @@
     									<?php } ?>
     										<option value="BA">BA</option>
     										<option value="BCOM">BCOM</option>
-										<option value="BCA">BCA</option>
-										<option value="BCA">BBA</option>
+											<option value="BCA">BCA</option>
+											<option value="BCA">BBA</option>
     										<option value="others">others</option>
 									</select> 
 									<input type="text" name="txtgrad" id="grad" name="grad" style="display: none;"/>

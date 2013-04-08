@@ -13,17 +13,14 @@
 	<script type="text/javascript" src="<?php echo JS_PATH;?>scriptUpdateJobSeekerPersonal.js" ></script>
 	
 <!--for dob but validations not working-->
-<!--
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />	
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>jquery-ui.css" />	
+<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.9.1.js" ></script>
+<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-ui.js" ></script>
 <script type="text/javascript">
 $(function() {
 $( "#dob" ).datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: true });
 });
 </script>
--->
-
 <!--ajax script for result of update educational-->
 	<script>
 		$(document).ready(function(){
