@@ -2,14 +2,19 @@
 
 //@author    :  Siddarth Chowdhary
 //created on :  15 march 2013
-//todo       :  add server side validations
 class registerjobseekerController extends common
 {
-		
+		/*Documentation-
+		 * This function is for jobseeker registration.
+		 * It get the values from the form and then creates an array.
+		 * After that the values are send to a model function for validation.
+		 * If the validation are passed they are inserted into the database.
+		 * Result is displayed accordingly.
+		 * */
 		public function verify()
 		{
 			session_start();
-			if($_REQUEST['captcha'] == $_SESSION['captcha']) {  //captcha condition successful
+			if($_REQUEST['captcha'] == $_SESSION['captcha']) {  #captcha condition successful
 				$firstname			=	strip_tags(trim($_REQUEST['firstname'])); 
 				$lastname			=	strip_tags(trim($_REQUEST['lastname']));
 				$email				=	strip_tags(trim($_REQUEST['email']));
@@ -22,7 +27,6 @@ class registerjobseekerController extends common
 										"displayname"=>$displayname);
 				$boolResult			=	$this->loadModel('registerjobseeker','validate',$arrInfo);
 				if (empty($boolResult)){
-					// "Values validated at server also";
 					$boolQuery		=	$this->loadModel('registerjobseeker','inject',$arrInfo);
 					if($boolQuery){
 							echo "Registration Successful,Please Login to Continue";
@@ -34,12 +38,11 @@ class registerjobseekerController extends common
 								echo $val.'   ';
 						}
 				}
-			} else {       //captcha unsuccessfull
-				echo "CATCHA CHECK FAIL";
+			} else {       #captcha unsuccessfull
+				if($_REQUEST['captcha']!='') {     #empty condition
+					echo "CATCHA CHECK FAIL";
+				}
 			}
-		}//function verify ends here
-			
-	
+		}#function verify ends here
 }
-
 ?>

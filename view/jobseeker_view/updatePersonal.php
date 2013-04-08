@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
-	<script type="text/javascript" src="<?php echo JS_PATH;?>scriptUpdateJobSeeker.js" ></script>
+	<script type="text/javascript" src="<?php echo JS_PATH;?>scriptUpdateJobSeekerPersonal.js" ></script>
 	
 <!--for dob but validations not working-->
 <!--

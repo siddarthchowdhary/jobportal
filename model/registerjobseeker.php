@@ -2,6 +2,10 @@
 require_once 'DBConnect.php';
 class registerjobseekerModel extends DBConnect
 {
+	/*Documentation
+	 * i/p - array of details to be registered
+	 * o/p - array of validation messages that are failed.
+	 * */
 	public function validate($arrValues)
 	{
 		if (require_once 'library/serverValidation.class.php'){
@@ -27,14 +31,15 @@ class registerjobseekerModel extends DBConnect
 		return $abc;	
 			
 		} else {
-			//echo "Could not find validate data page (class) at server , Please try again !";
-			//die();
 			return 0;
 		}
         
 	}
 		
-		
+	/*Documentation
+	 * i/p - array of details to be inserted in the database
+	 * o/p - true if inserted into db else false.
+	 * */	
 	public function inject($arrValues)
 	{
 		$db = $this->common();
@@ -49,52 +54,4 @@ class registerjobseekerModel extends DBConnect
 		}
 	}//function  inject ends here
 } //class ends here
-/*
- public function validateEducational($arrEducational){   
-		if (require_once 'library/serverValidation.class.php'){
-			
-			$abc='';
-			$obj = new serverValidation();	
-			
-				if ($arrEducational['post_graduation_degree']!=''){       #apply validation only if some values are passed to us
-				$tempDataHolder = '';
-				$tempDataHolder = $arrEducational['post_graduation_degree'];
-				$tempDataHolder = str_replace(' ','',$tempDataHolder);
-				$tempDataHolder = str_replace('.','',$tempDataHolder);
-					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='Post Grad is not alphabetic';
-					}
-				}
-				
-				if ($arrEducational['PhD']!=''){       #apply validation only if some values are passed to us
-				$tempDataHolder = '';
-				$tempDataHolder = $arrEducational['PhD'];
-				$tempDataHolder = str_replace(' ','',$tempDataHolder);
-				$tempDataHolder = str_replace('.','',$tempDataHolder);
-					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='Phd is not alphabetic';
-					}
-				}
-				
-				if ($arrEducational['other_degree']!=''){       #apply validation only if some values are passed to us
-				$tempDataHolder = '';
-				$tempDataHolder = $arrEducational['other_degree'];
-				$tempDataHolder = str_replace(' ','',$tempDataHolder);
-				$tempDataHolder = str_replace('.','',$tempDataHolder);
-				$tempDataHolder = str_replace('(','',$tempDataHolder);
-				$tempDataHolder = str_replace(')','',$tempDataHolder);
-				$tempDataHolder = str_replace('-','',$tempDataHolder);
-				$tempDataHolder = str_replace('/','',$tempDataHolder);
-					if(($obj->alphabeticValidation($tempDataHolder))==0){	
-						$abc[]='please check other qualifications';
-					}
-				}
-				
-		} else {
-			echo "Could not find validate data page (class) at server , Please try again !";
-			die();
-		}
-        return $abc;
-	}
- */
 ?>

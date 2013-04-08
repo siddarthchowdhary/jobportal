@@ -5,13 +5,8 @@
 
 class pagesController extends common 
 {
-	//this controller is used to navigate between pages
+	#this controller is used to navigate between pages
 
-	function __construct()
-	{
-		
-	}
-	
 	function createaccount()
 	{
 		$this->loadView('createAccount.php');
@@ -25,7 +20,6 @@ class pagesController extends common
 	
 	function accessDenied()
 	{
-		//var_dump(debug_backtrace());die("here");
 		$this->loadView('access_denied.php');
 	}
 	
@@ -40,7 +34,6 @@ class pagesController extends common
 	{
 		require VIEW_PATH.'checkSession.php';	
 		$arrProfessional=$this->loadModel('initialupdate','professional');
-		//print_r($arrProfessional);die("here");
 		if(!empty($arrProfessional)) {
 			$this->loadView('jobseeker_view/updateProfessional.php',$arrProfessional);
 	    } else {
@@ -52,7 +45,6 @@ class pagesController extends common
 	{
 		require VIEW_PATH.'checkSession.php';
 		$arrEducational=$this->loadModel('initialupdate','educational');
-		//print_r($arrEducational);die("here");
 		if(!empty($arrEducational)) {
 			$this->loadView('jobseeker_view/updateEducational.php',$arrEducational);
 	    } else {

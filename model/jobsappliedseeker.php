@@ -6,23 +6,10 @@
 require_once 'DBConnect.php';
 class jobsappliedseekerModel extends DBConnect
 {
-	
-	public function __construct()
-	{
-		#constructor
-	}
-	
-	/*public function common()
-	{
-		require_once 'library/pdo/pdo_config.php';
-		//Include the CXPDO Class
-		require_once('library/pdo/cxpdo.php');
-		
-		//Create/GET the instance - pass the config values
-		$db = dbclass::instance($config);
-		return $db;
-		
-	}*/
+	/*Documentation
+	 * i/p id of the user
+	 * o/p - jobs applied by the id of the user that is passed as arguement
+	 * */
 	
 	public function retrieve($id)
 	{

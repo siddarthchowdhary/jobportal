@@ -6,16 +6,15 @@
 
 class jobsearchController extends common
 {
-
+			/*
+			 * Documentation
+			 * In this the job search criteria is fetched and made an array out of it
+			 * Then that criteria is passed to the model for searching any available jobs in partcular table.
+			 * If matching jobs are found they are reurned through an array.
+			 * That result is displayed to the user.
+			 * */				 	
 			public function search()
 			{ 
-				/*
-				 * Documentation
-				 * In this the job search criteria is fetched and made an array out of it
-				 * Then that criteria is passed to the model for searching any available jobs in partcular table.
-				 * If matching jobs are found they are reurned through an array.
-				 * That result is displayed to the user.
-				 * */				 
 				$keywords=strip_tags($_REQUEST['keywords']);
 				$job_location=strip_tags($_REQUEST['location']);
 				$company_name=strip_tags($_REQUEST['employer']);     
@@ -23,7 +22,6 @@ class jobsearchController extends common
 				$experience_required=strip_tags($_REQUEST['experience']);
 				$arrCriteria = array("keywords"=>$keywords,"job_location"=>$job_location,
 				"company_name"=>$company_name,"job_category"=>$job_category,"experience_required"=>$experience_required);
-				//~ print_r($arrCriteria);die("here");
 				$result =  $this->loadModel('jobsearch','retrieve',$arrCriteria);
 				$category = $this->loadModel('jobsearch','industryType');
 				$arrResult = array("category"=>$category,"result"=>$result);
@@ -35,13 +33,12 @@ class jobsearchController extends common
 				}
 			}
 			
-			
+			/*Documentation
+			 * Here first of all we have checked whether the user is logged in order to apply the job.
+			 * If he is then we have called a model to insert data in jobs applied table with the details of user and job.
+			* */
 			public function apply()
 			{
-				/*Documentation
-				 * Here first of all we have checked whether the user is logged in order to apply the job.
-				 * If he is then we have called a model to insert data in jobs applied table with the details of user and job.
-				 * */
 				 if ($_SESSION['ID_USERS_SESSION']=='') {
 						echo "<span style='color:red;'>You need to login before applying for this job.</span>";
 						return;
@@ -57,11 +54,12 @@ class jobsearchController extends common
 							echo "<span style='color:red;'><b>Result :</b>You may have already applied for the job or it might have expired</span>";
 				}
 			}
-			
+			/*Documentation
+			 * This function does the same jobsearch functionality as above.
+			 * The difference is that we can not apply for the job as a guest.
+			 * */
 			public function searchguest()
 			{
-				//~ die("here");
-				/*create a view like jobsearch like previous one and rest functionality like above*/
 				$keywords=strip_tags($_REQUEST['keywords']);
 				$job_location=strip_tags($_REQUEST['location']);
 				$company_name=strip_tags($_REQUEST['employer']);     
@@ -73,7 +71,6 @@ class jobsearchController extends common
 				$result =  $this->loadModel('jobsearch','retrieve',$arrCriteria);
 				$category = $this->loadModel('jobsearch','industryType');
 				$arrResult = array("category"=>$category,"result"=>$result);
-				//~ echo '<pre>';print_r($arrResult);die("here");
 				$this->loadView('jobseeker_view/jobSearchResultsGuest.php',$arrResult);
 			}
 			

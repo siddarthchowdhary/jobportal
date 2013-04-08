@@ -1,9 +1,13 @@
 $(document).ready(function(){
-	// validate signup form on keyup and submit
+	jQuery.validator.addMethod("lettersonly", function(value, element) {
+	return this.optional(element) || /^[a-z]+$/i.test(value);
+	}, "Textual data only!");
+	// validate signup form on keyup and submit    
 	var validator = $("#frmRegisterJobSeeker").validate({
 		rules: {
 			firstname: {
 				required: true,
+				lettersonly: true,
 				minlength: 3
 			},
 			email: {
@@ -12,16 +16,17 @@ $(document).ready(function(){
 			},
 			lastname: {
 				required: true,
+				lettersonly: true,
 				minlength: 3
 			},
 			password: {
 				required: true,
-                minlength: 8
+                minlength: 6
 			},
             confirmPassword: {
 				required: true,
                 equalTo: "#password",
-				minlength: 8
+				minlength: 6
 			},
 			captcha: {
 				required: true
@@ -50,7 +55,7 @@ $(document).ready(function(){
 				minlength: jQuery.format("Enter same password")
 			},
 			captcha: {
-				required: "enter captch from box"
+				required: "Please Enter captcha to continue"
 			}
 		},
 		// set this class to error-labels to indicate valid fields

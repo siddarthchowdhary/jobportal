@@ -1,12 +1,10 @@
 <?php
-
+//@Author : Team Contribution
 class indexController extends common 
 {
-
-	function __construct(){
-		
-	}
-	
+	/*Documentation
+	 * This function is responsible to get the landing page.
+	 * */
 	function landingPage()		
 	{		
 			$arrResult=$this->loadModel('selectValues','industryType');

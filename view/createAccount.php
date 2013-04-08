@@ -36,6 +36,7 @@
 	<script>
 		$(document).ready(function(){
 		$("#register").click(function(){
+			$("#frmRegisterJobSeeker").valid();           //frmRegisterJobSeeker
 			$.ajax({
 				type:"POST",		
 				url:"<?php echo SITE_PATH;?>indexMain.php?controller=registerjobseeker&function=verify", 
@@ -117,12 +118,13 @@
 					<td ><h2>CAPTCHA *</h2></td>
                 </tr>
                 <tr>
-                    <td><img src="view/captcha_image.php" id="captcha"/></td>
+                    <td><img src="view/captcha_image.php" id="captcha"/><br>
+                    <input type="button" value="See Another ?" onclick="imageReload()"/></td>
 					<td><input type="text" name="captcha" id="captcha"/></td>
-					<td><input type="button" value="See Another" onclick="imageReload()"/></td>
+					<td></td>
                 </tr>
                 <tr>
-                    <td><input type="button" id="register" value="register"/></td>
+                    <td><input type="button" id="register" value="Register Now!"/></td>
                 </tr>
             </table>
         </form>

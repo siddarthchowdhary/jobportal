@@ -2,7 +2,7 @@
 
 //@author    : Siddarth Chowdhary
 //created on :  17 march 2013
-//@todo - make return false comment uncomment in two validate()
+//@todo - change name abc using refactor
 
 require_once 'DBConnect.php';
 class updatejobseekerModel extends DBConnect{
@@ -30,7 +30,12 @@ class updatejobseekerModel extends DBConnect{
 		}
 	
 	}
-    public function validatePersonal($arrPersonal){              //add some more validations here
+    public function validatePersonal($arrPersonal){              #add some more validations here
+    /* Documentation
+     * this function is used to validate the Personal details
+     * i/p - Personal details array
+     * o/p - Validations array is some validations failed
+     */
 		if (require_once 'library/serverValidation.class.php'){
 			$abc='';
 			$obj = new serverValidation();
@@ -170,7 +175,11 @@ class updatejobseekerModel extends DBConnect{
 				}
 		}		        
     }
-    
+    /* Documentation
+     * this function is used to validate the Educational details
+     * i/p - Educational details array
+     * o/p - Validations array is some validations failed
+     */    
     public function validateEducational($arrEducational){   
 		if (require_once 'library/serverValidation.class.php'){
 			
@@ -256,7 +265,11 @@ class updatejobseekerModel extends DBConnect{
 				}
 		}		     
     }
-    
+    /* Documentation
+     * this function is used to validate the Professional details
+     * i/p - Professional details array
+     * o/p - Validations array is some validations failed
+     */
     public function validateProfessional($arrProfessional){   
 		if (require_once 'library/serverValidation.class.php'){
 			$abc='';
@@ -329,7 +342,9 @@ class updatejobseekerModel extends DBConnect{
 		}		     
         
     }
-    
+    /*Documentation
+     * find the extension of the file that is passed as arguement
+     * */
     public function findexts ($filename) 
 	 {  
 		 $filename = strtolower($filename) ; 
@@ -340,7 +355,10 @@ class updatejobseekerModel extends DBConnect{
 		 return $exts; 
 	 } 
 	 
-	 
+	/*Documentation
+     * store the extension of the file that is passed as arguement with thepersonal details array.
+     * */
+     
 	 public function storeExtension($arrInfo)
 	 {
 		$db = $this->common();

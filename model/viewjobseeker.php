@@ -2,10 +2,13 @@
 
 //@author    : Siddarth Chowdhary
 //created on :  22 march 2013
-//@todo - 
+//modified on:  8 april 2013
 require_once 'DBConnect.php';
 class viewjobseekerModel extends DBConnect
 {
+	/*Documentation
+	 * this function is used to retrieve the personal id of the particular user id that is passed.
+	 * */
 	public function personal($id){
 		$db = $this->common();
 		$data				= array();
@@ -31,9 +34,13 @@ class viewjobseekerModel extends DBConnect
 		}
 		
 	}
-
+	/*Documentation
+	 * i/p - personal id of jobseeker
+	 * o/p - educational details of personal id
+	 * db queries to retrieve educational details of the job seeker with id
+	* */
 	public function educational($id){
-		//db queries to retrieve educational details of the job seeker with id
+		
 		$db = $this->common();
 		$data				= array();
 		
@@ -53,12 +60,13 @@ class viewjobseekerModel extends DBConnect
 		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				return $row;
 		}
-		
-		
 	}
-	
+	/*Documentation
+	 * i/p - personal id of jobseeker
+	 * o/p - professional details of personal id
+	 * db queries to retrieve professional details of the job seeker with id
+	 * */	
 	public function professional($id){
-		//db queries to retrieve professional details of the job seeker with id
 		$db = $this->common();
 		$data				= array();
 
@@ -78,7 +86,10 @@ class viewjobseekerModel extends DBConnect
 				return $row;
 		}
 	}
-	
+	/*Documentation
+	 * i/p - personal id of jobseeker
+	 * o/p - resume details of personal id
+	* */
 	public function resume($id) {
 		$db = $this->common();
 		$data				= array();
@@ -103,6 +114,4 @@ class viewjobseekerModel extends DBConnect
 		return $arrResume;
 	}
 }
-
-
 ?>

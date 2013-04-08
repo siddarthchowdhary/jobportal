@@ -1,7 +1,9 @@
 <?php
 class loginModel
 {
-	
+	/*Documentation
+	 * it just connects to the database and returns an instance of the connection 
+	 * */
     public function getDatabaseHandler(){
 		$config='';
 		require_once 'library/pdo/pdo_config.php';
@@ -13,12 +15,14 @@ class loginModel
 		return $db;
 		
 	}
-	
+	/*Documentation
+	 * this method is used to check if the valued that are paseed to it exiist in the database or not
+	 * and respective values are passed. 
+	 * */
+    
 	public function authenticate($arrArguements)
 	{
 			$db = $this->getDatabaseHandler();
-			
-			//select query to check if firstname is empty
 			$data = array();
 			$data['tables'] = 'users';
 			$password=md5($arrArguements[1]);

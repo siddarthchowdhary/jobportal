@@ -5,24 +5,10 @@
 
 require_once 'DBConnect.php';
 class initialupdateModel extends DBConnect{
-    
-    public function __construct() 
-    {
-        
-    }
-    
-    /*public function common()
-    {	$config='';
-		require_once 'library/pdo/pdo_config.php';
-		//Include the CXPDO Class
-		require_once('library/pdo/cxpdo.php');
-		
-		//Create/GET the instance - pass the config values
-		$db = dbclass::instance($config);
-		return $db;
-		
-	}*/
-	
+   /*Documentation
+    * i/p id of the user
+    * o/p personal id the user.
+    * */
 	public function getPersonalId($id){
 		
 		$db = $this->common();
@@ -42,13 +28,12 @@ class initialupdateModel extends DBConnect{
 		$result = $db->select($data);
 
 		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-		//print_r($row);
-		//var_dump($row['id']);die("i am here");
 		return $row['id'];
 		}
-	
 	}
-	
+	/*Documentation
+    * returns the personal details of the user that has seesion id of the user.
+    * */
 	public function personal()
 	{
 		$db = $this->common();
@@ -57,11 +42,12 @@ class initialupdateModel extends DBConnect{
 	    $result = $db->select($data);
 	
 	    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-		    //print_r($row);
 		    return $row;
 	    }
 	}
-	
+	/*Documentation
+    * returns the professional details of the user that has seesion id of the user.
+    * */
 	public function professional()
 	{
 		$db = $this->common();
@@ -70,18 +56,18 @@ class initialupdateModel extends DBConnect{
 		$data = array('tables' => 'jobseeker_professional_details');
 		$data['conditions']		= array('personal_id' => $personal_id);
 	    $result = $db->select($data);
-		//print_r($result);die("here");
-	    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		    
 		    if(!empty($row)){
-		    //print_r($row);die("here");
 		    return $row;
 			} else {
 			return false;	
 			}
 	    }
 	}
-	
+	/*Documentation
+    * returns the educational details of the user that has seesion id of the user.
+    * */
 	public function educational()
 	{
 		$db = $this->common();
@@ -93,14 +79,11 @@ class initialupdateModel extends DBConnect{
 	
 	    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		    if(!empty($row)){
-		    //print_r($row);die("here");
 		    return $row;
 			} else {
 			return false;	
 			}
 	    }
-	}
-	
+	}	
 }
-
 ?>

@@ -1,17 +1,19 @@
 <?php
+//@Author : Team Contribution
 class loginController extends common 
 {
-
-	function __construct(){
-		
-	}
+	/*Documentation-
+	 * this function is used for login.
+	 * it requests the values at the login page and creates an array from it.
+	 * and checks in the database and results are displayed accordingly
+	 * 4 cases - jobseeker ,admin ,employer ,loginfailed
+	 * */
 	
 	function authenticate()		
 	{		
 			$email = $_REQUEST['email'];
 			$password =$_REQUEST['password'];
 			$arrResult = $this->loadModel('login','authenticate',array($email,$password));
-			//print_r($_SESSION);die();		
 			if ($arrResult == 1) { 
 				header('Location: indexMain.php?controller=AdminHome&function=display');
 			}
@@ -19,10 +21,9 @@ class loginController extends common
 				header('Location: indexMain.php?controller=pages&function=jobsearch');			
 			}
 			elseif ($arrResult == 3){
-				//echo "EMPLOYER HOME  PAGE";
 				header('Location: indexMain.php?controller=job&function=searchPanel');
 			}
-			else {//include_once VIEW_PATH.'login_failed.php';
+			else {
 			$arr=array("error"=>"please enter correct email / password");
 			$arrResult=$this->loadModel('selectValues','industryType');
 			$this->loadView('header.php',$arr);

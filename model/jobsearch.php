@@ -6,12 +6,9 @@
 
 class jobsearchModel
 {
-	
-	public function __construct()
-	{
-		#constructor
-	}
-	
+	/*Documentation
+	 * method to get the database instance
+	 * */
 	public function common()
 	{
 		$config='';
@@ -24,22 +21,16 @@ class jobsearchModel
 		return $db;
 		
 	}
-	
+	/*Documentation -
+	 *the array that has been passed conatins all the criteria for searching the job
+	 * we have specified the particular columns to be retrived
+	 * applied the joins -tables are:
+	 * jobs_available , employer_details , company_details
+	 * then we have checked if criteria is not empty and then created the particular query
+	 */
 	public function retrieve($arrCriteria)
 	{
-		/*documentation -
-         *the array that has been passed conatins all the criteria for searching the job
-         * we have specified the particular columns to be retrived
-         * applied the joins -tables are:
-         * jobs_available , employer_details , company_details
-         * then we have checked if criteria is not empty and then created the particular query
-         */
-			
-			//echo 'from model <pre>';
-			//print_r($arrCriteria);
-			//echo "<br>4 things from jobs_available table and 1 thing(company_name) from comany_details table<br>";
 			$arrKeyword=explode(",",$arrCriteria['keywords']);
-			//print_r($arrKeyword);
 			$db = $this->common();
 			$data = array();
 			$data['columns'] = array("jobs_available.id","name_of_post","experience_required","job_description","job_location","job_category",
@@ -60,7 +51,6 @@ class jobsearchModel
 								);
 								
 			$arrConditions=array();
-			//push where conditions in array here
 			if(!empty ($arrKeyword)){
 				
 				foreach($arrKeyword as $value) {
@@ -82,22 +72,14 @@ class jobsearchModel
 				array_push($arrConditions,'jobs_available.experience_required <= \'' . $arrCriteria['experience_required'] .'\' or ');
 			}
 			
-			//echo "<pre>";
-			//print_r($arrKeyword);//die();
-			
 			$count=count($arrConditions);
 			if($count>0){
 				$arrConditions[$count-1] = rtrim($arrConditions[$count-1], " or ");
-				$data['conditions']	= $arrConditions;//array(rtrim ($test[0], "" ) => $test[0]);
-				//print_r($test);die("<br>here");
+				$data['conditions']	= $arrConditions;
 				$result = $db->select($data);
-				//echo $result->queryString;
 				while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				$alljobs[]=$row; 
 				}
-				//echo "<pre>";
-				//print_r($alljobs);
-				//die("i am here");
 				if(!empty($alljobs)){
 				return $alljobs;
 				}
@@ -105,15 +87,14 @@ class jobsearchModel
 			 return 0;
 			}
 	}
-
-	public function inject($arrIds)
-	{
 		/*
 		 * Documentation - in this function we have passed an array of user_id and job_id
 		 * (not working)if the row already exits then it will not insert into db and will show that u have already applied for the job**
 		 * else it will insert in jobs_applied table and return true else false
 		 * */
-		//~ print_r($arrIds);die("here");
+		
+	public function inject($arrIds)
+	{
 		$db =$this->common();	
 		$result = $db->insert('jobs_applied', $arrIds);            //first arg is tablename and second is data in the array
 		if ($result){
@@ -123,13 +104,13 @@ class jobsearchModel
 		}
 
 	}
-	
+	/*Documentation :
+	 * used it here seperately coz of pdo problem in where clause
+	 * in this case i was using modified pdo class thatsy had to write function seperately here
+	 * */
+		
 	public function industryType()
 	{
-		/*
-		 * used it here seperately coz of pdo problem in where clause
-		 * in this case i was using modified pdo class thatsy had to write function seperately here
-		 * */
 		$db=$this->common();
 		$data				= array();
 		$data['tables']		= 'master_table';

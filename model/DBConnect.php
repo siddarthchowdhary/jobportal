@@ -3,14 +3,10 @@
 //created on : 1 april 2013
 //last modified on : 1 april 2013
 
-
 class DBConnect{
-    
-    public function __construct() 
-    {
-        
-    }
-    
+    /*Documentation
+     * This fuction is used to return an instance of the databse connection
+     * */
     public function common()
     {	
 		$config='';

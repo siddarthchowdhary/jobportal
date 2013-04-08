@@ -14,11 +14,6 @@
   */
 	class updatejobseekerController extends common
 	{
-			public function __construct()
-			{
-				
-			}
-			
 			public function personal()
 			{
 					require VIEW_PATH.'checkSession.php';
