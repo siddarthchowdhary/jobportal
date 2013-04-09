@@ -2,7 +2,7 @@
 /* Example Config for MYSQL */
 $config = array();
 $config['user'] = 'root';
-$config['pass'] = 'root';
+$config['pass'] = 'mysql';
 $config['name'] = 'job_portal';
 $config['host'] = 'localhost';
 $config['type'] = 'mysql';

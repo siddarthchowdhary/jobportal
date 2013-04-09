@@ -21,6 +21,7 @@ $(function() {
 $( "#dob" ).datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: true });
 });
 </script>
+
 <!--ajax script for result of update educational-->
 	<script>
 		$(document).ready(function(){

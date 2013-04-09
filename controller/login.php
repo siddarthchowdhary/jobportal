@@ -21,7 +21,7 @@ class loginController extends common
 				header('Location: indexMain.php?controller=pages&function=jobsearch');			
 			}
 			elseif ($arrResult == 3){
-				header('Location: indexMain.php?controller=job&function=searchPanel');
+				header('Location: indexMain.php?controller=resumeSearch&function=searchPanel');
 			}
 			else {
 			$arr=array("error"=>"please enter correct email / password");

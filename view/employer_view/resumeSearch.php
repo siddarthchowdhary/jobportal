@@ -7,6 +7,40 @@
 	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'style.css';?>" />
 	<script type="text/javascript" src=<?php echo JS_PATH.'jquery-1.7.1.min.js';?>></script>
 	<script type="text/javascript" src=<?php echo JS_PATH.'jquery.main.js';?>></script>
+	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'demo_table_jui.css';?>" />
+	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'jquery-ui-1.8.4.custom.css';?>" />
+	<script src="<?php echo JS_PATH.'jquery.js';?>" type="text/javascript"></script>
+    <script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
+    
+    
+	<script>
+		function performSearch()
+		{
+			//alert($("#resumeSearchForm").serialize());
+			
+			$.ajax({
+				type : "POST",
+				url : 'indexMain.php?controller=resumeSearch&function=resumeSearch',
+				data : $("#resumeSearchForm").serialize(),
+				success : function(response)
+				{
+					//alert(response);
+					$("#searchResult").html(response);
+					$('#datatables').dataTable({
+						"sPaginationType":"full_numbers",
+						"aaSorting":[[2, "desc"]],
+						"bJQueryUI":true
+					});
+					$("#divresult").show();
+					
+				}
+			});
+		}
+		$(document).ready(function(){
+			$("#divresult").hide();
+			
+        })
+	</script>
 </head>
 <body>
 	<?include_once("headerEmployer.php");?>
@@ -20,7 +54,7 @@
 								<div class="title">
 									<h2>Resume<span>Search</span></h2>
 								</div>
-								<form class="search-form" action="indexMain.php?controller=resumeSearch&function=resumeSearch" method="post">
+								<form class="search-form" id="resumeSearchForm" action="" method="post">
 									<fieldset>
 										<div class="columns-holder">
 											<div class="column">
@@ -32,11 +66,9 @@
 												</div>
 												<div class="row">
 													<label for="location">Location</label>
-													<select id="location" name="location">
-														<option class="default">&nbsp;</option>
-														<option>NOIDA</option>
-														<option>Delhi</option>
-													</select>
+													<span class="text">
+														<input type="text" class="text" id="location" name="location"/>
+													</span>
 												</div>
 											</div>
 											<div class="column">
@@ -56,14 +88,12 @@
 											<div class="column">
 												<div class="row">
 													<label for="education">Highest Education</label>
-													<select id="education" name="education">
-														<option class="default">&nbsp;</option>
-														<option>MCA</option>
-														<option>MBA</option>
-													</select>
+													<span class="text">
+														<input type="text" class="text" name="highestEducation" id="highestEducation"/>
+													</span>
 												</div>
 												<div class="row">
-													<input type="submit" value="Perform the search" class="submit" />
+													<input type="button" onclick="performSearch()" value="Perform the search" class="submit" />
 												</div>
 											</div>
 										</div>
@@ -78,9 +108,28 @@
 							</div>
 						</div>
 					</div>
-				</div>
-</div></div></div>
+				</div><!--blocks ends here-->
+				<div class="block" id="divresult">
+					<div class="holder">
+						<div class="frame">
+							<div class="block-content">
+								<div class="title">
+									<h2>Resume<span>Search Results</span></h2>
+								</div>
+					<table id="datatables" class="display">
+						<thead>
+							<tr><th>Search Result</th></tr>
+						</thead>
+						<tbody id="searchResult">
+							
+						</tbody>
+					</table>
+				</div><!--divresult ends here-->
+				</div></div></div>
+			</div>
+		</div>
+	</div>
+<?include_once("footer.php");?>
 
-<?php require_once 'footer.html';?>
 </body>
 </html>
