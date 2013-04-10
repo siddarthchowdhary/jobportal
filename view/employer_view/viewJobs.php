@@ -1,12 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<?php
-               ini_set("display_errors","1");
-               ini_set( 'error_reporting', "E_ALL" );
-               require_once 'config/constants.php';
-               //echo "correct path here";
-       ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>JobBoardTemplate</title>
@@ -18,6 +12,9 @@
 	<script src="<?php echo JS_PATH.'jquery.js';?>" type="text/javascript"></script>
     <script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
     
+    <script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
+    <script type="text/javascript" src="<?php echo JS_PATH.'scriptAddNewJob.js';?>"></script>
+	
 	<script>
 		function deleteJob(jobId)
 		{
@@ -41,6 +38,8 @@
 		
 		function addJob()
 		{
+			$("#frmAddJob").valid();
+			
 			$.ajax({
 				type : "POST",
 				url : 'indexMain.php?controller=job&function=addNewJob',
@@ -114,37 +113,39 @@
 							<table class="frmregisteremp">
 								<tr>
 									<td><label for="postName"><strong>Post Name: <em>*</em></strong></label></td>
-									<td><input type="text" name="postName" id="postName" onblur="requireValidator(this)"></td>
+									<td><input type="text" name="postName" id="postName"></td>
 								</tr>
 								<tr>
 									<td><label for="experience"><strong>Experience : <em>*</em></strong></label></td>
-									<td><input type="text" name="experience" id="experience" onblur="requireValidator(this)"></td>
+									<td><input type="text" name="experience" id="experience"></td>
 								</tr>
 								<tr>	
 									<td><label for="dateOfLastApplying"><strong>Date Of Last Applying : <em>*</em></strong></label></td>
 									<td><input type="text" name="dayOfLastApplying" placeholder="day" id="dayOfLastApplying" onblur="requireValidator(this)"></td>
+									<!--
 									<td><input type="text" name="monthOfLastApplying" placeholder="month" id="monthOfLastApplying" onblur="requireValidator(this)"></td>
 									<td><input type="text" name="yearOfLastApplying" placeholder="year" id="yearOfLastApplying" onblur="requireValidator(this)"></td>
+									-->
 								</tr>
 								<tr>
 									<td><label for="expectedSalary"><strong>Expected Salary : <em>*</em></strong></label></td>
-									<td><input type="text" name="expectedSalary" id="expectedSalary" onblur="requireValidator(this)"></td>
+									<td><input type="text" name="expectedSalary" id="expectedSalary"></td>
 								</tr>
 								<tr>
 									<td><label for="jobDescription"><strong>Job Description : <em>*</em></strong></label></td>
-									<td><input type="text" name="jobDescription" id="jobDescription" onblur="requireValidator(this)" onkeyup="checkAvailability(this.value)"></td>
+									<td><input type="text" name="jobDescription" id="jobDescription"></td>
 								</tr>
 								<tr>
 									<td><label for="jobLocation"><strong>Job Location : <em>*</em></strong></label></td>
-									<td><input type="text" name="jobLocation" id="jobLocation" onblur="requireValidator(this)"></td>
+									<td><input type="text" name="jobLocation" id="jobLocation"></td>
 								</tr>
 								<tr>
 									<td><label for="jobCategory"><strong>Job Category : <em>*</em></strong></label></td>
-									<td><input type="text" name="jobCategory" id="jobCategory" onblur="requireValidator(this)"></td>
+									<td><input type="text" name="jobCategory" id="jobCategory"></td>
 								</tr>
 								<tr>
 									<td><label for="keywords"><strong>Keywords : <em>*</em></strong></label></td>
-									<td><input type="text" name="keywords" id="keywords" onblur="requireValidator(this)"></td>
+									<td><input type="text" name="keywords" id="keywords"></td>
 								</tr>
 								<tr>
 									<td><input type="button" value="Submit" onclick="addJob()" /></td>

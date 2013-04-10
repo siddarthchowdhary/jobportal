@@ -7,9 +7,13 @@
 	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'style.css';?>" />
 	<script type="text/javascript" src=<?php echo JS_PATH.'jquery-1.7.1.min.js';?>></script>
 	<script type="text/javascript" src=<?php echo JS_PATH.'jquery.main.js';?>></script>
+	
+	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
+    <script type="text/javascript" src="<?php echo JS_PATH.'scriptEditDetails.js';?>"></script>
 	<script>
 		function updateDetails()
 		{
+			$("#frmupdateEmployerDetails").valid();
 			$.ajax({
 				type : "POST",
 				url : 'indexMain.php?controller=employerDetails&function=updateDetails',

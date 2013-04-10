@@ -11,9 +11,13 @@
 	<script src="js/jquery.validate.pack.js" type="text/javascript"></script>
     <script src="js/scriptRegisterJobSeeker.js" type="text/javascript"></script>
 	
+	
+	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
+    <script type="text/javascript" src="<?php echo JS_PATH.'scriptUpdateJob.js';?>"></script>
 	<script>
 		function updateJob()
 		{
+			$("#frmUpdateJob").valid();
 			$.ajax({
 				type : "POST",
 				url : 'indexMain.php?controller=job&function=updateJob',

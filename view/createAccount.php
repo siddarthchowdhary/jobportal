@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.7.1.min.js"></script>
 	<script src="<?php echo JS_PATH;?>jquery.validate.pack.js" type="text/javascript"></script>
     <script src="<?php echo JS_PATH;?>scriptRegisterJobSeeker.js" type="text/javascript"></script>  <!--own sript for validation-->
+    <script src="<?php echo JS_PATH;?>scriptRegisterEmployer.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>
 	<!--own sript for captcha-->
 	<script type="text/javascript">  
@@ -22,6 +23,7 @@
 		}
 		function registerEmployer()
 		{
+			$("#frmRegisterEmployer").valid();
 			$.ajax({
 				type:"POST",		
 				url:"<?php echo SITE_PATH;?>indexMain.php?controller=registerEmployer&function=registrationProcess", 
