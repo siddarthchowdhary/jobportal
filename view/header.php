@@ -16,7 +16,7 @@
 				<h1 class="logo"><a href="#">Job Portal</a></h1>
 				<div class="login-block">
 					<?php if (isset($_SESSION['email'])) { ?>
-					<pre>hi username thru session</pre>
+					<pre>hi <?php echo $_SESSION['displayname'];?></pre>
 					<pre>Logout
 					</pre>
 					<?php } else { ?>
@@ -35,7 +35,7 @@
 								<input type="checkbox" class="check" id="check-1" />
 								<a href="#">Forgot your password?</a>
 								<br><span id="login_error" style="color:red;font-size:13px;">
-								<?php echo $arrData['error'];?>
+								<?php if (isset($arrData['error'])) echo $arrData['error'];?>
 								</span>
 							</div>
 						</fieldset>
@@ -48,7 +48,7 @@
 			<ul id="nav">
 				<li><a href="<?php echo SITE_PATH.'indexMain.php';?>">Home</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=jobsearch&function=searchguest';?>">Job Seekers</a></li>
-				<li><a href="#">Employers</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=resumeSearch&function=searchPannel';?>">Employers</a></li>
 				<li><a href="#">Career advice</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">About Us</a></li>
 				<li><a href="#">FAQ</a></li>

@@ -50,6 +50,10 @@ class registerEmployerController extends common
 					if($result)
 					{
 						echo "Sucessfuly Registered.";
+						$result['email']=$email;
+						//print_r($result);die();
+						$mailFlag = $this->loadModel('mail','sendMailTO',$result);
+						print_r( $mailFlag);
 						//echo "Activation Mail will be sent when implemented.";
 					}
 					else
@@ -76,6 +80,25 @@ class registerEmployerController extends common
 			echo "Captcha Fail. Try Again.";
 		}
 	}//function ends here
+	
+	function validateEmail()
+	{
+		//print_r($_GET);
+		$data = array(
+					"user_id"=>$_GET['user_id'],
+					"validation_string"=>$_GET['validation_string']
+					);
+		$result = $this->loadModel('registerEmployer','validateEmail',$data);
+		//var_dump($result);die;
+		if($result)
+		{	//echo "Your email validated successfully..";
+			$msg="Your email validated successfully..";
+			//sleep(10);echo "here";
+			$this->loadView('emailValidationSuccess.php',$msg);
+		}	
+		else
+			print_r($result);
+	}
 }//class ends here
 
 ?>

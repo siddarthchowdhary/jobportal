@@ -64,7 +64,7 @@ class registerEmployerModel
 					"email"=>$dataFromUser['email'],
 					"usertype"=>3,
 					"creation_date"=>date("Y-m-d H:i:s"),
-					"status"=>0
+					"status"=>1
 					);
 		$result=$db->insert('users',$data);
 		//var_dump($result);
@@ -92,10 +92,53 @@ class registerEmployerModel
 					"gender"=>$dataFromUser['gender']
 					);
 		$result=$db->insert('employer_details',$data);
+		
+		$string1="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		$string2='1234567890~!@#$%^&*';
+		$string=$string1.$string2;
+		$string= str_shuffle($string);
+		$validationString =  substr($string,0,25);
+		
+		$data = array(
+					"user_id"=>$userId[0],
+					"validation_string"=>$validationString
+					);
+		$result = $db->insert('inactive_users',$data);
+		//return (var_dump($result));
 		if($result)
-			return 1;
+			return $data;
 		else
 			return 0;
+	}
+	
+	function validateEmail($data)
+	{
+		$userId = $data['user_id'];
+		$validationString=$data['validation_string'];
+		$db = $this->getDatabaseHandler();
+		$data = array();
+		$data['tables'] = 'inactive_users';
+		$data['columns']= array('inactive_users.validation_string');
+		$data['conditions']= array(
+								"user_id"=>$userId,
+								"validation_string"=>$validationString
+								);
+		$result = $db->select($data);
+		//return $result;
+		if ( $result->rowCount() == 1 ) {
+			$data = array('status'=>0);
+			$where = array('id'=>$userId);
+			$result = $db->update('users',$data,$where);
+			//return $result;
+			if($result)
+				return 1;
+			else
+				return 0;
+		}
+		else
+		{
+			header('location: indexMain.php');
+		}
 	}
 }//Class end here
 ?>
