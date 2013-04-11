@@ -12,8 +12,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Admininstrator</title>
 	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>style.css" />
-	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.main.js"></script>	
+	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'demo_table_jui.css';?>" />
+	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'jquery-ui-1.8.4.custom.css';?>" />
+	<script type="text/javascript" src="<?php echo JS_PATH.'jquery-1.7.1.min.js';?>"></script>
+	<script type="text/javascript" src="<?php echo JS_PATH.'jquery.main.js';?>"></script>	
+	<script src="<?php echo JS_PATH.'jquery.js';?>" type="text/javascript"></script>
+	<script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
 </head>
 <body>
 	<div id="header">
@@ -39,5 +43,4 @@
 			</ul>
 		</div>
 	</div>
-</body>
-</html>
+

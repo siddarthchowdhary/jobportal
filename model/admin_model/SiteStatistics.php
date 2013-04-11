@@ -7,21 +7,23 @@
 */
 require_once(PDO);											#including PDO class
 class SiteStatisticsModel
-{
+{   
+	private $countHits;
+	
+	
 	function showStats()									#Method to show site statistics
-	{   $config='';
-		require_once(PDO_CONFIG);							#Requiring configuration array for PDO 
-	    $db = dbclass::instance($config);
-		
-	/*	$data				= array(); 
-		$data['tables']		= 'admin_pages';     			#selecting admin_pages table from database
-		$data['columns']= array('admin_pages.content1');	#selecting coloumn content1
-		$data['conditions'] = array("name ='AboutUs'");     #where name='AboutUs'  
-		$result = $db->select($data);
-		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			return $row;
-		}
-	*/	
+	{   
+	 $count= 0;
+
+	$handle = opendir(session_save_path());   
+	if ($handle == false) return -1;
+
+	while (($file = readdir($handle)) != false) {
+       if (preg_match("^sess", $file)) $count++;
+	}
+	closedir($handle);
+
+	return $count;
 		
 	}
 	/*

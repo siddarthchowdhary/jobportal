@@ -6,7 +6,7 @@
 	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>style.css" />
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.7.1.min.js"></script>
 	<script src="<?php echo JS_PATH;?>jquery.validate.pack.js" type="text/javascript"></script>
-    <script src="<?php echo JS_PATH;?>scriptRegisterJobSeeker.js" type="text/javascript"></script>  <!--own sript for validation-->
+    <script src="<?php echo JS_PATH;?>scriptRegisterJobSeeker.js" type="text/javascript"></script> <!-- own sript for validation-->
     <script src="<?php echo JS_PATH;?>scriptRegisterEmployer.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>
 	<!--own sript for captcha-->
@@ -145,11 +145,11 @@
 				</tr>
 				<tr>
 					<td><label for="password"><strong>Password : <em>*</em></strong></label></td>
-					<td><input type="password" name="password" id="password" ></td>
+					<td><input type="password" name="passwordEmployer" id="passwordEmployer" ></td>
 				</tr>
 				<tr>
 					<td><label for="confirmPassword"><strong>Confirm Password : <em>*</em></strong></label></td>
-					<td><input type="password" name="confirmPassword" id="confirmPassword" ></td>
+					<td><input type="password" name="confirmPasswordEmployer" id="confirmPasswordEmployer" ></td>
 				</tr>
 				<tr>
 					<td><label for="companyName"><strong>Company Name: <em>*</em></strong></label></td>

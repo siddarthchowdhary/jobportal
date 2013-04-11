@@ -1,8 +1,16 @@
 <?php
+//@fileName: selectValues.php
+//@className: selectValuesModel
+//@description:this model is used to give initial values in the select box.
+//@author    : Siddarth Chowdhary
+//created on :  8 april 2013
+
 require_once 'DBConnect.php';
 class selectValuesModel extends DBConnect
 {
-	
+	/*Documentation
+	 * this method is used to return all the industry type values from the master table.
+	 * */
 	public function industryType()
 	{
 		$db=$this->common();
@@ -10,9 +18,7 @@ class selectValuesModel extends DBConnect
 		$data['tables']		= 'master_table';
 		$data['columns'] = 'codevalue';
 		$data['conditions']		= array('codetype' => 'industry_type'); 
-		//~ echo '<pre>';
 		$result = $db->select($data);
-		//~ print_r($result);
 		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 	    $res[]=$row['codevalue'];
 		}

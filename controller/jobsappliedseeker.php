@@ -1,8 +1,9 @@
 <?php
-
+//@fileName: jobsappliedseeker.php
 //@author    : Siddarth Chowdhary
 //created on : 1 April 2013
 //last modified on : 1 April 2013
+//@description:this controller is used to retrieve jobs applied by the jobseekers.
 class jobsappliedseekerController extends common
 {	
 	/*Documentation

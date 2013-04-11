@@ -1,11 +1,14 @@
 <?php
+//@fileName: DBConnect.php
+//@className: DBConnect
+//@description:this model is used to return an instance of the database connection.
 //@author    : Siddarth Chowdhary
 //created on : 1 april 2013
 //last modified on : 1 april 2013
 
 class DBConnect{
     /*Documentation
-     * This fuction is used to return an instance of the databse connection
+     * This fuction is used to return an instance of the database connection
      * */
     public function common()
     {	

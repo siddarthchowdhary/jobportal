@@ -1,7 +1,10 @@
 <?php
+//@fileName: initialupdate.php
+//@className: initialupdateModel
+//@description:this model is used to give initial details of the particular user.
 //@author    : Siddarth Chowdhary
 //created on : 28 march 2013
-//last modified on : 28 march 2013
+//last modified on : 8 april 2013
 
 require_once 'DBConnect.php';
 class initialupdateModel extends DBConnect{

@@ -6,6 +6,7 @@
  * @modified on : 
 */
 //require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
+ini_set("display_errors","1");
 include_once 'header.php';
 ?>
 
@@ -16,7 +17,7 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2>Employer<span>Management</span></h2>
+								<h2><span><?php echo EMPLOYER_MANAGEMENT; ?></span></h2>
 							</div>
 							<!--code here-->
 							<div id="admin_content">
@@ -32,28 +33,20 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>Main<span>Menu</span></h3>
+								<h3><span><?php echo MAIN_MENU;?></span></h3>
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerStatistics';?>">Employer Statistics</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerActivate';?>">Activate Employer</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerDeactivate';?>">Deactivate Employer</a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerStatistics';?>"><?php echo EMPLOYER_STATISTICS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerMain';?>"><?php echo EMPLOYER_MANAGE; ?></a>
 						    </div>
 						</div>						
 					</div>
 				</div>
-		</div>
+			</div>
 		</div>
 
 	</div>
-	  <script>
-	
-	
-	   </script>
-	-->
-	
-	  
 
 <?php 
 include_once 'footer.php'; 

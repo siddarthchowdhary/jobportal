@@ -1,26 +1,51 @@
 
 <?php
 /* @author 		: Ashwani Singh
- * @date   		: 01-04-2013
+ * @date   		: 10-04-2013
  * @description : JobReports view
  * @module 		: Admin
  * @modified on : 
 */
 //require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>JobBoardTemplate</title>
-	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'style.css';?>" />
-	<script type="text/javascript" src=<?php echo JS_PATH.'jquery-1.7.1.min.js';?>></script>
-	<script type="text/javascript" src=<?php echo JS_PATH.'jquery.main.js';?>></script>
-</head>
-<body>
-<?php include_once 'header.php';
-?>
 
+include_once 'header.php';
+?>
+<script>
+function searchJobs()
+{ 
+	
+	$.ajax({
+			type 	: "POST",
+			url 	: 'indexMain.php?controller=Reports&function=jobReportsSearch',
+			data 	: $('#jobSearch').serialize(),
+			success : function(response)
+			{	
+				$('#job_result').html(response);
+				$("#result").show();
+			}
+	});
+}
+
+//function to show job stats  
+$(document).ready(function() {
+
+	$.ajax({
+			type 	: "POST",
+			url 	: 'indexMain.php?controller=Reports&function=jobStats',
+			
+			success : function(response)
+			{	
+				$('#job_stats').html(response);
+				
+			}
+	});
+
+});
+
+$(document).ready(function(){
+    $("#result").hide();
+})
+</script>
 	<div id="main">
 		<div class="wrapper">
 			<div id="content">		
@@ -28,11 +53,14 @@
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>JOB REPORTS</span></h2>
+								<h2><span><?php echo JOB_REPORTS; ?></span></h2>
 							</div>
 							<!--code here-->
+							<div id="job_stats" class="admin_content">
+								
+							</div>
 							<div id="content">
-								<form class="search-form" method="post" action="<?php echo SITE_PATH;?>indexMain.php?controller=Reports&function=jobReportsSearch">
+								<form id="jobSearch" class="search-form" method="post" >
 									<fieldset>
 										<div class="columns-holder">
 											<div class="column">
@@ -76,20 +104,19 @@
 													</span>
 												</div>
 												<div class="row">
-													<input type="submit" value="Perform the search" class="submit" />
+													<input type="button" value="Perform the search" class="submit" onclick="searchJobs()"/>
 												</div>
 											</div>
 										</div>
-										<ul class="sort-list">
-											<li><a href="#">Advanced search</a></li>
-											<li><a href="#">Browse by job category</a></li>
-											<li><a href="#">Browse by location</a></li>
-											<li><a href="#">Browse by employer</a></li>
-										</ul>
+										
 									</fieldset>
 								</form>
 
-							
+								<div id="job_result">
+								
+								
+								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -105,10 +132,10 @@
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>">Site Statistics</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>">Jobseeker</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>">Employer</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>">Jobs</a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>"><?php echo SITE_STATISTICS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>"><?php echo MANAGE_JOBSEEKER_REPORTS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>"><?php echo MANAGE_EMP_REPORTS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>"><?php echo MANAGE_JOB_REPORTS; ?></a>
 						    </div>
 						</div>						
 					</div>

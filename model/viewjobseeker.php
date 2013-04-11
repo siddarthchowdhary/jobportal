@@ -1,5 +1,7 @@
 <?php
-
+//@fileName: viewjobseeker.php
+//@className: viewjobseekerModel
+//@description:this model is used to view the jobseeker details.
 //@author    : Siddarth Chowdhary
 //created on :  22 march 2013
 //modified on:  8 april 2013

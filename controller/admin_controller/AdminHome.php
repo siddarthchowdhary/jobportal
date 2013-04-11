@@ -15,11 +15,52 @@ class AdminHomeController extends common  #extends /classes/common which contain
 		$this->loadView('AdminHome');      				#loading admin home view
 	}
 	
+	#method to load admin password change view
+	public function adminChangePassword()
+	{
+		$this->loadView('AdminChangePassword');
+	}
+	
 	#method to change admin password
 	public function changePassword()
-	{  	
-		echo "change password";
+	{
+		//print_r($_POST);die;
+		$currentPassword = strip_tags($_POST['currentPassword']);
+		$newPassword 	 = strip_tags($_POST['newPassword']);
+		$confirmPassword = strip_tags($_POST['confirmPassword']);
+		$temp=$this->loadModel("AdminHome","validateUser",array("password"=>$currentPassword));
 		
+		if($temp)
+		{
+			if ($newPassword == $confirmPassword)
+			{
+				if(strlen($newPassword)>PASSWORD_LENGTH)
+				{
+					$temp=$this->loadModel("AdminHome","changePassword",$newPassword);
+					//var_dump($temp);die;
+					if($temp)
+					{
+						echo PASSWD_CHANGE_MSG ;
+					}
+					else
+					{
+						echo PASSWD_CHANGE_FAILED_MSG ;
+					}
+				}
+				else
+				{
+					echo PASSWORD_SIZE_ERROR ;
+				}
+			}
+			else
+			{
+				echo PASSWORD_MISMATCH_ERROR ;
+			}
+		}
+		else
+		{
+			echo WRONG_PASSWORD_ERROR ;
+		}
 	}	
 }
 

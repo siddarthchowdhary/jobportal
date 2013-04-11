@@ -1,4 +1,10 @@
 <?php
+//@fileName: registerjobseeker.php
+//@className: registerjobseekerModel
+//@description:this model is used to register the jobseeker.
+//@author    : Siddarth Chowdhary
+//created on :  15 march 2013
+
 require_once 'DBConnect.php';
 class registerjobseekerModel extends DBConnect
 {

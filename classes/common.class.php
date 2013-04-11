@@ -7,7 +7,6 @@ class common
 		if(isset($_SESSION['EMAIL_SESSION'])) {
          	if($_SESSION['USERTYPE_SESSION']=='1') {
          		$view_path=ADMIN_VIEW_PATH.$templateName.'.php';
-         		
          	} else {	
 			$view_path=VIEW_PATH.$templateName;
 			}

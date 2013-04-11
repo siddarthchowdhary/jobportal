@@ -28,7 +28,8 @@
 	define('PDO',SITE_ROOT.'library/pdo/cxpdo_modified.php');
 	define('PDO_CONFIG',SITE_ROOT.'library/pdo/pdo_config.php');
 
-
+#admin language
+	define('ADMIN_LANGUAGE_PATH',SITE_ROOT.'config/Admin_Language.php');
 
 
 

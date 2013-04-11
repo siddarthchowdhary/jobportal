@@ -16,7 +16,7 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2>Database<span>Management</span></h2>
+								<h2><span><?php echo DATABASE_MGMT; ?></span></h2>
 							</div>
 							<!--code here-->
 							<div id="admin_content">
@@ -32,7 +32,7 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>Main<span>Menu</span></h3>
+								<h3><span><?php echo MAIN_MENU; ?></span></h3>
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">

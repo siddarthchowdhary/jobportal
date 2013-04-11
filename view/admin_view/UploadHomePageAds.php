@@ -3,7 +3,9 @@
  * @date   		: 02-04-2013
  * @description : JobPortal Home Page upload Ads view 
  * @module		: Admin
+ * @todo 		: apply client side validation on url format www.example.com
 */
+ini_set("display_errors","1");
 include_once 'header.php';
 ?>
 
@@ -14,19 +16,23 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>HOME PAGE ADS</span></h2>
+								<h2><span><?php echo HOME_PAGE_ADS;?></span></h2>
 							</div>
 							<!--code here-->
 							<div id="content">
 							<form  action="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=addAds'?>" method="post" enctype="multipart/form-data">
-								 Choose file :<input type="file" name="fileName" /> <br>
-			name:<input 		 Choose file name:<type="text" name="userFileName"/><br>
-					       		<input name="btn1" id="btn1" type="submit" value="upload" />
+								 <table>
+									<tr><td><?php echo CHOOSE_FILE; ?>:<input type="file" name="fileName" /> </td></tr>
+									<tr><td><?php echo CHOOSE_FILE_NAME; ?>:<input type="text" name="userFileName"/></td></tr>
+								    <tr><td><?php echo CHOOSE_URL; ?>:<input type="text" name="url"/></td></tr>		
+								 </table>  			       		
+					       		<input class="admin_btn" name="btn1" id="btn1" type="submit" value="add" />
+					       		
 					        </form>
-					        <div class="admin_anchor">
-								<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=previewAds';?>">
-							          Preview</a>
-							</div>          
+					        <div>
+								<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=previewAds';?>" class="btn">
+							          <?php echo PREVIEW;?></a>
+							</div>        
 							</div>
 						</div>
 					</div>
@@ -38,22 +44,19 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>Main<span>Menu</span></h3>
+								<h3><span><?php echo MAIN_MENU;?></span></h3>
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>">Manage Ads</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">Manage Tip Of The DaY</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">Change Logo</a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>"><?php echo MANAGE_ADS?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>"><?php echo MANAGE_TIP_OF_DAY?></a>
 						    </div>
 						</div>						
 					</div>
 				</div>
 		</div>
-		</div>
-
+		
 	</div>
-	  <script>
 		
 <?php
 include_once 'footer.php'

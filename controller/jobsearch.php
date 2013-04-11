@@ -1,9 +1,9 @@
 <?php
-
+//@filename:jobsearch.php
 //@author    : Siddarth Chowdhary
 //created on : 25 march 2013
 //last modified on : 28 march 2013
-
+//@description:this controller is used to search jobs
 class jobsearchController extends common
 {
 			/*

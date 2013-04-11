@@ -8,7 +8,9 @@
 class LogoutController extends common     # extends /classes/common which contains model and view loader methods
 {
 	public function logout()
-	{   $status=$this->loadModel('Logout','logout');    #if logout is successful status = "true"
+	{   
+		
+		$status=$this->loadModel('Logout','logout');    #if logout is successful status = "true"
         if($status) {	
 			$this->loadView('Logout');                  # loading logout view
 	    }

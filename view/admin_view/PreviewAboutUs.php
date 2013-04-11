@@ -16,19 +16,18 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>ABOUT US</span></h2>
+								<h2><span><?php echo ABOUT_US; ?></span></h2>
 							</div>
 							<!--code here-->
 							<?php 
 							foreach($arrData as $key => $value ) {
-								print_r($value);
-							
+								print_r($value);							
 							}
 							?>
-							<div class="admin_anchor">
-								<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">
-							          click here to go back </a>
-							</div>          
+							<div>
+								<a class="btn" href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>" >
+							          <?php echo CLICK_HERE_TO_GO_BACK; ?></a>
+							</div>                             
 						</div>
 					</div>
 				</div>

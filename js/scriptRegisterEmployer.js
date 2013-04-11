@@ -19,14 +19,13 @@ $(document).ready(function(){
 				lettersonly: true,
 				minlength: 3
 			},
-			password: {
+			passwordEmployer: {
 				required: true,
                 minlength: 6
 			},
-            confirmPassword: {
+            confirmPasswordEmployer: {
 				required: true,
-                equalTo: "#password",
-				minlength: 6
+                equalTo: "#passwordEmployer"
 			},
 			companyName: {
 				required: true,
@@ -55,13 +54,12 @@ $(document).ready(function(){
 				required: "Please enter your last name",
 				minlength: jQuery.format("Your last name needs to be at least {0} characters")
 			},
-			password: {
+			passwordEmployer: {
 				required: "You need to enter a password!",
 				minlength: jQuery.format("Enter at least {0} characters")
 			},
-            confirmPassword: {
-				required: "enter password once again!",
-				minlength: jQuery.format("Enter same password")
+            confirmPasswordEmployer: {
+				required: "enter password once again!"
 			},
 			companyName: {
 				required: "Please enter your name",

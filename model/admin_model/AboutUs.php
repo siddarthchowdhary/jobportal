@@ -7,7 +7,8 @@
 */
 
 class AboutUsModel
-{	#method to obtain connection from mysql database
+{	
+	#method to obtain connection from mysql database
 	public function dbConnect()
 	{	$config=array();
 		require_once(PDO);									#including CXPDO class
@@ -41,7 +42,7 @@ class AboutUsModel
 	   
 		$db = $this->dbConnect();							#calling dbConnet() which returns connection object
 		$data				= array();
-		$data['tables']		= 'admin_pages';				#selecting admin_pages table from database
+		$tables		= 'admin_pages';						#selecting admin_pages table from database
 	
 		//$data['conditions'] = array("name ='AboutUs'");
 		$data = array("content1" => "$aboutUsNew");         #set  content1='new about us'
@@ -49,7 +50,7 @@ class AboutUsModel
  		
 
 
-		$result = $db->update('admin_pages', $data, $where); #update query
+		$result = $db->update($tables, $data, $where); 		#update query
 		
 		
 	}

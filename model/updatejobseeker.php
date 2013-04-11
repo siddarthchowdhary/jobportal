@@ -1,7 +1,10 @@
 <?php
-
+ 
+//@fileName: updatejobseeker.php
 //@author    : Siddarth Chowdhary
 //created on :  17 march 2013
+//@className: updatejobseekerModel
+//@description:this model is used to update the jobseeker details.
 //@todo - change name abc using refactor
 
 require_once 'DBConnect.php';

@@ -16,11 +16,15 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>SITE STATISTICS</span></h2>
+								<h2><span><?php echo SITE_STATISTICS; ?></span></h2>
 							</div>
 							<!--code here-->
 							<div id="content">
 								<b> Number of hits:</b>
+								 <?php print_r($arrData);
+								 
+								 echo session_save_path();
+								 ?>
 							</div>
 						</div>
 					</div>
@@ -32,14 +36,14 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>Main<span>Menu</span></h3>
+								<h3><span><?php echo MAIN_MENU; ?></span></h3>
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>">Site Statistics</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>">Jobseeker</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>">Employer</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>">Jobs</a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>"><?php echo SITE_STATISTICS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>"><?php echo MANAGE_JOBSEEKER_REPORTS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>"><?php echo MANAGE_EMP_REPORTS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>"><?php echo MANAGE_JOB_REPORTS; ?></a>
 						    </div>
 						</div>						
 					</div>
@@ -48,9 +52,6 @@ include_once 'header.php';
 		</div>
 
 	</div>
-	 
-	
-	  
 
 <?php 
 include_once 'footer.php'; 

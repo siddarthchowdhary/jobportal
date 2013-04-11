@@ -94,7 +94,7 @@ class registerEmployerModel
 		$result=$db->insert('employer_details',$data);
 		
 		$string1="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		$string2='1234567890~!@#$%^&*';
+		$string2='1234567890~!$^*';
 		$string=$string1.$string2;
 		$string= str_shuffle($string);
 		$validationString =  substr($string,0,25);

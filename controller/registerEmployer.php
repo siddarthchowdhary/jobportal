@@ -17,8 +17,8 @@ class registerEmployerController extends common
 				$firstName       = strip_tags($_POST['firstName']);
 				$lastName        = strip_tags($_POST['lastName']);
 				$email           = strip_tags($_POST['email']);
-				$password        = strip_tags($_POST['password']);
-				$confirmPassword = strip_tags($_POST['confirmPassword']);
+				$password        = strip_tags($_POST['passwordEmployer']);
+				$confirmPassword = strip_tags($_POST['confirmPasswordEmployer']);
 				$companyName     = strip_tags($_POST['companyName']);
 				$contactNumber   = strip_tags($_POST['contactNumber']);
 				
@@ -47,13 +47,13 @@ class registerEmployerController extends common
 					if(empty($validError))
 					{
 						$result = $this->loadModel('registerEmployer','inject',$data);
-						
-						if($result)
+						//echo $result;die;
+						if(!empty($result))
 						{
 							echo "Sucessfuly Registered.";
 							$result['email']=$email;
 							//print_r($result);die();
-							$mailFlag = $this->loadModel('mail','sendMailTO',$result);
+							$mailFlag = @$this->loadModel('mail','sendMailTO',$result);
 							print_r( $mailFlag);
 							//echo "Activation Mail will be sent when implemented.";
 						}

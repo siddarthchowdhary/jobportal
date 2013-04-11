@@ -8,7 +8,25 @@
 //require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
 include_once 'header.php';
 ?>
+<script type="text/javascript">
 
+function employerReport()
+{ 
+	$.ajax({
+			type 	: "POST",
+			url 	: 'indexMain.php?controller=Reports&function=employerReports',
+			data 	: $("#employerReportForm").serialize(),
+			success : function(response)
+			{
+				$('#data').html(response);
+				$("#result").show();
+			}
+	});
+}
+
+
+
+</script>	
 	<div id="main">
 		<div class="wrapper">
 			<div id="content">		
@@ -16,11 +34,17 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>EMPLOYEER REPORTS</span></h2>
+								<h2><span><?php echo EMPLOYER_REPORTS; ?></span></h2>
 							</div>
-							<!--code here-->
-							<div id="content">
-							
+							<div id="admin_content" >
+								<p><?php echo EMPLOYER_TOTAL.$arrData['TotalEmployers']; ?> </p>
+								<p><?php echo EMPLOYER_ACTIVE.$arrData['ActiveEmployers']; ?> </p>
+								<p><?php echo EMPLOYER_INACTIVE.$arrData['InactiveEmployers'];?> </p>
+								<form id="employerReportForm">
+									<table>
+										<tr><td></td></tr>
+									</table>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -36,10 +60,10 @@ include_once 'header.php';
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>">Site Statistics</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>">Jobseeker</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>">Employer</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>">Jobs</a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>"><?php echo SITE_STATISTICS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>"><?php echo MANAGE_JOBSEEKER_REPORTS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>"><?php echo MANAGE_EMP_REPORTS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>"><?php echo MANAGE_JOB_REPORTS; ?></a>
 						    </div>
 						</div>						
 					</div>

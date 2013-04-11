@@ -1,5 +1,7 @@
 <?php
-
+//@fileName: jobsappliedseeker.php
+//@className: jobsappliedseekerModel
+//@description:this model is used search jobs that are applied by the jobseeker.
 //@author    : Siddarth Chowdhary
 //created on : 1 april 2013
 //last modified on : 1 april 2013

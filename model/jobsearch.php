@@ -1,5 +1,7 @@
 <?php
-
+//@fileName: jobsearch.php
+//@className: jobsearchModel
+//@description:this model is used search jobs from the database acc to conditions specified.
 //@author    : Siddarth Chowdhary
 //created on : 25 march 2013
 //last modified on : 28 march 2013

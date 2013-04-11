@@ -16,16 +16,16 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>HOME PAGE ADS</span></h2>
+								<h2><span><?php echo HOME_PAGE_ADS; ?></span></h2>
 							</div>
 							<!--code here-->
 							 <div id="Ads" >
 							 
-							   <img src=<?php echo ADS_IMAGE_PATH.$arrData['filename'];?>  height=300 width=400 />
+							   <img src=<?php echo ADS_IMAGE_PATH.$arrData['filename'];?>  height=300 width=400/>
 						    </div>
-							<div class="admin_anchor">
-								<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>">
-							          click here to go back </a>
+							<div>
+								<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>" class="admin_btn">
+							          <?php echo CLICK_HERE_TO_GO_BACK; ?></a>
 							</div>          
 						</div>
 					</div>

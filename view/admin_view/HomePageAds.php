@@ -4,6 +4,8 @@
  * @description : JobPortal Home Page Ads main view 
  * @module		: Admin
 */
+
+ini_set("display_errors","1");
 include_once 'header.php';
 ?>
 
@@ -14,7 +16,7 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2><span>HOME PAGE ADS</span></h2>
+								<h2><span><?php echo HOME_PAGE_ADS; ?></span></h2>
 							</div>
 							<!--code here-->
 							<div id="content">
@@ -30,22 +32,20 @@ include_once 'header.php';
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>Main<span>Menu</span></h3>
+								<h3><span><?php echo MAIN_MENU; ?></span></h3>
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>">Manage Ads</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">Manage Tip Of The DaY</a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">Change Logo</a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>"><?php echo MANAGE_ADS?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>"><?php echo MANAGE_TIP_OF_DAY?></a>
 						    </div>
 						</div>						
 					</div>
 				</div>
-		</div>
+			</div>
 		</div>
 
 	</div>
-	  <script>
 		
 <?php
 include_once 'footer.php'
