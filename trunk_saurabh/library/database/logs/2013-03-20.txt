@@ -1,3 +1,0 @@
-Time : 09:10:43
-SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'siddarth@osscube.com' for key 'email'
-Raw SQL : INSERT INTO users (password,displayname,email,userType,creation_date,status) VALUES (:password,:displayname,:email,:userType,:creation_date,:status)
