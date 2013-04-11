@@ -47,7 +47,7 @@
 							<tr>
 								<td><?php echo GENDER;?></td>
 								<td> : </td>
-								<td><?php if ($arrData[0]['gender'] == '10') {echo 'Male';} else {echo 'Female';}?></td>
+								<td><?php if(!empty($arrData[0]['gender'])){if ($arrData[0]['gender'] == '10') {echo 'Male';} else {echo 'Female';}}?></td>
 							</tr>
 							<tr>
 								<td><?php echo DOB;?></td>

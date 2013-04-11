@@ -1,6 +1,8 @@
 <?php
+
 //@author    : Siddarth Chowdhary
-//created on : 1 April 2013
+//created on : 1 april 2013
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,9 +22,9 @@
 
 	<div id="main">
 		<div class="wrapper">
-                    <h2><?php echo NO_JOBS_APPLIED;?></h2>
+                    <h2>No Jobs Found regarding this criteria.</h2>
                     <br><br><br><br>
-                                    <a style="color:blue;" href="indexMain.php?controller=pages&function=jobsearch"><h3><?php echo CONTINUE_SEARCHING_JOBS;?></h3></a>
+                                    <a style="color:blue;" href="indexMain.php?controller=pages&function=jobsearch"><h3>Continue Searching Jobs ??</h3></a>
                 </div>
         </div>
 	<?include_once("footer.html");?>

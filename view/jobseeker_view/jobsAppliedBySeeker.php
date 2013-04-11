@@ -48,9 +48,9 @@
 								<table id="datatables" class="display">
 									<thead>
 										<tr>	
-										<th>NAME OF POST</th>
-										<th>COMPANY NAME</th>
-										<th>LOCATION</th>
+										<th><?php echo NAME_OF_POST;?></th>
+										<th><?php echo COMPANY_NAME;?></th>
+										<th><?php echo LOCATION;?></th>
 										</tr>
 									</thead>
 								

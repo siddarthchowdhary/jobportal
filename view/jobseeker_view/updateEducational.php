@@ -86,10 +86,10 @@
     										<?php if (!empty($arrData['highest_degree'])) {  ?> 
     										<option value="<?php echo $arrData['highest_degree']?>" selected = "selected"><?php echo $arrData['highest_degree']?></option>  
     									<?php } ?>  
-    										<option value="MCA">MCA</option>
-    										<option value="MBA">MBA</option>
-										<option value="MTECH">MTECH</option>
-    										<option value="others">others</option>
+    										<option value="MCA"><?php echo MCA;?></option>
+    										<option value="MBA"><?php echo MBA;?></option>
+										<option value="MTECH"><?php echo MTECH;?></option>
+    										<option value="others"><?php echo OTHERS;?></option>
 									</select> 
 									<input type="text" name="txthighestDegree" id="highestDegree" style="display: none;"/>
 								</div>
@@ -100,11 +100,11 @@
 										<?php if (!empty($arrData['graduation_degree'])) {  //default combo box value?> 
     										<option value="<?php echo $arrData['graduation_degree']?>" selected = "selected"><?php echo $arrData['graduation_degree']?></option>  
     									<?php } ?>
-    										<option value="BA">BA</option>
-    										<option value="BCOM">BCOM</option>
-											<option value="BCA">BCA</option>
-											<option value="BCA">BBA</option>
-    										<option value="others">others</option>
+    										<option value="BA"><?php echo BA;?></option>
+    										<option value="BCOM"><?php echo BCOM;?></option>
+											<option value="BCA"><?php echo BCA;?></option>
+											<option value="BCA"><?php echo BBA;?></option>
+    										<option value="others"><?php echo OTHERS;?></option>
 									</select> 
 									<input type="text" name="txtgrad" id="grad" name="grad" style="display: none;"/>
 	

@@ -42,8 +42,7 @@
 				<!--code here-->
 				<!--data tables used here-->
 				<form id="frmResult" >
-                <!--<form action="<?php // echo SITE_PATH;?>indexMain.php?controller=jobsearch&function=apply" method="post">
-				-->	<table id="datatables" class="display">
+                <table id="datatables" class="display">
 						<thead>
 						<tr>	
 							<th>JOBS</th>
@@ -55,12 +54,12 @@
 									echo '<tr>';
 									echo '<td>';
 									//print_r($val);
-									echo "<br>"."<b>Name of Post :</b>".$val['name_of_post'];
-									echo "<br>"."<b>Company Name :</b>".$val['company_name'];
-									echo "<br>"."<b>Experience required :</b>".$val['experience_required']." years or more";
-									echo "<br>"."<b>Job Description :</b>".$val['job_description'];
-									echo "<br>"."<b>Job Location :</b>".$val['job_location'];
-									echo "<br>"."<b>Job Category :</b>".$val['job_category'];
+									echo "<br>"."<b>".NAME_OF_POST .":</b>".$val['name_of_post'];
+									echo "<br>"."<b>".COMPANY_NAME .":</b>".$val['company_name'];
+									echo "<br>"."<b>".EXP_REQD.":</b>".$val['experience_required']." years or more";
+									echo "<br>"."<b>".JOB_DESCRIPTION." :</b>".$val['job_description'];
+									echo "<br>"."<b>".JOB_LOCATION. ":</b>".$val['job_location'];
+									echo "<br>"."<b>".JOB_CATEGORY.":</b>".$val['job_category'];
 									echo '<input type="hidden" name="job_id" class="job_id" value="'.$val['id'].'"/>';
 									echo '<div id="res'.$val['id'].'"></div>';
 									echo "<br>".'<input type="button" value="Apply" class="apply" onclick="jobApply('.$val['id'].')"/>';

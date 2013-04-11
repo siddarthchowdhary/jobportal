@@ -68,13 +68,13 @@
 										<div class="columns-holder">
 											<div class="column">
 												<div class="row">
-													<label for="keyword">Enter keyword(s)</label>
+													<label for="keyword"><?php echo ENTER_KEYWORDS;?></label>
 													<span class="text">
 														<input type="text" class="text" id="keywords" name="keywords"/>
 													</span>
 												</div>
 												<div class="row">
-													<label for="job-category">Select a job category</label>
+													<label for="job-category"><?php echo SELECT_JOB_CATEGORY;?></label>
 													<select id="job-category" name="job-category">
 														<option class="default"></option>
 														<?php
@@ -87,13 +87,13 @@
 											</div>
 											<div class="column">
 												<div class="row">
-													<label for="location">Location(City)</label>
+													<label for="location"><?php echo LOCATION_CITY;?></label>
 													<span class="text">
 														<input type="text" class="text" id="location" name="location"/>
 													</span>
 												</div>
 												<div class="row">
-													<label for="location">Experience (enter 0 for fresher)</label>
+													<label for="location"><?php echo EXP_WITH_EX;?></label>
 													<span class="text">
 														<input type="text" class="text" id="experience" name="experience"/>
 													</span>
@@ -101,7 +101,7 @@
 											</div>
 											<div class="column">
 												<div class="row">
-													<label for="employer">Company Name</label>
+													<label for="employer"><?php echo COMPANY_NAME;?></label>
 													<span class="text">
 														<input type="text" class="text" id="employer" name="employer"/>
 													</span>
@@ -111,12 +111,6 @@
 												</div>
 											</div>
 										</div>
-										<ul class="sort-list">
-											<li><a href="#">Advanced search</a></li>
-											<li><a href="#">Browse by job category</a></li>
-											<li><a href="#">Browse by location</a></li>
-											<li><a href="#">Browse by employer</a></li>
-										</ul>
 									</fieldset>
 								</form>
 							</div>
@@ -149,12 +143,12 @@
                                                                                 echo '<tr>';
                                                                                 echo '<td>';
                                                                                 //print_r($val);
-                                                                                echo "<br>"."<b>Name of Post :</b>".$val['name_of_post'];
-                                                                                echo "<br>"."<b>Company Name :</b>".$val['company_name'];
-                                                                                echo "<br>"."<b>Experience required :</b>".$val['experience_required']." years or more";
-                                                                                echo "<br>"."<b>Job Description :</b>".$val['job_description'];
-                                                                                echo "<br>"."<b>Job Location :</b>".$val['job_location'];
-                                                                                echo "<br>"."<b>Job Category :</b>".$val['job_category'];
+                                                                                echo "<br>"."<b>".NAME_OF_POST.":</b>".$val['name_of_post'];
+                                                                                echo "<br>"."<b>".COMPANY_NAME.":</b>".$val['company_name'];
+                                                                                echo "<br>"."<b>".EXP_REQD.":</b>".$val['experience_required']." years or more";
+                                                                                echo "<br>"."<b>".JOB_DESCRIPTION.":</b>".$val['job_description'];
+                                                                                echo "<br>"."<b>".JOB_LOCATION.":</b>".$val['job_location'];
+                                                                                echo "<br>"."<b>".JOB_CATEGORY .":</b>".$val['job_category'];
                                                                                 echo '<input type="hidden" name="job_id" id="job_id" value="'.$val['id'].'"/>';
                                                                                 echo '<div id="res'.$val['id'].'"></div>';
                                                                                 //~ echo "<br>".'<input type="button" value="Apply" onclick="fncApply("'.$val['id'].'")"/>';
