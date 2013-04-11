@@ -43,7 +43,43 @@
 		}
 	</script>
 	<!--own script for div showing and hiding-->
-	<script>
+	 <script>
+    $(document).ready(function(){
+      $("#employer").hide();
+      //$("#jobseeker").hide();  //by default jobseeker is visible
+      $("#btnJobSeeker").click(function(){
+        $("#employer").hide();
+        $("#jobseeker").show();
+      });
+      $("#btnEmployer").click(function(){
+        $("#jobseeker").hide();
+        $("#employer").show();
+      });
+    });
+    </script>
+    <!--ajax script for result of jobsearch-->
+    <script>
+        $(document).ready(function(){
+        $("#register").click(function(){
+            $("#frmRegisterJobSeeker").valid();           //frmRegisterJobSeeker
+            $.ajax({
+                type:"POST",       
+                url:"<?php echo SITE_PATH;?>indexMain.php?controller=registerjobseeker&function=verify",
+                data:$("#frmRegisterJobSeeker").serialize(), 
+                success:function(result){ 
+                    if (result=='Registration Successful,Please Login to Continue') {
+                        $("#jobseeker").hide();
+                        $("#employer").hide();
+                        $("#btnJobSeeker").hide();
+                        $("#btnEmployer").hide();
+                    }
+                    $("#result").html(result);
+                }
+            });//ajax function ends here
+        });//button click ends here
+        });//document.ready ends here
+    </script>
+	<!--<script>
 	$(document).ready(function(){
 	  $("#employer").hide();
 	  $("#btnHome").hide();
@@ -56,7 +92,7 @@
 	    $("#employer").toggle();
 	  });
 	});
-	</script>
+	</script>-->
 	
 </head>
 <body>
@@ -76,7 +112,7 @@
 			<div id="jobseeker">
 			<span><h3>Basic Registration  - Job Seeker</h3></span>
         <div id="frmRegister" >
-        <form action="indexMain.php?controller=registerjobseeker&function=verify" id="frmRegisterJobSeeker" method="post">
+        <form action="" id="frmRegisterJobSeeker" method="post">
             <table class="frmregisteremp">
 
                 <tr>
@@ -108,7 +144,7 @@
 					<td><input type="button" value="See Another" onclick="imageReload()"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" /></td>
+                    <td><input type="button" id="register" value="Register"/></td>
                 </tr>
             </table>
         </form>

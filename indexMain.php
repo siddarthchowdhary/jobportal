@@ -6,7 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/constants.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/library/database/usage.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/common.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/DBConnect.php');
-require_once(ADMIN_LANGUAGE_PATH);
+require_once(ADMIN_LANGUAGE_PATH);       #admin language file.
 if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
       $controller =$_REQUEST['controller']; //echo $controller;die();
 }else{
@@ -35,10 +35,6 @@ if(isset($_SESSION['EMAIL_SESSION'])) {
 		$fn = SITE_ROOT.'controller/'.$controller . '.php';	  #controller path for employer
 	} 
 }	
-
-
-
-
 
 /*if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller']))
 {echo $fn;die();}*/

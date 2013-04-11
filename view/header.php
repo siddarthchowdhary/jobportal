@@ -21,7 +21,7 @@
 					</pre>
 					<?php } else { ?>
 				
-					<a href="indexMain.php?controller=pages&function=createaccount" class="account">Create account</a>
+					<a href="indexMain.php?controller=createAccount&function=createAccount" class="account">Create account</a>
 					<span class="sign"><span>Sign in</span></span>
 					<form class="sign-form" action=<?php echo SITE_PATH.'indexMain.php?controller=login&function=authenticate';?> method="post">
 						<fieldset>
@@ -31,9 +31,9 @@
 								<input type="submit" value="Go" class="submit" />
 							</div>
 							<div class="row">
-								<label for="check-1">Remember me</label>
+								<!--<label for="check-1">Remember me</label>
 								<input type="checkbox" class="check" id="check-1" />
-								<a href="#">Forgot your password?</a>
+								<a href="#">Forgot your password?</a>-->
 								<br><span id="login_error" style="color:red;font-size:13px;">
 								<?php if (isset($arrData['error'])) echo $arrData['error'];?>
 								</span>
@@ -48,7 +48,7 @@
 			<ul id="nav">
 				<li><a href="<?php echo SITE_PATH.'indexMain.php';?>">Home</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=jobsearch&function=searchguest';?>">Job Seekers</a></li>
-				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=resumeSearch&function=searchPannel';?>">Employers</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=resumeSearch&function=searchPanel';?>">Employers</a></li>
 				<li><a href="#">Career advice</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">About Us</a></li>
 				<li><a href="#">FAQ</a></li>

@@ -27,9 +27,12 @@ class registerjobseekerController extends common
 										"displayname"=>$displayname);
 				$boolResult			=	$this->loadModel('registerjobseeker','validate',$arrInfo);
 				if (empty($boolResult)){
-					$boolQuery		=	$this->loadModel('registerjobseeker','inject',$arrInfo);
-					if($boolQuery){
-							echo "Registration Successful,Please Login to Continue";
+					$data		=	$this->loadModel('registerjobseeker','inject',$arrInfo);
+					if(!empty($data)){
+							echo "Registration Successful. ";
+							$mailFlag = @$this->loadModel('mail','sendMailTO',$result);
+							echo $mailFlag;
+							
 					} else{
 							echo "Oops Something went wrong!!Please Try Again..";
 					}

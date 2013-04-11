@@ -13,7 +13,8 @@
     <script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
     
     
-	<script>
+	<script type="text/javascript">
+		var flag = 0;
 		function performSearch()
 		{
 			//alert($("#resumeSearchForm").serialize());
@@ -26,11 +27,15 @@
 				{
 					//alert(response);
 					$("#searchResult").html(response);
-					$('#datatables').dataTable({
-						"sPaginationType":"full_numbers",
-						"aaSorting":[[2, "desc"]],
-						"bJQueryUI":true
-					});
+					if(flag==0)
+					{
+						$('#datatables').dataTable({
+							"sPaginationType":"full_numbers",
+							"aaSorting":[[2, "desc"]],
+							"bJQueryUI":true
+						});
+						flag = 1;
+					}
 					$("#divresult").show();
 					
 				}
@@ -38,6 +43,7 @@
 		}
 		$(document).ready(function(){
 			$("#divresult").hide();
+			
 			
         })
 	</script>

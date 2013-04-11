@@ -53,8 +53,26 @@ class registerjobseekerModel extends DBConnect
 		$data = array('password' => $password, 'displayname' => $arrValues['displayname'],
 						'email'=>$arrValues['email'],'usertype'=>2,'creation_date'=>date('Y-m-d H:i:s'));
 		$result = $db->insert('users', $data);    #first arg is tablename and second is data in the array
+		$data = array();
+		$data['tables']='users';
+		$data['columns']=array('users.id');
+		$data['conditions']=array("email"=>$arrValues['email']);
+		$result = $db->select($data);
+		$userId =$result->fetch(PDO::FETCH_NUM);
+		
+		$string1="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		$string2='1234567890~!$^*';
+		$string=$string1.$string2;
+		$string= str_shuffle($string);
+		$validationString =  substr($string,0,25);
+		
+		$data = array(
+					"user_id"=>$userId[0],
+					"validation_string"=>$validationString,
+					"email"=>$arrValues['email']
+					);
 		if ($result){
-			return true;
+			return $data;
 		} else {
 			return false;
 		}

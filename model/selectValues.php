@@ -24,6 +24,22 @@ class selectValuesModel extends DBConnect
 		}
 		unset($db);
 		return $res;
+	}
+	
+	public function companyName()
+	{
+		$db=$this->common();
+		$data				= array();
+		$data['tables']		= 'company_details';
+		$data['columns'] = 'company_name';
+		
+		$result = $db->select($data);
+		$res=array();
+		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$res[]=$row['company_name'];
+		}
+		unset($db);
+		return $res;
 	}	
 	
 }

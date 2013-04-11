@@ -68,6 +68,9 @@
 						</div>
 					</div>
 				</div>
+				
+				
+				<!--
 				<div class="block">
 					<div class="holder">
 						<div class="frame">
@@ -353,6 +356,25 @@
 						</div>
 					</div>
 				</div>
+				-->	
+							<script>
+                            $(function(){
+                                $('.fadein img:gt(0)').hide();
+                                setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 3000);
+                            });
+                            </script>
+                            <!--ad images here-->
+                            <div class="fadein">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job1.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job2.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job3.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job4.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job5.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job6.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job7.jpg">
+                                <img src="<?php echo IMAGE_PATH;?>add_front_page/ad_job8.jpg">
+                            </div>
+
 				<div class="block">
 					<div class="holder">
 						<div class="frame">

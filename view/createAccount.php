@@ -32,43 +32,111 @@
 				{
 					//alert(result);
 					$("#result").html(result);
-					$("#employer").hide();
+					//$("#employer").hide();
 					$("#btnHome").show();
 					
 				}
 			});//ajax function ends here
 			
 		}
+		function checkValueCompanyName(val)
+		{
+			if(val==="Others")
+       			document.getElementById('companyRegister').style.display='block';
+    		else
+       			document.getElementById('companyRegister').style.display='none';
+		}
+		
 		function btnHomeClick()
 		{
 			window.location.href="indexMain.php";
 		}
 	</script>
-	<!--own script for div showing and hiding-->
 	<script>
-	$(document).ready(function(){
-	  $("#employer").hide();
+        $(document).ready(function(){
+        $("#register").click(function(){
+            $("#frmRegisterJobSeeker").valid();           //frmRegisterJobSeeker
+            $.ajax({
+                type:"POST",       
+                url:"<?php echo SITE_PATH;?>indexMain.php?controller=registerjobseeker&function=verify",
+                data:$("#frmRegisterJobSeeker").serialize(), 
+                success:function(result){ 
+                    if (result=='Registration Successful. Message has been sent') {
+                        $("#jobseeker").hide();
+                        $("#employer").hide();
+                        $("#btnJobSeeker").hide();
+                        $("#btnEmployer").hide();
+                        $("#btnHome").show();
+                    }
+                    $("#result").html(result);
+                }
+            });//ajax function ends here
+        });//button click ends here
+       
 	  $("#btnHome").hide();
+	  $("#employer").hide();
+	  //$("#jobseeker").hide();  //by default jobseeker is visible
 	  $("#btnJobSeeker").click(function(){
 	    $("#employer").hide();
-	    $("#jobseeker").toggle();
+	    $("#jobseeker").show();
 	  });
 	  $("#btnEmployer").click(function(){
 	    $("#jobseeker").hide();
-	    $("#employer").toggle();
+	    $("#employer").show();
 	  });
-	});
-	</script>
+	
+        });//document.ready ends here
+    </script>
 	
 </head>
 <body>
 	<div id="header">
 		<div class="wrapper">
 			<div class="holder">
-				<h1 class="logo"><a href="indexMain.php?controller=index&function=landingPage">Job Portal</a></h1>
+				<h1 class="logo"><a href="#">Job Portal</a></h1>
+				<div class="login-block">
+					<?php if (isset($_SESSION['email'])) { ?>
+					<pre>hi <?php echo $_SESSION['displayname'];?></pre>
+					<pre>Logout
+					</pre>
+					<?php } else { ?>
+				
+					<a href="indexMain.php?controller=pages&function=createaccount" class="account">Create account</a>
+					<span class="sign"><span>Sign in</span></span>
+					<form class="sign-form" action=<?php echo SITE_PATH.'indexMain.php?controller=login&function=authenticate';?> method="post">
+						<fieldset>
+							<div class="row">
+								<span class="text"><input type="text" name="email" value="email"/></span>
+								<span class="text"><input type="password" name="password" value="password"/></span>
+								<input type="submit" value="Go" class="submit" />
+							</div>
+							<div class="row">
+								<label for="check-1">Remember me</label>
+								<input type="checkbox" class="check" id="check-1" />
+								<a href="#">Forgot your password?</a>
+								<br><span id="login_error" style="color:red;font-size:13px;">
+								<?php if (isset($arrData['error'])) echo $arrData['error'];?>
+								</span>
+							</div>
+						</fieldset>
+					</form>		
+					
+					<?php } ?>
+
+				</div>
 			</div>
+			<ul id="nav">
+				<li><a href="<?php echo SITE_PATH.'indexMain.php';?>">Home</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=jobsearch&function=searchguest';?>">Job Seekers</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=resumeSearch&function=searchPannel';?>">Employers</a></li>
+				<li><a href="#">Career advice</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">About Us</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showContactUs';?>">Contact Us</a></li>
+			</ul>
 		</div>
 	</div>
+
 
 	<div id="main">
 		<div class="wrapper" style="height:400px;">
@@ -78,7 +146,7 @@
 			<div id="jobseeker">
 			<span><h3>Basic Registration  - Job Seeker</h3></span>
         <div id="frmRegister" >
-        <form action="indexMain.php?controller=registerjobseeker&function=verify" id="frmRegisterJobSeeker" method="post">
+        <form action="" id="frmRegisterJobSeeker" method="post">
             <table class="frmregisteremp">
 
                 <tr>
@@ -110,7 +178,7 @@
 					<td><input type="button" value="See Another" onclick="imageReload()"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" /></td>
+                    <td><input type="button" id="register" value="Register"/></td>
                 </tr>
             </table>
         </form>
@@ -153,7 +221,20 @@
 				</tr>
 				<tr>
 					<td><label for="companyName"><strong>Company Name: <em>*</em></strong></label></td>
-					<td><input type="text" name="companyName" id="companyName" ></td>
+					<td>
+						<select id="companyName" name="companyName" onchange='checkValueCompanyName(this.value)'>
+							<option class="default">OSSCube</option>
+							<?php
+								while (list($key,$val)=each($arrData)) {
+								echo "<option>".$val."</option>";
+								}
+							?>
+							<option>Others</option>
+						</select>
+					</td>
+					<td>
+						<a id="companyRegister" href="indexMain.php?controller=registerCompany&function=registerCompanyForm" style="display: none;color: blue;">Click here to register your company</a>
+						</td>
 				</tr>
 				<tr>
 					<td><label for="contactNumber"><strong>Contact Number: <em>*</em></strong></label></td>
@@ -179,6 +260,7 @@
 	</div>
 	
 </div>
+
 <?php include_once 'footer.php';?>
 </body>
 </html>
