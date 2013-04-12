@@ -36,7 +36,7 @@ class JobReportsModel
 	
 	}
 	
-	#method to show search result
+	#method to show search result    @author:Siddarth Chowdhary
 	function search($arrCriteria)										
 	{  
 			
@@ -95,22 +95,16 @@ class JobReportsModel
 				array_push($arrConditions,'jobs_available.experience_required <= \'' . $arrCriteria['experience_required'] .'\' or ');
 			}
 			
-			//echo "<pre>";
-			//print_r($arrKeyword);//die();
 			
 			$count=count($arrConditions);
 			if($count>0){
 				$arrConditions[$count-1] = rtrim($arrConditions[$count-1], " or ");
-				$data['conditions']	= $arrConditions;//array(rtrim ($test[0], "" ) => $test[0]);
-				//print_r($test);die("<br>here");
+				$data['conditions']	= $arrConditions;
+			
 				$result = $db->select($data);
-				//echo $result->queryString;
 				while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				$alljobs[]=$row; 
 				}
-				//echo "<pre>";
-				//print_r($alljobs);
-				//die("i am here");
 				return $alljobs;
 			} else {
 			 return 0;

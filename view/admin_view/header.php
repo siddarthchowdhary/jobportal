@@ -16,6 +16,8 @@
 	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH.'jquery-ui-1.8.4.custom.css';?>" />
 	<script type="text/javascript" src="<?php echo JS_PATH.'jquery-1.7.1.min.js';?>"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH.'jquery.main.js';?>"></script>	
+	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
+	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.9.1.js" ></script>
 	<script src="<?php echo JS_PATH.'jquery.js';?>" type="text/javascript"></script>
 	<script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
 </head>
@@ -36,8 +38,7 @@
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=display'?>">Home Page Ads</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=display'?>">Manage Site Information</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=display'?>">Employer Management</a></li>
-		<!--	<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=ProductSetting&function=display'?>">Product Setting</a></li>
-		-->		<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=display'?>">Reports</a></li>
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=display'?>">Reports</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=DatabaseManagement&function=display'?>">Database Management</a></li>
 				
 			</ul>

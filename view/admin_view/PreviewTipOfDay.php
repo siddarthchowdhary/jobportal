@@ -6,7 +6,6 @@
  * @modified on : 
 */
 
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
 include_once 'header.php';
 ?>
 	<div id="main">

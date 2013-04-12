@@ -6,7 +6,7 @@
  * @module 		: Admin
  * @modified on : 
 */
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
+
 
 include_once 'header.php';
 ?>
@@ -74,12 +74,19 @@ $(document).ready(function(){
 													<label for="job-category">Select a job category</label>
 													<select id="job-category" name="job-category">
 														<option class="default"></option>
-														<option>IT-Software</option>
-														<option>IT-Hardware</option>
-														<option>Finance</option>
-														<option>Marketing</option>
-														<option>Others</option>
+															<?php
+													
+																foreach($arrData as $key => $value){
+																	if($key=='industry_type') {
+																		foreach($value as $key1 => $value1) {
+																			echo "<option>".$value1."</option>";
+																		}
+															    	}
+																}
+															  
+															?>
 													</select>
+													
 												</div>
 											</div>
 											<div class="column">
@@ -90,7 +97,7 @@ $(document).ready(function(){
 													</span>
 												</div>
 												<div class="row">
-													<label for="location">Experience (enter 0 for fresher)</label>
+													<label for="location">Experience (0 for fresher)</label>
 													<span class="text">
 														<input type="text" class="text" id="experience" name="experience"/>
 													</span>
@@ -98,10 +105,19 @@ $(document).ready(function(){
 											</div>
 											<div class="column">
 												<div class="row">
-													<label for="employer">Company Name</label>
-													<span class="text">
-														<input type="text" class="text" id="employer" name="employer"/>
-													</span>
+													<label for="job-category">Select Company </label>
+													<select id="employer" name="employer">
+														<option class="default"></option>
+															<?php
+																foreach($arrData as $key => $value){
+																	if($key=='company_name') {
+																		foreach($value as $key1 => $value1) {
+																			echo "<option>".$value1."</option>";
+																		}
+															    	}
+																}
+															?>
+													</select>							
 												</div>
 												<div class="row">
 													<input type="button" value="Perform the search" class="submit" onclick="searchJobs()"/>
@@ -113,7 +129,6 @@ $(document).ready(function(){
 								</form>
 
 								<div id="job_result">
-								
 								
 								</div>
 								
@@ -128,11 +143,10 @@ $(document).ready(function(){
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>Main<span>Menu</span></h3>
+								<h3></h3><span><?php echo MAIN_MENU; ?></span></h3>
 							</div>
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=siteStatistics';?>"><?php echo SITE_STATISTICS; ?></a>
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobseekerReports';?>"><?php echo MANAGE_JOBSEEKER_REPORTS; ?></a>
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=employerReports';?>"><?php echo MANAGE_EMP_REPORTS; ?></a>
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=jobReports';?>"><?php echo MANAGE_JOB_REPORTS; ?></a>

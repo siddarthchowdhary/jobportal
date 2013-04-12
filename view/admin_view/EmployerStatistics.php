@@ -5,7 +5,7 @@
  * @module 		: Admin
  * @modified on : 
 */
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
+
 include_once 'header.php';
 ?>
 
@@ -40,6 +40,8 @@ include_once 'header.php';
 							<div id="admin_sidebar_anchor">
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerStatistics';?>"><?php echo EMPLOYER_STATISTICS; ?></a>
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerMain';?>"><?php echo EMPLOYER_MANAGE; ?></a>
+						    <a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=companyStatistics';?>"><?php echo COMPANY_STATISTICS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=companyMain';?>"><?php echo COMPANY_MANAGE; ?></a>
 						    </div>
 						</div>						
 					</div>

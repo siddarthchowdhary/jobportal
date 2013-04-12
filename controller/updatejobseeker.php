@@ -153,10 +153,12 @@
 						if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)) {
 						header('Location: indexMain.php?controller=pages&function=detailsSaved');
 						} else {
-							echo "Sorry, there was a problem uploading your file ok.";
+							header('Location: indexMain.php?controller=pages&function=detailsNotSaved');
+							//echo "Sorry, there was a problem uploading your file.";
 						}
 					} else {
-						echo "Sorry, there was a problem uploading your file.";
+						header('Location: indexMain.php?controller=pages&function=extensionProblem');
+						//echo "Sorry, there was a problem uploading your file.";
 					}
 				} else {
 					echo "there was a problem saving extension of the resume";

@@ -10,16 +10,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>Logout Successful</title>
+	<title><?php echo LOGOUT_SUCCESS; ?> </title>
 	<link href=<?php echo CSS_PATH.'loginModule.css';?> rel="stylesheet" type="text/css" />
 </head>
 <body>
 	
 	<p align="center"></p>
-<h4 align="center" class="err">Logout successful!</h4>
+<h4 align="center" class="err"><?php echo LOGOUT_SUCCESS; ?></h4>
   
   
 
-  <h4 align="center" class="err"> <a href=<?php echo SITE_PATH.'indexMain.php';?> >Click Here To Go back to Home Page!</a</h4>
+  <h4 align="center" class="err"> <a href=<?php echo SITE_PATH.'indexMain.php';?> ><?php echo GO_BACK_TO_HOME; ?></a</h4>
 </body>
 </html>

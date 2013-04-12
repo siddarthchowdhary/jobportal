@@ -46,6 +46,8 @@
     define('FNAME', 'FIRST NAME');
     define('MNAME', 'MIDDLE NAME');
     define('LNAME', 'LAST NAME');
+    define('PASSWORD','Password');
+    define('CONFIRM_PASSWORD','Confirm Password');
     define('GENDER', 'GENDER');
     define('DOB','DATE OF BIRTH');	
     define('EMAIL', 'EMAIL ID');
@@ -66,4 +68,11 @@
     define('KEY_SKILLS','KEY SKILLS');
     define('INDUSTRY','INDUSTRY');
     define('FUNCTIONAL_AREA','FUNCTIONAL AREA');
+    define('JOBSEEKER','Job Seeker');
+    define('JOBSEEKERS','Job Seekers');
+    define('EMPLOYER','Employer');
+    define('EMPLOYERS','Employers');
+    define('ABOUT_US','About Us');
+    define('CONTACT_US','Contact Us');
+    define('CAREER_ADVICE','Career Advice');
 ?>

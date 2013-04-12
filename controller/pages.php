@@ -57,6 +57,17 @@ class pagesController extends common
         $this->loadView('jobseeker_view/detailsSaved.php');
     }
     
+    function detailsNotSaved()
+    {
+        $this->loadView('jobseeker_view/detailsNotSaved.php');
+    }
+    
+    function extensionProblem()
+    {
+        $this->loadView('jobseeker_view/extensionProblem.php');
+    }
+    
+    
     function noJobsFound()
     {
 		$this->loadView('jobseeker_view/noJobsFound.php');

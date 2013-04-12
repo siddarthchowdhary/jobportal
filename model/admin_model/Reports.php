@@ -4,9 +4,10 @@
  * @description : Reports Model 
  * @module		: Admin 
  * @modified on : 10-04-2013 jobseeker report functionality added
+ * @todo		:
 */
-
-class ReportsModel
+require_once(ADMIN_MODEL_PATH.'SelectValues.php');
+class ReportsModel extends SelectValuesModel 
 {
 	#method to obtain connection from mysql database
 	public function dbConnect()
@@ -82,7 +83,7 @@ class ReportsModel
 		$data['tables']	     = 'jobs_available';     						#selecting jobs_available table from database
 		$data['conditions1'] = array("status = '0'");   					#setting condition where status =0  (0=active) 
 		$data['conditions2'] = array("status = '1'");
-		//$data['conditions2'] = array("usertype ='3' and ","status = '0'"); 	#condition where usertype=2 and status=0 (0=active)
+		
 		
 		$result1 = $db->count($data['tables'],$data['conditions1']); #executing query SELECT COUNT(*) FROM `users` WHERE usertype ='2'
 		$result2 = $db->count($data['tables'],$data['conditions2']); #executing query SELECT COUNT(*) FROM `users` WHERE usertype ='2' and status = '0'
@@ -102,6 +103,10 @@ class ReportsModel
 		return $result3;
 	}
 	
+	
+	
+	
+	
 	#method to show Employer reports
 	function employerReports()										
 	{   
@@ -120,6 +125,21 @@ class ReportsModel
 		$result = $db->update('admin_pages', $data, $where); #update query
 		
 	}
+
+	#method to load job reports form data
+	function jobReportsForm()									
+	{  	    
+		$rowIndustry=$this->industryType();
+		$rowCompany=$this->companyName();
+		$response = array('industry_type' => $rowIndustry,'company_name'=> $rowCompany);		
+		return $response;
+	
+	}
+
+
+
+
+
 
 	#method to show search result
 	function jobReports($arrCriteria)										
@@ -182,11 +202,9 @@ class ReportsModel
 				$arrConditions[$count-1] = rtrim($arrConditions[$count-1], " or ");
 				$data['conditions']	= $arrConditions;
 				$result = $db->select($data);
-
-				$row_count=0;
+				$row_count=$result->rowCount(); 						# counts number of record selected;
 				while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-					$row_count++;
-				$alljobs[]=$row; 
+					$alljobs[]=$row; 
 				}
 				
 				$alljobs['row_count']=$row_count;

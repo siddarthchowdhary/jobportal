@@ -3,12 +3,12 @@
  * @date   		: 02-04-2013
  * @description : JobPortal Home Page upload Ads view 
  * @module		: Admin
- * @todo 		: apply client side validation on url format www.example.com
+ * @todo 		: 
 */
-ini_set("display_errors","1");
+
 include_once 'header.php';
 ?>
-
+</script>
 	<div id="main">
 		<div class="wrapper">
 			<div id="content">		
@@ -20,11 +20,11 @@ include_once 'header.php';
 							</div>
 							<!--code here-->
 							<div id="content">
-							<form  action="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=addAds'?>" method="post" enctype="multipart/form-data">
+							<form  id="adsUpload" action="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=addAds'?>" method="post" enctype="multipart/form-data">
 								 <table>
 									<tr><td><?php echo CHOOSE_FILE; ?>:<input type="file" name="fileName" /> </td></tr>
 									<tr><td><?php echo CHOOSE_FILE_NAME; ?>:<input type="text" name="userFileName"/></td></tr>
-								    <tr><td><?php echo CHOOSE_URL; ?>:<input type="text" name="url"/></td></tr>		
+								    <tr><td><?php echo CHOOSE_URL; ?>:<input type="url" name="url"/></td></tr>		
 								 </table>  			       		
 					       		<input class="admin_btn" name="btn1" id="btn1" type="submit" value="add" />
 					       		

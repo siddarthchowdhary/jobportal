@@ -5,13 +5,7 @@
  * @module 		: Admin
  * @modified on : 
 */
-/*
-if(!isset($_SESSION['EMAIL_SESSION']) || (trim($_SESSION['EMAIL_SESSION']) == '')) {
-	header("location: access_denied.php");                        //correct path here
-	exit();
-}
-*/
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/constants.php');
+
 
 include_once 'header.php';
 ?>

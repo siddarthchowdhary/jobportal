@@ -6,7 +6,7 @@
  * @module 		: Admin
  * @modified on : 31-03-2013
 */
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
+
 include_once 'header.php';
 ?>
 
@@ -43,7 +43,7 @@ include_once 'header.php';
 						</div>						
 					</div>
 				</div>
-		</div>
+			</div>
 		</div>
 
 	</div>

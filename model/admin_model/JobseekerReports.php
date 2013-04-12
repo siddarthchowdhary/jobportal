@@ -45,7 +45,6 @@ class JobseekerReportsModel
 		$data				= array();
 		$data['tables']		= 'admin_pages';				#selecting admin_pages table from database
 	
-		//$data['conditions'] = array("name ='AboutUs'");
 		$data = array("content1" => "$aboutUsNew");         #set  content1='new about us'
  		$where = array("name = 'AboutUs'");					#where name='AboutUs'
  		

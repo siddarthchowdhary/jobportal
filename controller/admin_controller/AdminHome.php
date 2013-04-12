@@ -37,7 +37,6 @@ class AdminHomeController extends common  #extends /classes/common which contain
 				if(strlen($newPassword)>PASSWORD_LENGTH)
 				{
 					$temp=$this->loadModel("AdminHome","changePassword",$newPassword);
-					//var_dump($temp);die;
 					if($temp)
 					{
 						echo PASSWD_CHANGE_MSG ;

@@ -5,7 +5,7 @@ class mailModel extends DBConnect
 	function sendMailTo($data)
 	{
 		//return $data;
-		$to='saurabh.agarwal@osscube.com';//$data['email'];//;//$_REQUEST['email'];
+		$to='siddarth.chowdhary@osscube.com';//$data['email'];//;//$_REQUEST['email'];
 		$userId = $data['user_id'];
 		$validationString=$data['validation_string'];
 		//return $userId

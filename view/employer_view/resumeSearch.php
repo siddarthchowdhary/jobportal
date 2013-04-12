@@ -17,15 +17,12 @@
 		var flag = 0;
 		function performSearch()
 		{
-			//alert($("#resumeSearchForm").serialize());
-			
 			$.ajax({
 				type : "POST",
 				url : 'indexMain.php?controller=resumeSearch&function=resumeSearch',
 				data : $("#resumeSearchForm").serialize(),
 				success : function(response)
 				{
-					//alert(response);
 					$("#searchResult").html(response);
 					if(flag==0)
 					{
@@ -41,6 +38,11 @@
 				}
 			});
 		}
+		
+		function contactDetails(data)
+		{
+			alert(data);
+		}
 		$(document).ready(function(){
 			$("#divresult").hide();
 			
@@ -49,7 +51,12 @@
 	</script>
 </head>
 <body>
-	<?include_once("headerEmployer.php");?>
+	<?php
+		if(isset($_SESSION['EMAIL_SESSION']))
+			include_once(VIEW_PATH."employer_view/headerEmployer.php");
+		else
+			include_once(VIEW_PATH."header.php");?>
+	<script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
 	<div id="main">
 		<div class="wrapper">
 			<div id="content">

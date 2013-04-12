@@ -6,7 +6,7 @@
  * @updated on	: 04-04-2013
  * @todo 		: multiple ads display
 */
-ini_set("display_errors","1");
+
 class HomePageAdsModel 
 {	
 	

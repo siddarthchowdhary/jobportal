@@ -5,7 +5,7 @@
  * @module		: Admin 
  * @modified on : 30-03-2013
 */
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
+
 include_once 'header.php';
 ?>
 

@@ -23,13 +23,14 @@ class resumeSearchModel
 		$data = array();
 		$data['columns'] = array(
 								"users.id",
-								"users.displayname",
+								"users.displayname","users.email",
 								"jobseeker_educational_details.highest_degree",
 								"jobseeker_professional_details.experience",
 								"jobseeker_professional_details.keyskills",
 								"jobseeker_professional_details.functional_area",
 								"jobseeker_personal_details.gender",
 								"jobseeker_personal_details.contact_number",
+								"jobseeker_personal_details.current_address"
 								);
 							
 			$data['tables']	= 'users';
@@ -52,12 +53,7 @@ class resumeSearchModel
 								'conditions' => array(
 									'jobseeker_personal_details.id' => 'jobseeker_professional_details.personal_id')
 								);
-			/*$data['joins'][] = array(
-								'table' => 'master_table', 
-								'conditions' => array('jobseeker_personal_details.id' => 'jobseeker_professional_details.personal_id')
-								);
-			
-				*/				
+					
 			$arrConditions=array();
 			//push where conditions in array here
 			if(!empty ($arrKeyword)){

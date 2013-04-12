@@ -1,37 +1,16 @@
 <?php
 /* @author 		: Ashwani Singh
  * @date   		: 05-04-2013
- * @description : Employer Activate view
+ * @description : Employer Activate/Deactivate view
  * @module 		: Admin
  * @modified on : 
  * @todo		: client email validation
 */
-//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/trunk/config/constants.php');
+
 include_once 'header.php';
 ?>
 <script type="text/javascript">
-/*
- * 
- $(document).ready(function() {       
-    // validate form on keyup and submit
-    $("#frmEmpSearch").validate({
-        rules: {
-            // note: these pull from the "name" attrib.
-            // if needed: 'user[first_name]': { required: true }
-            email: { required: true, email: true },
-          
-        },
-        messages: {            
-            email: "Please enter a valid email address",
-        },
-        submitHandler: function(form) {
-            // if you use blockui
-            $.blockUI({ message: '<h1><img src="/images/admin_images/busy.gif" /> Processing...</h1>' });
-            form.submit();
-        }
-    });
-});
-# function to search employer */
+/* function to search employer */
 function searchEmployer()
 { 
 	var email = $("#email").val();
@@ -134,6 +113,8 @@ $(document).ready(function(){
 						<div id="admin_sidebar_anchor">
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerStatistics';?>"><?php echo EMPLOYER_STATISTICS; ?></a>
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=employerMain';?>"><?php echo EMPLOYER_MANAGE; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=companyStatistics';?>"><?php echo COMPANY_STATISTICS; ?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=companyMain';?>"><?php echo COMPANY_MANAGE; ?></a>
 						</div>						
 					</div>
 				</div>

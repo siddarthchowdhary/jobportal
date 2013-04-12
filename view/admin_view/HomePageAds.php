@@ -37,7 +37,7 @@ include_once 'header.php';
 							<!--code here-->
 							<div id="admin_sidebar_anchor">
 							<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showAds';?>"><?php echo MANAGE_ADS?></a>
-							<a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>"><?php echo MANAGE_TIP_OF_DAY?></a>
+							<a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=showTipOfDay';?>"><?php echo MANAGE_TIP_OF_DAY?></a>
 						    </div>
 						</div>						
 					</div>

@@ -26,18 +26,39 @@ class resumeSearchController extends common
 						"highestEducation"=>$highestEducation
 						);
 		$result =  $this->loadModel('resumeSearch','retrieve',$dataFromUser);
-		
+		//print_r($result);die;
+		if ($val['gender'] == 10)
+			$gender='Male';
+		else
+			$gender='Female';
+			
 		if ($result){
 			$response = '';
+			$data ='';
+			$gender='';
 			while (list($key, $val) = each($result)) {
+				if ($val['gender'] == 10)
+					$gender='Male';
+				else
+					$gender='Female';
+					
+				if(isset($_SESSION['EMAIL_SESSION']))
+				{
+					$data = '\'Email: '.$val['email'];
+					$data .= ' \nCurrent Address: '.$val['current_address'];
+					$data .= ' \nContact Number: '.$val['contact_number'].'\'';
+				}
+				else
+					$data = '\'Login First\'';
+					
 				$response .= '<tr><td>';
 				$response .= "<br>"."<b>Display Name:</b>".$val['displayname'];
 				$response .= "<br>"."<b>Highest Degree:</b>".$val['highest_degree'];
 				$response .= "<br>"."<b>Experience:</b>".$val['experience'];
 				$response .= "<br>"."<b>Keyskills:</b>".$val['keyskills'];
 				$response .= "<br>"."<b>Functional Area:</b>".$val['functional_area'];
-				$response .= "<br>"."<b>Gender:</b>".$val['gender'];
-				$response .= "<br>"."<b>Contact Number :</b>".$val['contact_number'];
+				$response .= "<br>"."<b>Gender:</b>".$gender;
+				$response .= '<br><input type="button" value="View Contact Details" onclick="contactDetails('.$data.')"/>';
 				$response .= '</td></tr>';
 			}
 		}

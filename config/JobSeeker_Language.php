@@ -30,3 +30,6 @@
 	define('BCA','BCA');
 	define('BBA','BBA');
 	define('NO_DETAILS','You have not filled your details yet , Please update Your details.');
+	define('DETAILS_SAVED','Your details have been saved.');
+	define('DETAILS_NOT_SAVED','Your details could not be saved due to some problem.<br><br>Please Try Again.');
+	define('EXTENSION_PROB','you can\'t upload this file coz of size and/or extension issue ');

@@ -24,10 +24,9 @@ class AdminHomeModel
 	
 	function validateUser($dataFromUser)
 	{
-		//print_r($arrArguements);
 		$db = $this->dbConnect();
 		session_start();
-		//select query to check if firstname is empty
+
 		$data = array();
 		$data['tables'] = 'users';
 		$password=md5($dataFromUser['password']);
@@ -36,10 +35,8 @@ class AdminHomeModel
 								"email = '$email' AND ",
 								"password = '$password'"
 								);
-		//return $data;					
-		//print_r($data['conditions']);
 		$result = $db->select($data);
-		//return $result;// die ("here");
+		
 		if ( $result->rowCount() == 1 ) 
 		{
 			return 1;
@@ -52,18 +49,13 @@ class AdminHomeModel
 	
 	function changePassword($dataFromUser)
 	{
-		//echo "<pre>";print_r($dataFromUser);die();
-		//session_start();
+		
 		$db = $this->dbConnect();
 		session_start();
-		//return $dataFromUser;
-		//return $_SESSION['EMAIL_SESSION'];
 		$email = $_SESSION['EMAIL_SESSION'];
 		$data = array("password"=>md5($dataFromUser));
 		$where = array("email = '$email'");
 		$result = $db->update('users',$data,$where);
-		//return ($result);//die("updated");
-		//return var_dump($result);
 		if ($result)
 			return 1;
 		else

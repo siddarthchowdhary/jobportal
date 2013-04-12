@@ -147,23 +147,23 @@
             <table class="frmregisteremp">
 
                 <tr>
-                    <td><label for="firstname"><strong>First Name: <em>*</em></strong></label></td>
+                    <td><label for="firstname"><strong><?php echo  FNAME;?>: <em>*</em></strong></label></td>
                     <td><input type="text" name="firstname"></td>
                 </tr>
                 <tr>
-                    <td><label for="lastname"><strong>Last Name: <em>*</em></strong></label></td>
+                    <td><label for="lastname"><strong><?php echo LNAME;?>: <em>*</em></strong></label></td>
                     <td><input type="text" name="lastname"></td>
                 </tr>
                 <tr>
-                    <td><label for="email"><strong>Email id: <em>*</em></strong></label></td>
+                    <td><label for="email"><strong><?php echo EMAIL;?>: <em>*</em></strong></label></td>
                     <td><input type="text" name="email"></td>
 				</tr>
                 <tr>
-                    <td><label for="password"><strong>Password : <em>*</em></strong></label></td>
+                    <td><label for="password"><strong><?php echo PASSWORD;?> : <em>*</em></strong></label></td>
                     <td><input type="password" name="password" id="password"></td>
                 </tr>
                 <tr>
-                    <td><label for="confirmPassword"><strong>Confirm Password : <em>*</em></strong></label></td>
+                    <td><label for="confirmPassword"><strong><?php echo CONFIRM_PASSWORD;?> : <em>*</em></strong></label></td>
                     <td><input type="password" name="confirmPassword" id="confirmPassword"></td>
                 </tr>
                 <tr style="text-align:center">
@@ -188,15 +188,15 @@
 		<form action="" id="frmRegisterEmployer" method="post">
 			<table class="frmregisteremp">
 				<tr>
-					<td><label for="firstName"><strong>First Name: <em>*</em></strong></label></td>
+					<td><label for="firstName"><strong><?php echo FNAME;?>: <em>*</em></strong></label></td>
 					<td><input type="text" name="firstName" id="firstName" ></td>
 				</tr>
 				<tr>
-					<td><label for="lastName"><strong>Last Name: <em>*</em></strong></label></td>
+					<td><label for="lastName"><strong><?php echo LNAME;?>: <em>*</em></strong></label></td>
 					<td><input type="text" name="lastName" id="lastName" ></td>
 				</tr>
 				<tr>
-					<td><label for="gender"><strong>Gender: <em>*</em></strong></label></td>
+					<td><label for="gender"><strong><?php echo GENDER;?>: <em>*</em></strong></label></td>
 					<td>
 						<select id="gender" name="gender">
 							<option value="Male">Male</option>
@@ -205,19 +205,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td><label for="email"><strong>Email id: <em>*</em></strong></label></td>
+					<td><label for="email"><strong><?php echo EMAIL;?>: <em>*</em></strong></label></td>
 					<td><input type="text" name="email" id="email" ></td>
 				</tr>
 				<tr>
-					<td><label for="password"><strong>Password : <em>*</em></strong></label></td>
+					<td><label for="password"><strong><?php echo PASSWORD;?> : <em>*</em></strong></label></td>
 					<td><input type="password" name="passwordEmployer" id="passwordEmployer" ></td>
 				</tr>
 				<tr>
-					<td><label for="confirmPassword"><strong>Confirm Password : <em>*</em></strong></label></td>
+					<td><label for="confirmPassword"><strong><?php echo CONFIRM_PASSWORD;?> : <em>*</em></strong></label></td>
 					<td><input type="password" name="confirmPasswordEmployer" id="confirmPasswordEmployer" ></td>
 				</tr>
 				<tr>
-					<td><label for="companyName"><strong>Company Name: <em>*</em></strong></label></td>
+					<td><label for="companyName"><strong><?php echo COMPANY_NAME;?>: <em>*</em></strong></label></td>
 					<td>
 						<select id="companyName" name="companyName" onchange='checkValueCompanyName(this.value)'>
 							<option class="default">OSSCube</option>
@@ -226,7 +226,7 @@
 								echo "<option>".$val."</option>";
 								}
 							?>
-							<option>Others</option>
+							<option><?php echo OTHERS;?></option>
 						</select>
 					</td>
 					<td>
@@ -234,7 +234,7 @@
 						</td>
 				</tr>
 				<tr>
-					<td><label for="contactNumber"><strong>Contact Number: <em>*</em></strong></label></td>
+					<td><label for="contactNumber"><strong><?php echo PHNO;?>: <em>*</em></strong></label></td>
 					<td><input type="text" name="contactNumber" id="contactNumber" ></td>
 				</tr>
 				<tr style="text-align:center">
