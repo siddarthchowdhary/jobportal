@@ -5,7 +5,7 @@ class mailModel extends DBConnect
 	function sendMailTo($data)
 	{
 		//return $data;
-		$to='siddarth.chowdhary@osscube.com';//$data['email'];//;//$_REQUEST['email'];
+		$to='saurabh.agarwal@osscube.com';//$data['email'];//;//$_REQUEST['email'];
 		$userId = $data['user_id'];
 		$validationString=$data['validation_string'];
 		//return $userId
@@ -22,7 +22,7 @@ class mailModel extends DBConnect
 		$mailer->Username = 'siddarth.testing@gmail.com';  // Change this to your gmail adress
 		$mailer->Password = 'osscube.';  // Change this to your gmail password
 		$mailer->From = 'siddarth.testing@gmail.com';  // This HAVE TO be your gmail adress
-		$mailer->FromName = 'JOBPORTAL'; // This is the from name in the email, you can put anything you like here
+		$mailer->FromName = 'SAgarwal'; // This is the from name in the email, you can put anything you like here
 		$mailer->isHTML(true);
 		$mailer->Body = $body;
 		$mailer->Subject = 'Validation Link for JOB PORTAL';

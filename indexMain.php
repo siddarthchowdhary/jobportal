@@ -8,6 +8,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/common.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/DBConnect.php');
 require_once(ADMIN_LANGUAGE_PATH);       #admin language file.
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/JobSeeker_Language.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/employer_language.en.php');
+
 if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
       $controller =$_REQUEST['controller']; //echo $controller;die();
 }else{

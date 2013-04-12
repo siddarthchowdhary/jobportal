@@ -81,8 +81,8 @@
 			
 		
 
-		</div>
-	</div>
+
+
 	<?php require_once(VIEW_PATH."footer.php");?>
 
 </body>

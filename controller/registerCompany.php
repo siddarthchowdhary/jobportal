@@ -35,9 +35,9 @@ class registerCompanyController extends common
 					);
 		$result=$this->loadmodel('registerCompany','inject',$data);
 		if ($result==1)
-			echo "Comapny sucessfully registered with name ".$_POST['companyName'];
+			echo COMPANY_REGISTERED_SUCCESS.$_POST['companyName'];
 		elseif($result === 0)
-			echo "Something went wrong";
+			echo SOMETHING_WRONG_TRY_AGAIN;
 		else
 			echo $result;
 	}

@@ -65,7 +65,13 @@
 	</script>
 </head>
 <body>
-	<?include_once("headerEmployer.php");?>
+	
+	<?php
+		if(isset($_SESSION))
+			include_once(VIEW_PATH."employer_view/headerEmployer.php");
+		else
+			include_once(VIEW_PATH."header.php");
+		?>
 
 	<div id="main">
 		<div class="wrapper" >
@@ -74,15 +80,15 @@
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h2>MY <span>JOBS</span></h2>
+								<h2><span><?php echo MY_JOBS;?></span></h2>
 							</div>
-							<input type="button" value="Add Job" onclick="addJobForm()"/>
+							<input type="button" value="<?php echo ADD_JOB;?>" onclick="addJobForm()"/>
 							<div id="result"></div>
 							<div id="allJobs">
 							<!--data tables used here-->
                             <table id="datatables" class="display">
 								<thead>
-									<tr><th>MY Jobs</th></tr>
+									<tr><th><?php echo MY_JOBS;?></th></tr>
 								</thead>
 								<tbody>
 									<?php
@@ -90,15 +96,15 @@
 											echo '<tr>';
 											echo '<td>';
 											echo '<form action="indexMain.php?controller=job&function=editJob" id="frmRegisterJobSeeker" method="post">';
-											echo "<br>"."<b>Name of Post:</b>".$val['name_of_post'];
-											echo "<br>"."<b>Date of Job Posted :</b>".$val['date_of_job_posted'];
-											echo "<br>"."<b>Experience :</b>".$val['experience_required'];
-											echo "<br>"."<b>Last Applying Date :</b>".$val['date_of_last_applying'];
-											echo "<br>"."<b>Job Description :</b>".$val['job_description'];
-											echo "<br>"."<b>Expected Salary :</b>".$val['expected_salary'];
+											echo "<br>"."<b>".NAME_OF_POST."</b>".$val['name_of_post'];
+											echo "<br>"."<b>".DATE_OF_JOB_POSTED."</b>".$val['date_of_job_posted'];
+											echo "<br>"."<b>".EXPERIENCE."</b>".$val['experience_required'];
+											echo "<br>"."<b>".LAST_APPLYING_DATE."</b>".$val['date_of_last_applying'];
+											echo "<br>"."<b>".JOB_DESCRIPTION."</b>".$val['job_description'];
+											echo "<br>"."<b>".EXPECTED_SALARY."</b>".$val['expected_salary'];
 											echo '<input type="hidden" name="jobId" id="jobId" value="'.$val['id'].'"/>';
-											echo "<br>".'<input type="submit" value="Edit" />';
-											echo '<input type="button" value="Delete" onclick="deleteJob('.$val['id'].')"/>';
+											echo "<br>".'<input type="submit" value="'.EDIT_DETAILS_EMPLOYER.'" />';
+											echo '<input type="button" value="'.DELETE.'" onclick="deleteJob('.$val['id'].')"/>';
 											echo '</form>';
 											echo '</td>';
 											echo '</tr>';
@@ -112,39 +118,39 @@
 							<form action="indexMain.php?controller=job&function=addNewJob" id="frmAddJob" method="post">
 							<table class="frmregisteremp">
 								<tr>
-									<td><label for="postName"><strong>Post Name: <em>*</em></strong></label></td>
+									<td><label for="postName"><strong><?php echo NAME_OF_POST;?><em>*</em></strong></label></td>
 									<td><input type="text" name="postName" id="postName"></td>
 								</tr>
 								<tr>
-									<td><label for="experience"><strong>Experience : <em>*</em></strong></label></td>
+									<td><label for="experience"><strong><?php echo EXPERIENCE;?> <em>*</em></strong></label></td>
 									<td><input type="text" name="experience" id="experience"></td>
 								</tr>
 								<tr>	
-									<td><label for="dateOfLastApplying"><strong>Date Of Last Applying : <em>*</em></strong></label></td>
-									<td><input type="text" name="dayOfLastApplying" placeholder="day" id="dayOfLastApplying" onblur="requireValidator(this)"></td>
+									<td><label for="dateOfLastApplying"><strong><?php echo LAST_APPLYING_DATE;?> <em>*</em></strong></label></td>
+									<td><input type="text" name="dateOfLastApplying" placeholder="YYYY-MM-DD" id="dateOfLastApplying"></td>
 									<!--
 									<td><input type="text" name="monthOfLastApplying" placeholder="month" id="monthOfLastApplying" onblur="requireValidator(this)"></td>
 									<td><input type="text" name="yearOfLastApplying" placeholder="year" id="yearOfLastApplying" onblur="requireValidator(this)"></td>
 									-->
 								</tr>
 								<tr>
-									<td><label for="expectedSalary"><strong>Expected Salary : <em>*</em></strong></label></td>
+									<td><label for="expectedSalary"><strong><?php echo EXPECTED_SALARY;?><em>*</em></strong></label></td>
 									<td><input type="text" name="expectedSalary" id="expectedSalary"></td>
 								</tr>
 								<tr>
-									<td><label for="jobDescription"><strong>Job Description : <em>*</em></strong></label></td>
+									<td><label for="jobDescription"><strong><?php echo JOB_DESCRIPTION;?><em>*</em></strong></label></td>
 									<td><input type="text" name="jobDescription" id="jobDescription"></td>
 								</tr>
 								<tr>
-									<td><label for="jobLocation"><strong>Job Location : <em>*</em></strong></label></td>
+									<td><label for="jobLocation"><strong><?php echo JOB_LOCATION;?> <em>*</em></strong></label></td>
 									<td><input type="text" name="jobLocation" id="jobLocation"></td>
 								</tr>
 								<tr>
-									<td><label for="jobCategory"><strong>Job Category : <em>*</em></strong></label></td>
+									<td><label for="jobCategory"><strong><?php echo JOB_CATEGORY;?> <em>*</em></strong></label></td>
 									<td><input type="text" name="jobCategory" id="jobCategory"></td>
 								</tr>
 								<tr>
-									<td><label for="keywords"><strong>Keywords : <em>*</em></strong></label></td>
+									<td><label for="keywords"><strong><?php echo ENTER_KEYWORDS;?> <em>*</em></strong></label></td>
 									<td><input type="text" name="keywords" id="keywords"></td>
 								</tr>
 								<tr>

@@ -27,44 +27,40 @@ class resumeSearchController extends common
 						);
 		$result =  $this->loadModel('resumeSearch','retrieve',$dataFromUser);
 		//print_r($result);die;
-		if ($val['gender'] == 10)
-			$gender='Male';
-		else
-			$gender='Female';
-			
+				
 		if ($result){
 			$response = '';
 			$data ='';
 			$gender='';
 			while (list($key, $val) = each($result)) {
 				if ($val['gender'] == 10)
-					$gender='Male';
+					$gender=MALE;
 				else
-					$gender='Female';
+					$gender=FEMALE;
 					
 				if(isset($_SESSION['EMAIL_SESSION']))
 				{
-					$data = '\'Email: '.$val['email'];
-					$data .= ' \nCurrent Address: '.$val['current_address'];
-					$data .= ' \nContact Number: '.$val['contact_number'].'\'';
+					$data = '\''.EMAIL_EMPLOYER.$val['email'];
+					$data .= '\n'.CURRENT_ADDRESS_EMPLOYER.$val['current_address'];
+					$data .= '\n'.CONTACT_NUMBER.$val['contact_number'].'\'';
 				}
 				else
-					$data = '\'Login First\'';
+					$data = '\''.LOGIN_FIRST.'\'';
 					
 				$response .= '<tr><td>';
-				$response .= "<br>"."<b>Display Name:</b>".$val['displayname'];
-				$response .= "<br>"."<b>Highest Degree:</b>".$val['highest_degree'];
-				$response .= "<br>"."<b>Experience:</b>".$val['experience'];
-				$response .= "<br>"."<b>Keyskills:</b>".$val['keyskills'];
-				$response .= "<br>"."<b>Functional Area:</b>".$val['functional_area'];
-				$response .= "<br>"."<b>Gender:</b>".$gender;
-				$response .= '<br><input type="button" value="View Contact Details" onclick="contactDetails('.$data.')"/>';
+				$response .= "<br>"."<b>".DISPLAY_NAME."</b>".$val['displayname'];
+				$response .= "<br>"."<b>".HIGHEST_EDUCATION."</b>".$val['highest_degree'];
+				$response .= "<br>"."<b>".EXPERIENCE."</b>".$val['experience'];
+				$response .= "<br>"."<b>".SKILL."</b>".$val['keyskills'];
+				$response .= "<br>"."<b>".KEY_FUNCTIONAL_AREA."</b>".$val['functional_area'];
+				$response .= "<br>"."<b>".GENDER_EMPLOYER."</b>".$gender;
+				$response .= '<br><input type="button" value="'.VIEW_CONTACT_DETAILS.'" onclick="contactDetails('.$data.')"/>';
 				$response .= '</td></tr>';
 			}
 		}
 		else
 		{
-			$response = "No Job Found";
+			$response = NO_JOB_FOUND;
 		}
 		echo $response;
 	}

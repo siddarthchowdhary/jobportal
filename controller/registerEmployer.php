@@ -50,16 +50,16 @@ class registerEmployerController extends common
 						//echo $result;die;
 						if(!empty($result))
 						{
-							echo "Sucessfuly Registered.";
+							echo SUCCESSFULLY_REGISTERED;
 							$result['email']=$email;
 							//print_r($result);die();
-							$mailFlag = @$this->loadModel('mail','sendMailTO',$result);
-							print_r( $mailFlag);
+							//$mailFlag = @$this->loadModel('mail','sendMailTO',$result);
+							//print_r( $mailFlag);
 							//echo "Activation Mail will be sent when implemented.";
 						}
 						else
 						{
-							echo "Something went wrong";
+							echo SOMETHING_WRONG_TRY_AGAIN;
 						}
 					}
 					//in case of validation failed
@@ -73,36 +73,19 @@ class registerEmployerController extends common
 				}
 				else
 				{
-					echo "Password Mismatch. Try Again!";
+					echo PASSWORD_MISMATCHED;
 				}
 			}//captcha check ends here
 			else
 			{
-				echo "Captcha Fail. Try Again.";
+				echo CAPTCHA_FAIL;
 			}
 		} else {
-				echo 'Please enter the details to register.';
+				echo PLEASE_ENTER_DETAILS;
 		}
 	}//function ends here
 	
-	function validateEmail()
-	{
-		//print_r($_GET);
-		$data = array(
-					"user_id"=>$_GET['user_id'],
-					"validation_string"=>$_GET['validation_string']
-					);
-		$result = $this->loadModel('registerEmployer','validateEmail',$data);
-		//var_dump($result);die;
-		if($result)
-		{	//echo "Your email validated successfully..";
-			$msg="Your email validated successfully..";
-			//sleep(10);echo "here";
-			$this->loadView('emailValidationSuccess.php',$msg);
-		}	
-		else
-			print_r($result);
-	}
+	
 }//class ends here
 
 ?>

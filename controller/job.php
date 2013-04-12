@@ -20,9 +20,9 @@ class jobController extends common
 		require VIEW_PATH.'checkSession.php';
 		$postName 			 = strip_tags($_POST['postName']);
 		$experience 		 = strip_tags($_POST['experience']);
-		$dayOfLastApplying 	 = strip_tags($_POST['dayOfLastApplying']);
-		$monthOfLastApplying = strip_tags($_POST['monthOfLastApplying']);
-		$yearOfLastApplying  = strip_tags($_POST['yearOfLastApplying']);
+		$dateOfLastApplying 	 = strip_tags($_POST['dateOfLastApplying']);
+		//$monthOfLastApplying = strip_tags($_POST['monthOfLastApplying']);
+		//$yearOfLastApplying  = strip_tags($_POST['yearOfLastApplying']);
 		$expectedSalary 	 = strip_tags($_POST['expectedSalary']);
 		$jobDescription 	 = strip_tags($_POST['jobDescription']);
 		$jobLocation 		 = strip_tags($_POST['jobLocation']);
@@ -34,9 +34,9 @@ class jobController extends common
 		$dataFromUser = array(
 							"postName"=>"$postName",
 							"experience"=>"$experience",
-							"dayOfLastApplying"=>"$dayOfLastApplying",
-							"monthOfLastApplying"=>"$monthOfLastApplying",
-							"yearOfLastApplying"=>"$yearOfLastApplying",
+							"dateOfLastApplying"=>"$dateOfLastApplying",
+							//"monthOfLastApplying"=>"$monthOfLastApplying",
+							//"yearOfLastApplying"=>"$yearOfLastApplying",
 							"expectedSalary"=>"$expectedSalary",
 							"jobDescription"=>"$jobDescription",
 							"jobLocation"=>"$jobLocation",
@@ -47,9 +47,9 @@ class jobController extends common
 		
 		$result = $this->loadModel("job","addNewJob",$dataFromUser);
 		if($result==1)
-			echo "Job Insertd Sucessfully";
+			echo JOB_INSERTED_SUCCESSFULLY;
 		elseif($result === 0)
-			echo "Something went wrong";
+			echo SOMETHING_WRONG_TRY_AGAIN;
 		else
 			echo $result;
 			//~ echo "Something Went wrong type of view here";
@@ -98,7 +98,7 @@ class jobController extends common
 							);
 			$result = $this->loadModel("job","updateJob",$dataFromUser);
 			if($result==1)
-				echo "Job Updated Successfully";
+				echo JOB_UPDATED_SUCCESSFULLY;
 			else
 				echo $result;
 		}
@@ -111,9 +111,9 @@ class jobController extends common
 			require VIEW_PATH.'checkSession.php';
 			$result = $this->loadModel("job","deleteJob",$_POST['jobId']);
 			if($result==1)
-				echo "Job Deleted Sucessfully";
+				echo JOB_DELETED_SUCCESSFULLY;
 			else
-				echo "Something Went wrong";
+				echo SOMETHING_WRONG_TRY_AGAIN;
 		}
 		
 		/*

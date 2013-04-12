@@ -15,38 +15,38 @@
 	<?php include_once("header.php");?>
 	<div id="main">
 		<div class="wrapper">
-			<span><h3>Basic Registration  - Employer</h3></span>
+			<span><h3><?php echo REGISTER.'--'.EMPLOYER;?></h3></span>
         <div id="frmRegister" >
         <form action="indexMain.php?controller=register&function=registrationProcess" id="frmRegisterJobSeeker" method="post">
             <table class="frmregisteremp">
                 <tr>
-                    <td><label for="firstName"><strong>First Name: <em>*</em></strong></label></td>
-                    <td><input type="text" name="firstName" id="firstName" onblur="requireValidator(this)"></td>
+                    <td><label for="firstName"><strong><?php echo FNAME;?> <em>*</em></strong></label></td>
+                    <td><input type="text" name="firstName" id="firstName"></td>
                     
                 </tr>
                 <tr>
-                    <td><label for="lastName"><strong>Last Name: <em>*</em></strong></label></td>
-                    <td><input type="text" name="lastName" id="lastName" onblur="requireValidator(this)"></td>
+                    <td><label for="lastName"><strong><?php echo LNAME;?><em>*</em></strong></label></td>
+                    <td><input type="text" name="lastName" id="lastName" ></td>
                 </tr>
                 <tr>
-                    <td><label for="email"><strong>Email id: <em>*</em></strong></label></td>
-                    <td><input type="text" name="email" id="email" onblur="requireValidator(this)"></td>
+                    <td><label for="email"><strong><?php echo EMAIL_EMPLOYER;?> <em>*</em></strong></label></td>
+                    <td><input type="text" name="email" id="email" ></td>
                 </tr>
                 <tr>
-                    <td><label for="password"><strong>Password : <em>*</em></strong></label></td>
-                    <td><input type="password" name="password" id="password" onblur="requireValidator(this)"></td>
+                    <td><label for="password"><strong><?php echo PASSWORD;?> <em>*</em></strong></label></td>
+                    <td><input type="password" name="password" id="password"></td>
                 </tr>
                 <tr>
-                    <td><label for="confirmPassword"><strong>Confirm Password : <em>*</em></strong></label></td>
-                    <td><input type="password" name="confirmPassword" id="confirmPassword" onblur="requireValidator(this)"></td>
+                    <td><label for="confirmPassword"><strong><?php echo CONFIRM_PASSWORD_EMPLOYER;?> <em>*</em></strong></label></td>
+                    <td><input type="password" name="confirmPassword" id="confirmPassword"></td>
                 </tr>
                 <tr>
-                    <td><label for="companyName"><strong>Company Name: <em>*</em></strong></label></td>
-                    <td><input type="text" name="companyName" id="companyName" onblur="requireValidator(this)" onkeyup="checkAvailability(this.value)"></td>
+                    <td><label for="companyName"><strong><?php echo COMPANY_NAME;?> <em>*</em></strong></label></td>
+                    <td><input type="text" name="companyName" id="companyName" ></td>
                 </tr>
                 <tr>
-                    <td><label for="contactNumber"><strong>Contact Number: <em>*</em></strong></label></td>
-                    <td><input type="text" name="contactNumber" id="contactNumber" onblur="requireValidator(this)"></td>
+                    <td><label for="contactNumber"><strong>?php echo CONTACT_NUMBER;?> <em>*</em></strong></label></td>
+                    <td><input type="text" name="contactNumber" id="contactNumber"></td>
                 </tr>
                 <tr>
                     <td><input type="submit" /></td>

@@ -15,9 +15,7 @@ class AboutUsModel
 		$data['columns']= array('admin_pages.content1');
 		$result = $db->select($data);
 		
-//  print($result->queryString); die("here");
 		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			//print_r($row);
 			return $row;
 		}
 		

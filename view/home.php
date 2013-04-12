@@ -56,12 +56,6 @@
 												</div>
 											</div>
 										</div>
-										<ul class="sort-list">
-											<li><a href="#">Advanced search</a></li>
-											<li><a href="#">Browse by job category</a></li>
-											<li><a href="#">Browse by location</a></li>
-											<li><a href="#">Browse by employer</a></li>
-										</ul>
 									</fieldset>
 								</form>
 							</div>
@@ -124,7 +118,7 @@
 							<div class="title">
 								<h3><span>Ads</span></h3>
 							</div>
-							<div class="fadein">
+							<div class="fadein_admin">
 							<!-- ads will load here from jquery ajax given in main header-->
 							</div>
 						</div>
@@ -141,7 +135,7 @@
 								<p>Post your resume on this site and get the chance to be seen by more than 500 companies</p>
 							</div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
-							<a href="#" class="btn">Post your resume</a>
+							<a href="javascript:void(0)" class="btn">Post your resume</a>
 						</div>
 					</div>
 				</div>
@@ -160,7 +154,7 @@
 								<li>Your job live for 30 days</li>
 								<li>CVs sent to your inbox</li>
 							</ul>
-							<a href="#" class="btn">Recruit now</a>
+							<a href="javascript:void(0)" class="btn">Recruit now</a>
 						</div>
 					</div>
 				</div>
@@ -205,3 +199,6 @@
 			</div>
 		</div>
 	</div>
+<?php require 'footer.php'; ?>
+</body>
+</html>

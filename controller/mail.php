@@ -12,7 +12,7 @@ class mailController extends common
 		//print_r($result);die;
 		if($result)
 		{	//echo "Your email validated successfully..";
-			$msg="Your email validated successfully..";
+			$msg= MAIL_VALIDATED_SUCCESS;
 			//sleep(10);echo "here";
 			$this->loadView('emailValidationSuccess.php',$msg);
 		}	

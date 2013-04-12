@@ -87,6 +87,10 @@ class pagesController extends common
 	{
 		$this->loadView('faq.php');
 	}
+	function faqEmployer()
+	{
+		$this->loadView('employer_view/faqEmployer.php');
+	}
 		
 }
 

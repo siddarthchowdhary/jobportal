@@ -111,34 +111,6 @@ class registerEmployerModel
 			return 0;
 	}
 	
-	function validateEmail($data)
-	{
-		$userId = $data['user_id'];
-		$validationString=$data['validation_string'];
-		$db = $this->getDatabaseHandler();
-		$data = array();
-		$data['tables'] = 'inactive_users';
-		$data['columns']= array('inactive_users.validation_string');
-		$data['conditions']= array(
-								"user_id"=>$userId,
-								"validation_string"=>$validationString
-								);
-		$result = $db->select($data);
-		//return $result;
-		if ( $result->rowCount() == 1 ) {
-			$data = array('status'=>0);
-			$where = array('id'=>$userId);
-			$result = $db->update('users',$data,$where);
-			//return $result;
-			if($result)
-				return 1;
-			else
-				return 0;
-		}
-		else
-		{
-			header('location: indexMain.php');
-		}
-	}
+	
 }//Class end here
 ?>

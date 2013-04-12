@@ -21,9 +21,9 @@ class employerDetailsController extends common
 		$result = $this->loadModel('employerDetails','updateDetails',$dataFromUser);
 		
 		if ($result==1)
-			echo "Details Updated Successfully";
+			echo DETAILS_UPDATED_SUCCESSFULLY;
 		else if($result===0)
-			echo "Something Went Wrong. Try Again.";
+			echo SOMETHING_WRONG_TRY_AGAIN;
 		else
 			print_r( $result);
 	}
@@ -54,26 +54,26 @@ class employerDetailsController extends common
 				{
 					if($this->loadModel("login","changePassword",$newPassword))
 					{
-						echo "Password changed successfully.";
+						echo PASSWORD_CHANGED_SUCCESSFULLY;
 					}
 					else
 					{
-						echo "Something went wrong";
+						echo SOMETHING_WRONG_TRY_AGAIN;
 					}
 				}
 				else
 				{
-					echo "New Password must be atleast 6 characters long.";
+					echo PASSWORD_LENGTH_SHORT_ERROR;
 				}
 			}
 			else
 			{
-				echo "Password Mismatched";
+				echo PASSWORD_MISMATCHED;
 			}
 		}
 		else
 		{
-			echo "Wrong Password Entered. Try Again";
+			echo WRONG_PASSWORD;
 		}
 	}
 }

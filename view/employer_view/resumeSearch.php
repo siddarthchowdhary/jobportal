@@ -65,20 +65,20 @@
 						<div class="frame">
 							<div class="block-content">
 								<div class="title">
-									<h2>Resume<span>Search</span></h2>
+									<h2><span><?php echo SEARCH_RESUME;?></span></h2>
 								</div>
 								<form class="search-form" id="resumeSearchForm" action="" method="post">
 									<fieldset>
 										<div class="columns-holder">
 											<div class="column">
 												<div class="row">
-													<label for="keyword">Enter keyword(s)</label>
+													<label for="keyword"><?php echo ENTER_KEYWORDS;?></label>
 													<span class="text">
 														<input type="text" class="text" id="keyword" name="keyword"/>
 													</span>
 												</div>
 												<div class="row">
-													<label for="location">Location</label>
+													<label for="location"><?php echo LOCATION;?></label>
 													<span class="text">
 														<input type="text" class="text" id="location" name="location"/>
 													</span>
@@ -86,13 +86,13 @@
 											</div>
 											<div class="column">
 												<div class="row">
-													<label for="skill">Skill</label>
+													<label for="skill"><?php echo SKILL;?></label>
 													<span class="text">
 														<input type="text" class="text" id="skill" name="skill"/>
 													</span>
 												</div>
 												<div class="row">
-													<label for="experience">Experience</label>
+													<label for="experience"><?php echo EXPERIENCE;?></label>
 													<span class="text">
 														<input type="text" class="text" name="experience" id="experience"/>
 													</span>
@@ -100,13 +100,13 @@
 											</div>
 											<div class="column">
 												<div class="row">
-													<label for="education">Highest Education</label>
+													<label for="education"><?php echo HIGHEST_EDUCATION;?></label>
 													<span class="text">
 														<input type="text" class="text" name="highestEducation" id="highestEducation"/>
 													</span>
 												</div>
 												<div class="row">
-													<input type="button" onclick="performSearch()" value="Perform the search" class="submit" />
+													<input type="button" onclick="performSearch()" value="<?php echo PERFORM_THE_SEARCH;?>" class="submit" />
 												</div>
 											</div>
 										</div>
@@ -127,11 +127,11 @@
 						<div class="frame">
 							<div class="block-content">
 								<div class="title">
-									<h2>Resume<span>Search Results</span></h2>
+									<h2>Resume<span><?php echo SEARCH_RESULT;?></span></h2>
 								</div>
 					<table id="datatables" class="display">
 						<thead>
-							<tr><th>Search Result</th></tr>
+							<tr><th><?php echo SEARCH_RESULT;?></th></tr>
 						</thead>
 						<tbody id="searchResult">
 							

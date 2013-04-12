@@ -15,10 +15,10 @@ class jobModel
 	
 	function addNewJob($dataFromUser)
 	{
-		$dateOfLastApplying = $dataFromUser['yearOfLastApplying']."-".$dataFromUser['monthOfLastApplying']."-".$dataFromUser['dayOfLastApplying'];
-		$year = $dataFromUser['yearOfLastApplying'];
-		$month = $dataFromUser['monthOfLastApplying'];
-		$day = $dataFromUser['dayOfLastApplying'];
+		$dateOfLastApplying = $dataFromUser['dateOfLastApplying'];
+		//$year = $dataFromUser['yearOfLastApplying'];
+		//$month = $dataFromUser['monthOfLastApplying'];
+		//$day = $dataFromUser['dayOfLastApplying'];
 		$errMsg=array();
 		if (require_once 'library/serverValidation.class.php')
 		{
@@ -29,8 +29,8 @@ class jobModel
 				$errMsg[]='Post name should be alphabetic only.';
 			if(($obj->numericValidation($dataFromUser['experience']))==0)	
 				$errMsg[]='Experience should be numeric only.';	
-			if(($obj->dateValidator($day,$month,$year))==0)	
-				$errMsg[]='Invalid Last Applying Date.';	
+			//if(($obj->dateValidator($day,$month,$year))==0)	
+			//	$errMsg[]='Invalid Last Applying Date.';	
 			if(($obj->numericValidation($dataFromUser['expectedSalary']))==0)	
 				$errMsg[]='Salary should be numeric only.';	
 			$tempDataHolder = str_replace(' ','',$dataFromUser['jobDescription']);

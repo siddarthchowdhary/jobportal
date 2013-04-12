@@ -32,40 +32,40 @@
 	<?include_once("headerEmployer.php");?>
 	<div id="main">
 		<div class="wrapper" >
-			<span><h3>Update Employer Details :</h3></span>
+			<span><h3><?php echo UPDATE_EMPLOYER_DETAILS;?></h3></span>
 			<?php //echo "<pre>";print_r($arrData);//</pre>?>
 			<div id="divupdateEmployerDetails" >
 				<form action="" id="frmupdateEmployerDetails" method="post">
 					<table class="frmupdateEmployerDetails">
 						<tr>
-							<td><label for="displayName"><strong>Display Name: <em>*</em></strong></label></td>
+							<td><label for="displayName"><strong><?php echo DISPLAY_NAME;?> <em>*</em></strong></label></td>
 							<td><input type="text" name="displayName" id="displayName" value="<?php echo $arrData['displayname'];?>"></td>
 						</tr>
 						<tr>
-							<td><label for="companyName"><strong>Company Name: <em>*</em></strong></label></td>
+							<td><label for="companyName"><strong><?php echo COMPANY_NAME;?> <em>*</em></strong></label></td>
 							<td><input type="text" name="companyName" id="companyName" value="<?php echo $arrData['company_name'];?>"></td>
 						</tr>
 						<tr>
-							<td><label for="email"><strong>Email id: <em>*</em></strong></label></td>
+							<td><label for="email"><strong><?php echo EMAIL_EMPLOYER;?> <em>*</em></strong></label></td>
 							<td><input type="text" name="email" id="email" value="<?php echo $arrData['email'];?>"></td>
 						</tr>
 						<tr>
-							<td><label for="contactNumber"><strong>Contact Number: <em>*</em></strong></label></td>
+							<td><label for="contactNumber"><strong><?php echo CONTACT_NUMBER;?> <em>*</em></strong></label></td>
 							<td><input type="text" name="contactNumber" id="contactNumber" value="<?php echo $arrData['contact_number'];?>"></td>
 						</tr>
 						<tr>
-							<td><label for="gender"><strong>Gender: <em>*</em></strong></label></td>
+							<td><label for="gender"><strong><?php echo GENDER_EMPLOYER;?> <em>*</em></strong></label></td>
 							<td><select name="gender" id="gender">
 									<option class="default">
 									<?php 
 										if ($arrData['gender']==10)
-											echo "Male";
+											echo MALE;
 										else
-											echo "Female";
+											echo FEMALE;
 									?>
 									</option>
-									<option>Male</option>
-									<option>Female</option>
+									<option><?php echo MALE;?></option>
+									<option><?php echo FEMALE;?></option>
 								</select>
 						</td>
 							
@@ -73,7 +73,7 @@
 						
 					</table>
 					<div class="row">
-						<input type="button" onclick="updateDetails()" value="Update Profile" class="submit" />
+						<input type="button" onclick="updateDetails()" value="<?php echo UPDATE_PROFILE;?>" class="submit" />
 						<input type="reset" />
 					</div>
 				</form>

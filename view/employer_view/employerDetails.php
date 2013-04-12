@@ -49,25 +49,25 @@
 							<div id="data">
 							<table class="display">
 								<thead>
-									<tr><th>MY Details</th></tr>
+									<tr><th><?php echo MY_DETAILS;?></th></tr>
 								</thead>
 								<tbody>
 									<?php
 										echo '<tr>';
 										echo '<td>';
 										echo '<form action="indexMain.php?controller=employerDetails&function=editDetails" id="frmRegisterJobSeeker" method="post">';
-										echo "<br>"."<b>Display Name:</b>".$arrData['displayname'];
-										echo "<br>"."<b>Company Name:</b>".$arrData['company_name'];
-										echo "<br>"."<b>Email :</b>".$arrData['email'];
-										echo "<br>"."<b>Contact Number :</b>".$arrData['contact_number'];
-										echo "<br>"."<b>Gender :</b>";
+										echo "<br>"."<b>".DISPLAY_NAME."</b>".$arrData['displayname'];
+										echo "<br>"."<b>".COMPANY_NAME."</b>".$arrData['company_name'];
+										echo "<br>"."<b>".EMAIL_EMPLOYER."</b>".$arrData['email'];
+										echo "<br>"."<b>".CONTACT_NUMBER."</b>".$arrData['contact_number'];
+										echo "<br>"."<b>".GENDER_EMPLOYER."</b>";
 										if($arrData['gender']==10)
-											echo "Male";
+											echo MALE;
 										else
-											echo "Female";
+											echo FEMALE;
 										echo '<input type="hidden" name="employer_id" id="employer_id" value="'.$val['id'].'"/>';
-										echo "<br>".'<input type="submit" value="Edit Details"/>';
-										echo '<input type="button" value="Change Password" onclick="changePasswordForm()"/>';
+										echo "<br>".'<input type="submit" value="'.EDIT_DETAILS_EMPLOYER.'"/>';
+										echo '<input type="button" value="'.CHANGE_PASSWORD_EMPLOYER.'" onclick="changePasswordForm()"/>';
 										echo '</form>';
 										echo '</td>';
 										echo '</tr>';
@@ -77,26 +77,26 @@
 							</div>
 							<div id="changePassword">
 								<div class="wrapper" style="height:300px;">
-									<span><h3>Change Password :</h3></span>
+									<span><h3><?php echo CHANGE_PASSWORD_EMPLOYER; ?></h3></span>
 									<!--<div id="frmChangePassword" >-->
 										<form action="" id="frmChangePassword" method="post">
 											<table class="frmChangePassword">
 												<tr>
-													<td><label for="currentPassword"><strong>Current Password: <em>*</em></strong></label></td>
-													<td><input type="password" name="currentPassword" id="currentPassword" onblur="requireValidator(this)"></td>
+													<td><label for="currentPassword"><strong></strong><?php echo CURRENT_PASSWORD_EMPLOYER; ?> <em>*</em></strong></label></td>
+													<td><input type="password" name="currentPassword" id="currentPassword"></td>
 												</tr>
 												<tr>
-													<td><label for="newPassword"><strong>New Password: <em>*</em></strong></label></td>
-													<td><input type="password" name="newPassword" id="newPassword" onblur="requireValidator(this)"></td>
+													<td><label for="newPassword"><strong><?php echo NEW_PASSWORD_EMPLOYER;?><em>*</em></strong></label></td>
+													<td><input type="password" name="newPassword" id="newPassword"></td>
 												</tr>
 												<tr>
-													<td><label for="confirmPassword"><strong>Confirm Password: <em>*</em></strong></label></td>
-													<td><input type="password" name="confirmPassword" id="confirmPassword" onblur="requireValidator(this)"></td>
+													<td><label for="confirmPassword"><strong><?php echo CONFIRM_PASSWORD_EMPLOYER;?> <em>*</em></strong></label></td>
+													<td><input type="password" name="confirmPassword" id="confirmPassword"></td>
 												</tr>
 											</table>
 											<div class="row">
-												<input type="button" value="Change Password" onclick="changePassword()" class="submit" />
-												<input type="reset" value="Reset"/>
+												<input type="button" value="<?php echo CHANGE_PASSWORD_EMPLOYER; ?>" onclick="changePassword()" class="submit" />
+												<input type="reset" value="<?php echo RESET;?>"/>
 											</div>
 										</form>
 									<!--</div>-->

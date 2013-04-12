@@ -10,7 +10,6 @@ class indexController extends common
 			$arrResult=$this->loadModel('selectValues','industryType');
 			$this->loadView('header.php');
 			$this->loadView('home.php',$arrResult);
-			$this->loadView('footer.php');
 	}
 		
 }
