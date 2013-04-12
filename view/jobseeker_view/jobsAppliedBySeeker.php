@@ -25,7 +25,7 @@
                     "aaSorting":[[2, "desc"]],
                     "bJQueryUI":true
                 });
-            })
+            });
         </script>
 </head>
 <body>
@@ -83,7 +83,7 @@
 
 		</div>
 	</div>
-	<?include_once("footer.html");?>
+	<?php require_once(VIEW_PATH."footer.php");?>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>JobBoardTemplate</title>
@@ -81,7 +81,7 @@
 							<div class="columnR">
 								<?php //print_r($arrData);?>
 								<div class="row">
-									<select name="highestDegree" onchange='checkValueHighestDegree(this.value)'> 
+									<select name="highestDegree" onchange='checkValueHighestDegree(this.value);'> 
     										<option></option>
     										<?php if (!empty($arrData['highest_degree'])) {  ?> 
     										<option value="<?php echo $arrData['highest_degree']?>" selected = "selected"><?php echo $arrData['highest_degree']?></option>  
@@ -95,10 +95,10 @@
 								</div>
 								<div class="row">
 								
-									<select name="grad" onchange='checkValueGraduation(this.value)'>
+									<select name="grad" onchange='checkValueGraduation(this.value);'>
 										<option></option>
 										<?php if (!empty($arrData['graduation_degree'])) {  //default combo box value?> 
-    										<option value="<?php echo $arrData['graduation_degree']?>" selected = "selected"><?php echo $arrData['graduation_degree']?></option>  
+    										<option value="<?php echo $arrData['graduation_degree']?>" selected = "selected"><?php echo $arrData['graduation_degree'];?></option>  
     									<?php } ?>
     										<option value="BA"><?php echo BA;?></option>
     										<option value="BCOM"><?php echo BCOM;?></option>
@@ -124,7 +124,7 @@
 								</div>
 							</div>
 
-						</div>				
+										
 					</fieldset>
 				</form>
 				
@@ -133,9 +133,9 @@
 			
 		
 
-		</div>
+		
 	</div>
-	<?include_once("footer.html");?>
-
+	<?php require_once(VIEW_PATH."footer.php");?>
+</div>
 </body>
 </html>

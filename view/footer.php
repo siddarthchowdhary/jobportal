@@ -2,7 +2,7 @@
 <div id="footer">
 		<div class="holder">
 			<div class="info">
-				<span class="copy">Copyright (c) 2009 <a href="mailto:&#100;&#101;&#115;&#105;&#103;&#110;&#121;&#111;&#117;&#114;&#119;&#097;&#121;&#046;&#110;&#101;&#116;">&#100;&#101;&#115;&#105;&#103;&#110;&#121;&#111;&#117;&#114;&#119;&#097;&#121;&#046;&#110;&#101;&#116;</a></span>
+				<span class="copy">Copyright (c) 2009</span>
 				<ul>
 					<li><a href="#">Terms of use</a></li>
 					<li><a href="#">Privacy Policy</a></li>

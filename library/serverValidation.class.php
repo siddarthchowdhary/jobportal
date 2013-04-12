@@ -98,5 +98,15 @@ class serverValidation
 		}
 			return "INVALID DATE";
 	}
+	
+	function validateUrl($url)
+	{
+		if (filter_var($url, FILTER_VALIDATE_URL))
+		{
+			return 1;
+		}
+		return 0;
+	}
+	
 }	
 ?>

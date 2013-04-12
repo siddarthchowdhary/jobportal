@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>JobBoardTemplate</title>
@@ -30,8 +30,7 @@
 				data:$("#frmUpdateProfessional").serialize(),  
 				success:function(result){  
 					alert(result);
-					//redirect to view details page here if needed
-				}
+					}
 			});//ajax function ends here
 		});//button click ends here
 		});//document.ready ends here
@@ -77,7 +76,7 @@
 									<span class="text"><input type="text" class="text" name="keySkills" value="<?php echo $arrData['keyskills'];?>" id="keySkills"/></span>
 								</div>
 								<div class="row">
-									<select name="industry" onchange='checkValueIndustry(this.value)'> 
+									<select name="industry" onchange='checkValueIndustry(this.value);'> 
     										<option></option>  
     										<?php if (!empty($arrData['current_industry'])) {  //default combo box value?> 
     										<option value="<?php echo $arrData['current_industry']?>" selected = "selected"><?php echo $arrData['current_industry']?></option>  
@@ -116,9 +115,9 @@
 			
 		
 
-		</div>
+		
 	</div>
-	<?include_once("footer.html");?>
+	<?php require_once(VIEW_PATH."footer.php");?>
 
 </body>
 </html>

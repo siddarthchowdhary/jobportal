@@ -20,14 +20,7 @@
 								<h2>MY PERSONAL<span>DETAILS</span></h2>
 							</div>
 							<!--code here-->
-							<?php //print_r($arrData);die("here");?>
-							<?php /*
-							if(!empty($arrData[0]))
-							{
-								echo "<pre>";
-								print_r($arrData[0]);
-							}   */
-							?>
+							<?php if(!empty($arrData[0])) {?>
 							<table class="tblViewDetails">
 							<tr>
 								<td><?php echo FNAME;?></td>
@@ -90,6 +83,7 @@
 								<td><?php echo $arrData[0]['pincode']?></td>
 							</tr>
 							</table>
+							<?php } else echo NO_DETAILS;?>
 						</div>
 					</div>
 				</div>                 <!--one block till here-->
@@ -101,13 +95,7 @@
 								<h2>MY EDUCATIONAL<span>DETAILS</span></h2>
 							</div>
 							<!--code here-->
-							<?php
-							if(!empty($arrData[1]))
-							{ /*
-								echo "<pre>";
-								print_r($arrData[1]);   */
-							}
-							?>
+							<?php if(!empty($arrData[1])) {?>
 							<table class="tblViewDetails">
 							<tr>
 								<td><?php echo HIGHEST_DEGREE;?></td>
@@ -135,6 +123,7 @@
 								<td><?php echo $arrData[1]['other_degree']?></td>
 							</tr>
 							</table>
+							<?php } else echo NO_DETAILS;?>
 						</div>
 					</div>
 				</div>              <!--one block till here-->
@@ -146,13 +135,7 @@
 								<h2>MY PROFESSIONAL<span>DETAILS</span></h2>
 							</div>
 							<!--code here-->
-							<?php
-							if(!empty($arrData[2]))
-							{  /*  
-								echo "<pre>";
-								print_r($arrData[2]); */  
-							}
-							?>
+							<?php if(!empty($arrData[2])) {?>
 							<table class="tblViewDetails">
 							<tr>
 								<td><?php echo EXP;?></td>
@@ -175,6 +158,7 @@
 								<td><?php echo $arrData[2]['functional_area']?></td>
 							</tr>
 							</table>
+							<?php } else echo NO_DETAILS;?>
 						</div>
 					</div>
 				</div>                <!--one block till here-->
@@ -243,7 +227,7 @@
 
 	</div>
 	
-	<?include_once("footer.html");?>
-
+	<?php require_once(VIEW_PATH."footer.php");?>
+</div>
 </body>
 </html>

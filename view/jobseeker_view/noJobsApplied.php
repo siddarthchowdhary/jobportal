@@ -10,14 +10,7 @@
         <link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>style.css" />
 </head>
 <body>
-	<div id="header">
-		<div class="wrapper">
-			<div class="holder">
-				<h1 class="logo"><a href="">Job Portal</a></h1>
-			</div>
-		</div>
-	</div>
-
+	<?php require_once(VIEW_PATH."jobseeker_view/headerjs.php");?>
 	<div id="main">
 		<div class="wrapper">
                     <h2><?php echo NO_JOBS_APPLIED;?></h2>
@@ -25,7 +18,7 @@
                                     <a style="color:blue;" href="indexMain.php?controller=pages&function=jobsearch"><h3><?php echo CONTINUE_SEARCHING_JOBS;?></h3></a>
                 </div>
         </div>
-	<?include_once("footer.html");?>
+	<?php require_once(VIEW_PATH."footer.php");?>
 
 </body>
 </html>

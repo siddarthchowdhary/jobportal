@@ -1,9 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>JobBoardTemplate</title>
+
 
 
 	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>stylejs.css" />	
@@ -11,17 +12,8 @@
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.validate.pack.js" ></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>scriptUpdateJobSeekerPersonal.js" ></script>
-	
-<!--for dob but validations not working-->
-<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>jquery-ui.css" />	
-<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.9.1.js" ></script>
-<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-ui.js" ></script>
-<script type="text/javascript">
-$(function() {
-$( "#dob" ).datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: true });
-});
-</script>
 
+<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.lint.js" ></script>
 <!--ajax script for result of update educational-->
 	<script>
 		$(document).ready(function(){
@@ -42,7 +34,7 @@ $( "#dob" ).datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: tr
 
 </head>
 <body>
-	
+
 
 	<?php  include 'headerjs.php';?>
 	
@@ -159,7 +151,7 @@ $( "#dob" ).datepicker({ dateFormat: "yy-mm-dd",changeYear: true,changeMonth: tr
 
 		</div>
 	</div>
-	<?include_once("footer.html");?>
+	<?php require_once(VIEW_PATH."footer.php");?>
 
 </body>
 </html>

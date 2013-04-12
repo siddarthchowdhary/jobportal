@@ -30,7 +30,7 @@ class registerjobseekerController extends common
 					$data		=	$this->loadModel('registerjobseeker','inject',$arrInfo);
 					if(!empty($data)){
 							echo "Registration Successful. ";
-							$mailFlag = @$this->loadModel('mail','sendMailTO',$result);
+							$mailFlag = $this->loadModel('mail','sendMailTO',$data);
 							echo $mailFlag;
 							
 					} else{

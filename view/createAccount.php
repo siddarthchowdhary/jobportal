@@ -111,9 +111,6 @@
 								<input type="submit" value="Go" class="submit" />
 							</div>
 							<div class="row">
-								<label for="check-1">Remember me</label>
-								<input type="checkbox" class="check" id="check-1" />
-								<a href="#">Forgot your password?</a>
 								<br><span id="login_error" style="color:red;font-size:13px;">
 								<?php if (isset($arrData['error'])) echo $arrData['error'];?>
 								</span>

@@ -29,4 +29,4 @@
 	define('BCOM','BCOM');
 	define('BCA','BCA');
 	define('BBA','BBA');
-	define('','');
+	define('NO_DETAILS','You have not filled your details yet , Please update Your details.');

@@ -23,7 +23,7 @@
                     "aaSorting":[[2, "desc"]],
                     "bJQueryUI":true
                 });
-            })
+            });
         </script>
         
 	<!--script for login prompt before continiuing to apply-->
@@ -180,7 +180,7 @@
 </div>
 </div>
 
-<?include_once("footer.html");?>
+<?php require_once(VIEW_PATH."footer.php");?>
 
 </body>
 </html>
