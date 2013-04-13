@@ -16,13 +16,12 @@ class jobController extends common
 	 * */
 	function addNewJob()
 	{
-		//print_r($_POST);die();
+		
 		require VIEW_PATH.'checkSession.php';
 		$postName 			 = strip_tags($_POST['postName']);
 		$experience 		 = strip_tags($_POST['experience']);
 		$dateOfLastApplying 	 = strip_tags($_POST['dateOfLastApplying']);
-		//$monthOfLastApplying = strip_tags($_POST['monthOfLastApplying']);
-		//$yearOfLastApplying  = strip_tags($_POST['yearOfLastApplying']);
+		
 		$expectedSalary 	 = strip_tags($_POST['expectedSalary']);
 		$jobDescription 	 = strip_tags($_POST['jobDescription']);
 		$jobLocation 		 = strip_tags($_POST['jobLocation']);
@@ -30,7 +29,7 @@ class jobController extends common
 		$keywords 			 = strip_tags($_POST['keywords']);
 		
 		$userId				 = $_SESSION['ID_USERS_SESSION'];
-		//~ echo $userId;
+		
 		$dataFromUser = array(
 							"postName"=>"$postName",
 							"experience"=>"$experience",
@@ -52,7 +51,7 @@ class jobController extends common
 			echo SOMETHING_WRONG_TRY_AGAIN;
 		else
 			echo $result;
-			//~ echo "Something Went wrong type of view here";
+			
 		}
 		
 		/*
@@ -120,8 +119,10 @@ class jobController extends common
 		 * This function shows all the jobs posted by the employer using userid stored in session */
 		function showAll()
 		{
+			require VIEW_PATH.'checkSession.php';
 			$condition = array("user_id"=>$_SESSION['ID_USERS_SESSION']);
 			$result = $this->loadModel("job","fetchAll",$condition);
+			
 			$this->loadView("employer_view/viewJobs.php",$result);
 		}
 		

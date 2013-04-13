@@ -1,7 +1,7 @@
 <?php
 ini_set("display_errors","1");
 ini_set( 'error_reporting', "E_ALL" );
-session_start();
+//session_start();
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/constants.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/library/database/usage.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/common.class.php');
@@ -22,9 +22,8 @@ if(isset($_REQUEST['function']) && !empty($_REQUEST['function'])){
 }else{
       $function ='landingPage';    //default function
 }
-
 //$controller=strtolower($controller);
-session_start();
+//session_start();
 $fn = SITE_ROOT.'controller/'.$controller . '.php';
 # Setting controller path for each user based on their USERTYPE_SESSION 
 

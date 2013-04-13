@@ -7,11 +7,11 @@ class resumeSearchController extends common
 	 * */
 	function searchPanel()
 	{
-		//require VIEW_PATH.'checkSession.php';
 		$this->loadView("employer_view/resumeSearch.php");
 	}
 	function resumeSearch()
 	{
+		session_start();
 		$keywords=$_POST['keyword'];
 		$location=$_POST['location'];
 		$skill = $_POST['skill'];

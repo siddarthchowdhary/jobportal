@@ -14,7 +14,7 @@ class HomePageAdsController extends common     #extends /classes/common which co
 		$result=$this->loadModel('HomePageAds','showAds');
 		$url=$result['url'];
 		$filename=$result['filename'];
-		echo "<a href=$url><img src=".ADS_IMAGE_PATH."$filename /></a>";
+		echo "<a target='_blank' href=$url><img src=".ADS_IMAGE_PATH."$filename /></a>";
 		
 	}
 	

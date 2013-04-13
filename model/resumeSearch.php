@@ -16,9 +16,9 @@ class resumeSearchModel
 	
 	function retrieve($arrCriteria)
 	{
-		//return $arrCriteria;
+		
 		$arrKeyword=explode(",",$arrCriteria['keywords']);
-		//var_dump($arrCriteria['highestEducation']);die();
+		
 		$db = $this->getDatabaseHandler();
 		$data = array();
 		$data['columns'] = array(
@@ -55,7 +55,7 @@ class resumeSearchModel
 								);
 					
 			$arrConditions=array();
-			//push where conditions in array here
+			
 			if(!empty ($arrKeyword)){
 				
 				foreach($arrKeyword as $value) {
@@ -76,27 +76,22 @@ class resumeSearchModel
 				array_push($arrConditions,'jobseeker_educational_details.highest_degree = \'' . $arrCriteria['highestEducation'] .'\' or ');
 			}
 			if (!empty($arrCriteria['experience'])){
-				array_push($arrConditions,'jobseeker_professional_details.experience <= \'' . $arrCriteria['experience'] .'\' or ');
+				array_push($arrConditions,'jobseeker_professional_details.experience >= \'' . $arrCriteria['experience'] .'\' or ');
 			}
-			//return $arrConditions;
-			//echo "<pre>";
-			//print_r($arrKeyword);//die();
+			
 			
 			$count=count($arrConditions);
 			if($count>0){
 				$arrConditions[$count-1] = rtrim($arrConditions[$count-1], " or ");
-				$data['conditions']	= $arrConditions;//array(rtrim ($test[0], "" ) => $test[0]);
-				//print_r($data['conditions']);die("<br>here");
+				$data['conditions']	= $arrConditions;
+				
 				$result = $db->select($data);
-				//echo 
-				//return $result;//->queryString;
+				
 				$alljobs = array();
 				while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 					$alljobs[]=$row; 
 				}
-				//~ echo "<pre>";
-				//~ print_r($alljobs);
-					//~ die("i am here");
+				
 				return $alljobs;
 			} else {
 			 return 0;

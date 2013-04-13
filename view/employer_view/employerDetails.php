@@ -36,7 +36,14 @@
 	</script>
 </head>
 <body>
-	<?include_once("headerEmployer.php");?>
+	
+	<?php
+		require VIEW_PATH.'checkSession.php';
+		if(isset($_SESSION['EMAIL_SESSION']))
+			include_once(VIEW_PATH."employer_view/headerEmployer.php");
+		else
+			include_once(VIEW_PATH."header.php");
+	?>
 	<div id="main">
 		<div class="wrapper" >
 			<div id="content">		

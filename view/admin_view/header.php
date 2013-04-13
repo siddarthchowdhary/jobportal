@@ -30,7 +30,7 @@
 					
 					<pre>hi <?php echo $_SESSION['DISPLAY_NAME_SESSION'];?></pre>
 					<a href="<?php echo SITE_PATH.'indexMain.php?controller=Logout&function=logout'?>">Logout</a>
-					</pre>
+					
 				</div>
 			</div>
 			<ul id="nav">

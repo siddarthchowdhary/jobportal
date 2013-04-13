@@ -12,7 +12,7 @@
 			<ul class="footer-nav">
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=AdminHome&function=display'?>">Home</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=HomePageAds&function=display'?>">Home Page Ads</a></li>
-				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=display'?>">Manage Site Information</a></li
+				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=display'?>">Manage Site Information</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=EmployerManagement&function=display'?>">Employer Management</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=Reports&function=display'?>">Reports</a></li>
 				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=DatabaseManagement&function=display'?>">Database Management</a></li>

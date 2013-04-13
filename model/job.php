@@ -80,11 +80,9 @@ class jobModel
 					"job_category"=>$dataFromUser['jobCategory'],
 					"keywords"=>$dataFromUser['keywords']
 					);
-		//~ echo "<pre>in model";
-		//~ print_r($data);
-		//die();
+		
 			$result=$db->insert('jobs_available',$data);
-			//var_dump($result);die("here");	
+			
 			if ($result)
 				return 1;
 			else
@@ -104,7 +102,7 @@ class jobModel
 	
 	function fetchAll($condition)
 	{
-		//echo "here";//die("asfafgd");
+		
 		$db = $this->getDatabaseHandler();
 		
 		$data = array();
@@ -115,7 +113,7 @@ class jobModel
 		$result = $db->select($data);
 		
 		$employerId = $result->fetch(PDO::FETCH_NUM);
-			
+		
 		$data['tables']	= 'jobs_available';
 		$data['columns']='';
 		if($condition!='')
@@ -127,8 +125,7 @@ class jobModel
 		{
 			$arrResult[] = $row;
 		}
-		//echo "<pre>";
-		//print_r($arrResult);
+		
 		return $arrResult;
 	}
 	

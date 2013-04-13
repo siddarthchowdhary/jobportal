@@ -31,10 +31,10 @@ class loginModel
 			if ( $result->rowCount() == 1 ) {
 					while($row = $result->fetch(PDO::FETCH_ASSOC)) {   #seesion variables are initialized here
 						session_start(); 
-						$_SESSION['DISPLAY_NAME_SESSION'] 	= $row['displayname'];
-						$_SESSION['EMAIL_SESSION'] 	= $row['email'];
-						$_SESSION['USERTYPE_SESSION'] 	= $row['usertype'];
-						$_SESSION['ID_USERS_SESSION'] 	= $row['id'];
+						$_SESSION['DISPLAY_NAME_SESSION'] = $row['displayname'];
+						$_SESSION['EMAIL_SESSION'] 	      = $row['email'];
+						$_SESSION['USERTYPE_SESSION'] 	  =	$row['usertype'];
+						$_SESSION['ID_USERS_SESSION'] 	  = $row['id'];
 						$usertype = $row['usertype'];
 						return $usertype;  	
 					}

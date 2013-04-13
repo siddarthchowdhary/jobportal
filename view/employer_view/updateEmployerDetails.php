@@ -33,7 +33,7 @@
 	<div id="main">
 		<div class="wrapper" >
 			<span><h3><?php echo UPDATE_EMPLOYER_DETAILS;?></h3></span>
-			<?php //echo "<pre>";print_r($arrData);//</pre>?>
+			
 			<div id="divupdateEmployerDetails" >
 				<form action="" id="frmupdateEmployerDetails" method="post">
 					<table class="frmupdateEmployerDetails">
@@ -44,10 +44,6 @@
 						<tr>
 							<td><label for="companyName"><strong><?php echo COMPANY_NAME;?> <em>*</em></strong></label></td>
 							<td><input type="text" name="companyName" id="companyName" value="<?php echo $arrData['company_name'];?>"></td>
-						</tr>
-						<tr>
-							<td><label for="email"><strong><?php echo EMAIL_EMPLOYER;?> <em>*</em></strong></label></td>
-							<td><input type="text" name="email" id="email" value="<?php echo $arrData['email'];?>"></td>
 						</tr>
 						<tr>
 							<td><label for="contactNumber"><strong><?php echo CONTACT_NUMBER;?> <em>*</em></strong></label></td>

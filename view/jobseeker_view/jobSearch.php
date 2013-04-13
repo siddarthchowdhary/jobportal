@@ -7,6 +7,7 @@
 	<script type="text/javascript" src=<?php echo JS_PATH.'jquery-1.7.1.min.js';?>></script>
 	<script type="text/javascript" src=<?php echo JS_PATH.'jquery.main.js';?>></script>
 	<script src="<?php echo JS_PATH;?>jquery.validate.pack.js" type="text/javascript"></script>
+	<script src="<?php echo JS_PATH;?>adsLoader.js" type="text/javascript"></script> <!--own script for loading ads-->
 	<script src="<?php echo JS_PATH;?>scriptjobSearchjobSeeker.js" type="text/javascript"></script>
 	<!--own sript for validation-->
 	<!--table with formatting css-->
@@ -106,9 +107,11 @@
 					<div class="holder">
 						<div class="frame">
 							<div class="title">
-								<h3>SPACE<span>FOR ADS</span></h3>
+								<h3><span>Ads</span></h3>
 							</div>
-							<!--code here-->
+							<div class="fadein_admin">
+							<!-- ads will load here from jquery ajax given in main header-->
+							</div>
 						</div>
 					</div>
 				</div>

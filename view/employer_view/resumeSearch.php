@@ -52,10 +52,13 @@
 </head>
 <body>
 	<?php
+		session_start();
 		if(isset($_SESSION['EMAIL_SESSION']))
 			include_once(VIEW_PATH."employer_view/headerEmployer.php");
 		else
-			include_once(VIEW_PATH."header.php");?>
+			include_once(VIEW_PATH."header.php");
+	?>
+	
 	<script src="<?php echo JS_PATH.'jquery.dataTables.js';?>" type="text/javascript"></script>
 	<div id="main">
 		<div class="wrapper">
@@ -110,12 +113,7 @@
 												</div>
 											</div>
 										</div>
-										<ul class="sort-list">
-											<li><a href="#">Advanced search</a></li>
-											<li><a href="#">Browse by category</a></li>
-											<li><a href="#">Browse by skill</a></li>
-											<li><a href="#">Browse by experience</a></li>
-										</ul>
+										
 									</fieldset>
 								</form>
 							</div>

@@ -3,10 +3,9 @@ class employerDetailsController extends common
 {
 	function updateDetails()
 	{
-		//print_r($_POST);die();
+		require VIEW_PATH.'checkSession.php';
 		$displayName   = strip_tags($_POST['displayName']);
 		$companyName   = strip_tags($_POST['companyName']);
-		$email 		   = strip_tags($_POST['email']);
 		$contactNumber = strip_tags($_POST['contactNumber']);
 		if ($_POST['gender'] == "Female")
 			$gender = 11;
@@ -15,7 +14,6 @@ class employerDetailsController extends common
 		$dataFromUser = array(
 							"displayName"=>"$displayName",
 							"contactNumber"=>"$contactNumber",
-							"email"=>"$email",
 							"companyName"=>"$companyName",
 							"gender"=>"$gender");
 		$result = $this->loadModel('employerDetails','updateDetails',$dataFromUser);
@@ -30,6 +28,7 @@ class employerDetailsController extends common
 	
 	function editDetails()
 	{
+		require VIEW_PATH.'checkSession.php';
 		$result= $this->loadModel('employerDetails','fetchAll');
 		$this->loadView("employer_view/updateEmployerDetails.php",$result);
 	}
@@ -43,6 +42,7 @@ class employerDetailsController extends common
 	
 	function changePassword()
 	{
+		require VIEW_PATH.'checkSession.php';
 		$currentPassword = strip_tags($_POST['currentPassword']);
 		$newPassword 	 = strip_tags($_POST['newPassword']);
 		$confirmPassword = strip_tags($_POST['confirmPassword']);

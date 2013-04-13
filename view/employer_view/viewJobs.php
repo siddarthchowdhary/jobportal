@@ -67,11 +67,12 @@
 <body>
 	
 	<?php
-		if(isset($_SESSION))
+		require VIEW_PATH.'checkSession.php';
+		if(isset($_SESSION['EMAIL_SESSION']))
 			include_once(VIEW_PATH."employer_view/headerEmployer.php");
 		else
 			include_once(VIEW_PATH."header.php");
-		?>
+	?>
 
 	<div id="main">
 		<div class="wrapper" >
@@ -96,12 +97,12 @@
 											echo '<tr>';
 											echo '<td>';
 											echo '<form action="indexMain.php?controller=job&function=editJob" id="frmRegisterJobSeeker" method="post">';
-											echo "<br>"."<b>".NAME_OF_POST."</b>".$val['name_of_post'];
+											echo "<br>"."<b>".NAME_OF_POST_EMPLLOYER."</b>".$val['name_of_post'];
 											echo "<br>"."<b>".DATE_OF_JOB_POSTED."</b>".$val['date_of_job_posted'];
 											echo "<br>"."<b>".EXPERIENCE."</b>".$val['experience_required'];
 											echo "<br>"."<b>".LAST_APPLYING_DATE."</b>".$val['date_of_last_applying'];
-											echo "<br>"."<b>".JOB_DESCRIPTION."</b>".$val['job_description'];
-											echo "<br>"."<b>".EXPECTED_SALARY."</b>".$val['expected_salary'];
+											echo "<br>"."<b>".JOB_DESCRIPTION_EMPLOYER."</b>".$val['job_description'];
+											echo "<br>"."<b>".EXPECTED_SALARY_EMPLOYER."</b>".$val['expected_salary'];
 											echo '<input type="hidden" name="jobId" id="jobId" value="'.$val['id'].'"/>';
 											echo "<br>".'<input type="submit" value="'.EDIT_DETAILS_EMPLOYER.'" />';
 											echo '<input type="button" value="'.DELETE.'" onclick="deleteJob('.$val['id'].')"/>';
@@ -118,7 +119,7 @@
 							<form action="indexMain.php?controller=job&function=addNewJob" id="frmAddJob" method="post">
 							<table class="frmregisteremp">
 								<tr>
-									<td><label for="postName"><strong><?php echo NAME_OF_POST;?><em>*</em></strong></label></td>
+									<td><label for="postName"><strong><?php echo NAME_OF_POST_EMPLLOYER;?><em>*</em></strong></label></td>
 									<td><input type="text" name="postName" id="postName"></td>
 								</tr>
 								<tr>
@@ -134,11 +135,11 @@
 									-->
 								</tr>
 								<tr>
-									<td><label for="expectedSalary"><strong><?php echo EXPECTED_SALARY;?><em>*</em></strong></label></td>
+									<td><label for="expectedSalary"><strong><?php echo EXPECTED_SALARY_EMPLOYER;?><em>*</em></strong></label></td>
 									<td><input type="text" name="expectedSalary" id="expectedSalary"></td>
 								</tr>
 								<tr>
-									<td><label for="jobDescription"><strong><?php echo JOB_DESCRIPTION;?><em>*</em></strong></label></td>
+									<td><label for="jobDescription"><strong><?php echo JOB_DESCRIPTION_EMPLOYER;?><em>*</em></strong></label></td>
 									<td><input type="text" name="jobDescription" id="jobDescription"></td>
 								</tr>
 								<tr>

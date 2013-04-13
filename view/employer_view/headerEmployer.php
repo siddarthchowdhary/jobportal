@@ -2,11 +2,9 @@
 	<div id="header">
 		<div class="wrapper">
 			<div class="holder">
-				<h1 class="logo"><a href="#">Job Portal</a></h1>
+				<h1 class="logo"><a href="indexMain.php">Job Portal</a></h1>
 				<div class="login-block">
 					<?php
-						//session_start();
-						//require_once("config/constants.php");
 						require VIEW_PATH.'checkSession.php';
 					?>
 					<pre><b>Hello , <?php echo $_SESSION['DISPLAY_NAME_SESSION'];?></b></pre>
