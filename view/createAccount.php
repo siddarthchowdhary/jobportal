@@ -24,15 +24,15 @@
 		function registerEmployer()
 		{
 			$("#frmRegisterEmployer").valid();
+			
 			$.ajax({
 				type:"POST",		
 				url:"<?php echo SITE_PATH;?>indexMain.php?controller=registerEmployer&function=registrationProcess", 
 				data:$("#frmRegisterEmployer").serialize(),  
 				success:function(result)
 				{
-					//alert(result);
 					$("#result").html(result);
-					//$("#employer").hide();
+					$("#employer").hide();
 					$("#btnHome").show();
 					
 				}
@@ -41,7 +41,7 @@
 		}
 		function checkValueCompanyName(val)
 		{
-			if(val==="Others")
+			if(val==="others")
        			document.getElementById('companyRegister').style.display='block';
     		else
        			document.getElementById('companyRegister').style.display='none';
@@ -73,68 +73,26 @@
             });//ajax function ends here
         });//button click ends here
        
-	  $("#btnHome").hide();
-	  $("#employer").hide();
-	  //$("#jobseeker").hide();  //by default jobseeker is visible
-	  $("#btnJobSeeker").click(function(){
+		$("#btnHome").hide();
+		$("#employer").hide();//by default jobseeker is visible
+	    
+		$("#btnJobSeeker").click(function(){
 	    $("#employer").hide();
 	    $("#jobseeker").show();
-	  });
-	  $("#btnEmployer").click(function(){
+		});
+	  
+		$("#btnEmployer").click(function(){
 	    $("#jobseeker").hide();
 	    $("#employer").show();
-	  });
+		});
 	
         });//document.ready ends here
     </script>
 	
 </head>
 <body>
-	<div id="header">
-		<div class="wrapper">
-			<div class="holder">
-				<h1 class="logo"><a href="#">Job Portal</a></h1>
-				<div class="login-block">
-					<?php if (isset($_SESSION['email'])) { ?>
-					<pre>hi <?php echo $_SESSION['displayname'];?></pre>
-					<pre>Logout
-					</pre>
-					<?php } else { ?>
-				
-					<a href="indexMain.php?controller=pages&function=createaccount" class="account">Create account</a>
-					<span class="sign"><span>Sign in</span></span>
-					<form class="sign-form" action=<?php echo SITE_PATH.'indexMain.php?controller=login&function=authenticate';?> method="post">
-						<fieldset>
-							<div class="row">
-								<span class="text"><input type="text" name="email" value="email"/></span>
-								<span class="text"><input type="password" name="password" value="password"/></span>
-								<input type="submit" value="Go" class="submit" />
-							</div>
-							<div class="row">
-								<br><span id="login_error" style="color:red;font-size:13px;">
-								<?php if (isset($arrData['error'])) echo $arrData['error'];?>
-								</span>
-							</div>
-						</fieldset>
-					</form>		
-					
-					<?php } ?>
-
-				</div>
-			</div>
-			<ul id="nav">
-				<li><a href="<?php echo SITE_PATH.'indexMain.php';?>">Home</a></li>
-				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=jobsearch&function=searchguest';?>">Job Seekers</a></li>
-				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=resumeSearch&function=searchPannel';?>">Employers</a></li>
-				<li><a href="#">Career advice</a></li>
-				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showAboutUs';?>">About Us</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="<?php echo SITE_PATH.'indexMain.php?controller=SiteInformation&function=showContactUs';?>">Contact Us</a></li>
-			</ul>
-		</div>
-	</div>
-
-
+	<?php require 'header.php';?>
+	
 	<div id="main">
 		<div class="wrapper" style="height:400px;">
 			<input type="button" id="btnJobSeeker" value="I am a Job Seeker !"/>
@@ -220,7 +178,7 @@
 					<td><label for="companyName"><strong><?php echo COMPANY_NAME;?>: <em>*</em></strong></label></td>
 					<td>
 						<select id="companyName" name="companyName" onchange='checkValueCompanyName(this.value)'>
-							<option class="default">OSSCube</option>
+							<option class="default">osscube</option>
 							<?php
 								while (list($key,$val)=each($arrData)) {
 								echo "<option>".$val."</option>";
@@ -231,7 +189,7 @@
 					</td>
 					<td>
 						<a id="companyRegister" href="indexMain.php?controller=registerCompany&function=registerCompanyForm" style="display: none;color: blue;">Click here to register your company</a>
-						</td>
+					</td>
 				</tr>
 				<tr>
 					<td><label for="contactNumber"><strong><?php echo PHNO;?>: <em>*</em></strong></label></td>
@@ -242,7 +200,7 @@
                 </tr>
                 <tr>
                     <td><img src="view/captcha_image.php" id="captchaEmployer"/></td>
-					<td><input type="text" name="captcha" id="captcha"/></td>
+					<td><input type="text" name="captchaEmployer" id="captchaEmployer"/></td>
 					<td><input type="button" value="See Another" onclick="imageReloadEmployer()"/></td>
                 </tr>
                 <tr>

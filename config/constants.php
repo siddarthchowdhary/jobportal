@@ -42,7 +42,7 @@
 
 
 #views related
-
+	define('JOB_PORTAL', 'Job Portal');
     define('FNAME', 'FIRST NAME');
     define('MNAME', 'MIDDLE NAME');
     define('LNAME', 'LAST NAME');

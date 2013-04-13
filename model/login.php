@@ -1,4 +1,12 @@
 <?php
+/**
+ * file_name: login.php
+ * @author: team
+ * created_on: 22-Apr-2013
+ * description:  used to manage authentication(login).
+ * functions:  getDatabaseHandler , authenticate , validateUser ,changePassword
+ * */
+
 class loginModel
 {
 	/*Documentation

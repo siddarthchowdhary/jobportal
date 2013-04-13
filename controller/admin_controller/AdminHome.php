@@ -11,7 +11,8 @@ class AdminHomeController extends common  #extends /classes/common which contain
 	
 	#method to display admin home page
 	public function display()
-	{   
+	{  
+		//session_start();
 		$this->loadView('AdminHome');      				#loading admin home view
 	}
 	

@@ -5,14 +5,16 @@
  * @created_on: 15/March/2013
  * @className: registerEmployerController
  * @functionName: newuser,registrationProcess
- * @description: this controller register new employer*/
+ * @description: this controller register new employer
+ * */
 
 class registerEmployerController extends common
 {
 	function registrationProcess()
 	{
-		if($_POST['captcha']!='') {
-			if($_POST['captcha']==$_SESSION['captcha'])//checking if captcha is correct
+		session_start();
+		if($_POST['captchaEmployer']!='') {
+			if($_POST['captchaEmployer']==$_SESSION['captcha'])//checking if captcha is correct
 			{
 				$firstName       = strip_tags($_POST['firstName']);
 				$lastName        = strip_tags($_POST['lastName']);
@@ -47,22 +49,16 @@ class registerEmployerController extends common
 					if(empty($validError))
 					{
 						$result = $this->loadModel('registerEmployer','inject',$data);
-						//echo $result;die;
 						if(!empty($result))
 						{
 							echo SUCCESSFULLY_REGISTERED;
-							$result['email']=$email;
-							//print_r($result);die();
-							//$mailFlag = @$this->loadModel('mail','sendMailTO',$result);
-							//print_r( $mailFlag);
-							//echo "Activation Mail will be sent when implemented.";
 						}
 						else
 						{
 							echo SOMETHING_WRONG_TRY_AGAIN;
 						}
 					}
-					//in case of validation failed
+					#in case of validation failed
 					else
 					{
 						foreach ($validError as $key => $val) 
@@ -75,7 +71,7 @@ class registerEmployerController extends common
 				{
 					echo PASSWORD_MISMATCHED;
 				}
-			}//captcha check ends here
+			}#captcha check ends here
 			else
 			{
 				echo CAPTCHA_FAIL;
@@ -83,9 +79,9 @@ class registerEmployerController extends common
 		} else {
 				echo PLEASE_ENTER_DETAILS;
 		}
-	}//function ends here
+	}#function ends here
 	
 	
-}//class ends here
+}#class ends here
 
 ?>

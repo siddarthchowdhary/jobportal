@@ -1,19 +1,25 @@
 <?php
+/**
+ * file_name: createAccount.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used to send mail to newly registred user.
+ * functions:  validateEmail
+ * inherited class: common
+ * */
+?>
+<?php
 class mailController extends common
 {
 	function validateEmail()
 	{
-		//print_r($_GET);die;
 		$data = array(
 					"user_id"=>$_GET['user_id'],
 					"validation_string"=>$_GET['validation_string']
 					);
 		$result = $this->loadModel('mail','validateEmail',$data);
-		//print_r($result);die;
 		if($result)
-		{	//echo "Your email validated successfully..";
-			$msg= MAIL_VALIDATED_SUCCESS;
-			//sleep(10);echo "here";
+		{	$msg= MAIL_VALIDATED_SUCCESS;
 			$this->loadView('emailValidationSuccess.php',$msg);
 		}	
 		else

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php require_once 'config/constants.php';?>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>JobBoardTemplate</title>
+	<link media="all" rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>style.css" />
+	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>
+
+ 	<style>
+    </style>
+
+</head>
+<body>
+		<?php include_once("view/dummy/header.html");?>
+
+	<div id="main">
+		<div class="wrapper">
+			<div id="content">		
+				<div class="block">   <!--write one block div for one box content-->
+					<div class="holder">
+						<div class="frame">
+							<div class="title">
+								<h2>MY<span>HEADING</span></h2>
+							</div>
+					<h1>JOBS OPENING IN</h1>
+					<div id="data">
+			
+		<?php
+				 
+				echo "<table >";
+				echo "<tr>"."<th>"."Company"."</th>"."<th>"."City"."</th>"."<th>"."Designation"."</th>"."<th>"."Category"."</th>"."</tr>";
+			
+				
+				 foreach ($arrData as $key =>$value)
+				 	{
+				 		echo "<tr>";
+				
+				    foreach($value as $value1=>$val1)
+				    {
+				    	echo "<td>".$val1."</td>";
+				    	echo "</br>";
+				    }
+				    echo "</tr>";
+				}
+				echo "</table>";
+				  
+				?>
+				</div>
+			
+		</div>
+	   </div>
+	</div>
+       </div>
+     </div>
+    </div>
+								<script>
+						
+								</script>
+							  
+		<?include_once("view/dummy/footer.html");?>
+
+</body>
+</html>

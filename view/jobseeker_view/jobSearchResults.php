@@ -53,7 +53,7 @@
 								while (list($key, $val) = each($arrData['result'])) {
 									echo '<tr>';
 									echo '<td>';
-									//print_r($val);
+									
 									echo "<br>"."<b>".NAME_OF_POST .":</b>".$val['name_of_post'];
 									echo "<br>"."<b>".COMPANY_NAME .":</b>".$val['company_name'];
 									echo "<br>"."<b>".EXP_REQD.":</b>".$val['experience_required']." years or more";
@@ -63,7 +63,7 @@
 									echo '<input type="hidden" name="job_id" class="job_id" value="'.$val['id'].'"/>';
 									echo '<div id="res'.$val['id'].'"></div>';
 									echo "<br>".'<input type="button" value="Apply" class="apply" onclick="jobApply('.$val['id'].')"/>';
-									//add a apply button here
+									
 									echo '</td>';
 									echo '</tr>';
 								}

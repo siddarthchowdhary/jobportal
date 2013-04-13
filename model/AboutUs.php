@@ -1,4 +1,11 @@
 <?php
+/**
+ * file_name: AboutUs.php
+ * @author: Ashwani Singh
+ * created_on: 22-Apr-2013
+ * description:  used to manage about us.
+ * functions:  showAboutUs
+ * */
 
 require_once(PDO);
 class AboutUsModel

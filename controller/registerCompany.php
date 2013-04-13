@@ -1,16 +1,24 @@
 <?php
+/**
+ * file_name: registerCompany.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Mar-2013
+ * description:  used to register a company.
+ * functions:  registerCompanyForm ,registerCompanyProcess
+ * inherited class: common
+ * */
+?>
+<?php
 class registerCompanyController extends common
 {
 	function registerCompanyForm()
 	{
-		//die("here");
 		$result = $this->loadModel('selectValues','industryType');
 		$this->loadView('employer_view/registerCompany.php',$result);
 	}
 	
 	function registerCompanyProcess()
 	{
-		//$industryType = $_POST['industryType'];
 		if($_POST['industryType']=='itConsultant')
 			$industryType = 4;
 		if($_POST['industryType']=='software_development')

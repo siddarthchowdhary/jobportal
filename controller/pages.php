@@ -1,7 +1,7 @@
 <?php
 //@author    :  Siddarth Chowdhary
 //created on :  28 march 2013
-//indexMain.php?controller=pages&function=
+
 
 class pagesController extends common 
 {

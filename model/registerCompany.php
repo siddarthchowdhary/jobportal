@@ -1,4 +1,12 @@
 <?php
+/**
+ * file_name: registerCompany.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used to register a new company.
+ * functions:  inject 
+ * */
+
 require_once 'DBConnect.php';
 class registerCompanyModel extends DBConnect
 {

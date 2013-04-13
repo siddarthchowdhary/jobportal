@@ -1,4 +1,13 @@
+
 <?php
+/*
+ * @fileName: resumeSearch.php
+ * @author: saurabh agarwal
+ * @created_on: 15/March/2013
+ * 
+ * @functionName: searchPanel,resumeSearch
+ * @description: this controller is used to search the employees for a partcular criteria.
+ * */
 
 class resumeSearchController extends common
 {
@@ -26,7 +35,6 @@ class resumeSearchController extends common
 						"highestEducation"=>$highestEducation
 						);
 		$result =  $this->loadModel('resumeSearch','retrieve',$dataFromUser);
-		//print_r($result);die;
 				
 		if ($result){
 			$response = '';
@@ -49,9 +57,9 @@ class resumeSearchController extends common
 					
 				$response .= '<tr><td>';
 				$response .= "<br>"."<b>".DISPLAY_NAME."</b>".$val['displayname'];
-				$response .= "<br>"."<b>".HIGHEST_EDUCATION."</b>".$val['highest_degree'];
+				$response .= "<br>"."<b>".HIGHEST_EDUCATION.":</b>".$val['highest_degree'];
 				$response .= "<br>"."<b>".EXPERIENCE."</b>".$val['experience'];
-				$response .= "<br>"."<b>".SKILL."</b>".$val['keyskills'];
+				$response .= "<br>"."<b>".SKILL." :</b>".$val['keyskills'];
 				$response .= "<br>"."<b>".KEY_FUNCTIONAL_AREA."</b>".$val['functional_area'];
 				$response .= "<br>"."<b>".GENDER_EMPLOYER."</b>".$gender;
 				$response .= '<br><input type="button" value="'.VIEW_CONTACT_DETAILS.'" onclick="contactDetails('.$data.')"/>';

@@ -1,4 +1,12 @@
 <?php
+/**
+ * file_name: employerDetails.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used to update employer.
+ * functions:  getDatabaseHandler , updateDetails ,fetchAll
+ * */
+
 class employerDetailsModel
 {
 		public function getDatabaseHandler()

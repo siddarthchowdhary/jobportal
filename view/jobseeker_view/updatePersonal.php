@@ -106,8 +106,8 @@
 										<?php if (!empty($arrData['gender'])) {  ?> 
     										<option value="<?php if ($arrData['gender']== 10) {echo "Male";$gender="Male";} else {echo "Female";$gender="Female";}?>" selected = "selected"><?php echo $gender?></option>  
     									<?php } ?>
-										<option>MALE</option>
-										<option>FEMALE</option>
+										<option><?php echo MALE;?></option>
+										<option><?php echo FEMALE;?></option>
 									</select>
 								</div>
 								<div class="row">

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	jQuery.validator.addMethod("lettersonly", function(value, element) {
-	return this.optional(element) || /^[a-z]+$/i.test(value);
-	}, "Textual data only!");
+	return this.optional(element) || /^[a-zA-Z ]*$/.test(value);           
+	}, "Alphabetic characters only!");
 	// validate signup form on keyup and submit    
 	var validator = $("#frmRegisterEmployer").validate({
 		rules: {
@@ -30,7 +30,6 @@ $(document).ready(function(){
 			companyName: {
 				required: true,
 				lettersonly: true,
-				minlength: 3
 			},
 			contactNumber: {
 				required: true,
@@ -62,8 +61,7 @@ $(document).ready(function(){
 				required: "enter password once again!"
 			},
 			companyName: {
-				required: "Please enter your name",
-				minlength: jQuery.format("Your first name needs to be at least {0} characters")
+				required: "Please enter your name"
 			},
 			captcha: {
 				required: "Please Enter captcha to continue"

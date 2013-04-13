@@ -1,4 +1,14 @@
 <?php
+/**
+ * file_name: employerDetails.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used to update ,edit ,display employed details and also to change the employers password.
+ * functions:  updateDetails , editDetails ,display ,changePassword ,
+ * inherited class: common
+ * */
+?>
+<?php
 class employerDetailsController extends common
 {
 	function updateDetails()

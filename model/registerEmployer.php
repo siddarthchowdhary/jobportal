@@ -1,4 +1,12 @@
 <?php 
+/**
+ * file_name: registerEmployer.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used to register a new employer.
+ * functions:  getDatabaseHandler , validate ,inject
+ * */
+
 class registerEmployerModel 
 {
 	public function getDatabaseHandler()
@@ -67,7 +75,7 @@ class registerEmployerModel
 					"status"=>1
 					);
 		$result=$db->insert('users',$data);
-		//var_dump($result);
+		
 		
 		$data = array();
 		$data['tables']='users';
@@ -75,15 +83,14 @@ class registerEmployerModel
 		$data['conditions']=array("email"=>$dataFromUser['email']);
 		$result = $db->select($data);
 		$userId =$result->fetch(PDO::FETCH_NUM);
-		//echo $userId[0];
+		
 			
 		$data['tables']='company_details';
 		$data['columns']=array('company_details.id');
 		$data['conditions']=array("company_name"=>$dataFromUser['companyName']);
 		$result = $db->select($data);
 		$companyId =$result->fetch(PDO::FETCH_NUM);
-		//echo $companyId[0];die();
-		//echo $dataFromUser['gender'];die();
+		
 		
 		$data = array(
 					"user_id"=>$userId[0],
@@ -104,7 +111,7 @@ class registerEmployerModel
 					"validation_string"=>$validationString
 					);
 		$result = $db->insert('inactive_users',$data);
-		//return (var_dump($result));
+
 		if($result)
 			return $data;
 		else

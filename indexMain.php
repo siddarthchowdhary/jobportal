@@ -5,7 +5,7 @@ ini_set( 'error_reporting', "E_ALL" );
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/constants.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/library/database/usage.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/common.class.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/DBConnect.php');
+//require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/classes/DBConnect.php');
 require_once(ADMIN_LANGUAGE_PATH);       #admin language file.
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/JobSeeker_Language.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/jobportal/config/employer_language.en.php');
@@ -23,7 +23,7 @@ if(isset($_REQUEST['function']) && !empty($_REQUEST['function'])){
       $function ='landingPage';    //default function
 }
 //$controller=strtolower($controller);
-//session_start();
+session_start();
 $fn = SITE_ROOT.'controller/'.$controller . '.php';
 # Setting controller path for each user based on their USERTYPE_SESSION 
 

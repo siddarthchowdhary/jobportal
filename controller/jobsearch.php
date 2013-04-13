@@ -6,8 +6,8 @@
 //@description:this controller is used to search jobs
 class jobsearchController extends common
 {
-			/*
-			 * Documentation
+			
+			/* Documentation
 			 * In this the job search criteria is fetched and made an array out of it
 			 * Then that criteria is passed to the model for searching any available jobs in partcular table.
 			 * If matching jobs are found they are reurned through an array.
@@ -20,8 +20,13 @@ class jobsearchController extends common
 				$company_name=strip_tags($_REQUEST['employer']);     
 				$job_category=strip_tags($_REQUEST['job-category']);
 				$experience_required=strip_tags($_REQUEST['experience']);
-				$arrCriteria = array("keywords"=>$keywords,"job_location"=>$job_location,
-				"company_name"=>$company_name,"job_category"=>$job_category,"experience_required"=>$experience_required);
+				$arrCriteria = array(
+									"keywords"=>$keywords,
+									"job_location"=>$job_location,
+									"company_name"=>$company_name,
+									"job_category"=>$job_category,
+									"experience_required"=>$experience_required
+									);
 				$result =  $this->loadModel('jobsearch','retrieve',$arrCriteria);
 				$category = $this->loadModel('jobsearch','industryType');
 				$arrResult = array("category"=>$category,"result"=>$result);
@@ -39,6 +44,7 @@ class jobsearchController extends common
 			* */
 			public function apply()
 			{
+				require VIEW_PATH.'checkSession.php';
 				 if ($_SESSION['ID_USERS_SESSION']=='') {
 						echo "<span style='color:red;'>You need to login before applying for this job.</span>";
 						return;
@@ -65,9 +71,14 @@ class jobsearchController extends common
 				$company_name=strip_tags($_REQUEST['employer']);     
 				$job_category=strip_tags($_REQUEST['job-category']);
 				$experience_required=strip_tags($_REQUEST['experience']);
-				$arrCriteria = array("keywords"=>$keywords,"job_location"=>$job_location,
-				"company_name"=>$company_name,"job_category"=>$job_category,"experience_required"=>$experience_required);
-				//~ print_r($arrCriteria);die("here");
+				$arrCriteria = array(
+								"keywords"=>$keywords,
+								"job_location"=>$job_location,
+								"company_name"=>$company_name,
+								"job_category"=>$job_category,
+								"experience_required"=>$experience_required
+								);
+				
 				$result =  $this->loadModel('jobsearch','retrieve',$arrCriteria);
 				$category = $this->loadModel('jobsearch','industryType');
 				$arrResult = array("category"=>$category,"result"=>$result);

@@ -1,5 +1,14 @@
 <?php
-//@Author : Team Contribution
+/**
+ * file_name: index.php
+ * @author: team
+ * created_on: 22-Mar-2013
+ * description:  used to get the landing page.
+ * functions:  landingPage
+ * inherited class: common
+ * */
+?>
+<?php
 class indexController extends common 
 {
 	/*Documentation

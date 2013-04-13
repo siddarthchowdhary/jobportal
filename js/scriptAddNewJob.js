@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	jQuery.validator.addMethod("lettersonly", function(value, element) {
 	return this.optional(element) || /^[a-zA-Z ]*$/.test(value);           
-	}, "Textual data only!");
+	}, "Alphabetic characters only!");
 	$.validator.addMethod("alphanumeric", function(value, element) {
         return this.optional(element) || /^[a-z0-9]+$/i.test(value);
     }, "only letters and numbers allowed.");

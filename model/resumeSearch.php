@@ -1,5 +1,13 @@
 
 <?php
+/**
+ * file_name: resumeSearch.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used to search the resume/details of jobseeker based on some id.
+ * functions:  getDatabaseHandler , retrieve
+ * */
+
 class resumeSearchModel
 {
 	

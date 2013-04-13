@@ -154,11 +154,11 @@
 						header('Location: indexMain.php?controller=pages&function=detailsSaved');
 						} else {
 							header('Location: indexMain.php?controller=pages&function=detailsNotSaved');
-							//echo "Sorry, there was a problem uploading your file.";
+							//~ echo "Sorry, there was a problem uploading your file.";
 						}
 					} else {
 						header('Location: indexMain.php?controller=pages&function=extensionProblem');
-						//echo "Sorry, there was a problem uploading your file.";
+						//~ echo "Sorry, there was a problem uploading your file.";
 					}
 				} else {
 					echo "there was a problem saving extension of the resume";

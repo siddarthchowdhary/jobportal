@@ -17,7 +17,7 @@
 	<script>
 		$(document).ready(function(){
 		$("#search").click(function(){
-			//alert($("#frmJobSearch").serialize());
+			
 			$.ajax({
 				type:"POST",		
 				url:"<?php echo SITE_PATH;?>indexMain.php?controller=jobsearch&function=search", 
@@ -100,8 +100,8 @@
 						</div>
 					</div>
 				</div>
-<div id="result"></div>				
-</div>
+				<div id="result"></div>				
+				</div>
 			<div id="sidebar">
 				<div class="block">   <!--write one block div for one box content-->
 					<div class="holder">

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>JobBoardTemplate</title>
+	<title><?php echo JOB_PORTAL;?></title>
 	<link media="all" rel="stylesheet" type="text/css" href=<?php echo CSS_PATH;?>style.css />
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo JS_PATH;?>jquery.main.js"></script>

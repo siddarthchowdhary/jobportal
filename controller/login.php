@@ -1,5 +1,15 @@
 <?php
-//@Author : Team Contribution
+/**
+ * file_name: login.php
+ * @author: team
+ * created_on: 22-Mar-2013
+ * description:  used for login.
+ * functions:  authenticate
+ * inherited class: common
+ * */
+?>
+<?php
+
 class loginController extends common 
 {
 	/*Documentation-

@@ -1,3 +1,4 @@
+
 <?php
 /**
  * file_name: job.php
@@ -7,7 +8,6 @@
  * functions:  addNewJob,editJob,updateJob, deleteJob,showAll, searchPanel
  * inherited class: common
  * */
-
 
 class jobController extends common
 {
@@ -34,8 +34,7 @@ class jobController extends common
 							"postName"=>"$postName",
 							"experience"=>"$experience",
 							"dateOfLastApplying"=>"$dateOfLastApplying",
-							//"monthOfLastApplying"=>"$monthOfLastApplying",
-							//"yearOfLastApplying"=>"$yearOfLastApplying",
+							
 							"expectedSalary"=>"$expectedSalary",
 							"jobDescription"=>"$jobDescription",
 							"jobLocation"=>"$jobLocation",
@@ -50,7 +49,7 @@ class jobController extends common
 		elseif($result === 0)
 			echo SOMETHING_WRONG_TRY_AGAIN;
 		else
-			echo $result;
+			var_dump( $result);
 			
 		}
 		

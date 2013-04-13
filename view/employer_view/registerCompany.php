@@ -1,19 +1,22 @@
-<script>
-	function registerCompany()
-	{
-		$.ajax({
+
+<?php	require_once VIEW_PATH.'header.php'; ?>
+	<div id="main">
+		<script>
+		function registerCompany()
+		{
+			$.ajax({
                 type:"POST",       
                 url:"<?php echo SITE_PATH;?>indexMain.php?controller=registerCompany&function=registerCompanyProcess",
                 data:$("#frmRegisterCompany").serialize(), 
                 success:function(result){ 
 					alert(result);
+					window.location.href="indexMain.php?controller=createAccount&function=createAccount";
 				}
-		});
-	}
+			});
+		}
 </script>
 
-<?php	require_once VIEW_PATH.'header.php'; ?>
-	<div id="main">
+
 		<div class="wrapper">
 			<div id="content">
 				<div class="block">
@@ -24,7 +27,7 @@
 									<h2><?php echo COMPANY;?><span><?php echo REGISTER;?></span></h2>
 								</div>
 								<div id="company">
-									
+<script src="<?php echo JS_PATH;?>scriptRegisterCompany.js" type="text/javascript"></script>									
 									<form action="" id="frmRegisterCompany" method="post">
 									<table class="frmregisteremp">
 										<tr>
@@ -72,8 +75,12 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
+		
+		
+	</div>	
+	
+</div>
 									
 <?php	require_once VIEW_PATH.'footer.php';?>
+
+

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	jQuery.validator.addMethod("lettersonly", function(value, element) {
-	return this.optional(element) || /^[a-z]+$/i.test(value);
-	}, "Textual data only!");
+	return this.optional(element) || /^[a-zA-Z ]*$/.test(value);           
+	}, "Alphabetic characters only!");
 	var validator = $("#frmRegisterCompany").validate({
 		rules: {
 			companyName: {

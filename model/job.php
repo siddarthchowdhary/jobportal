@@ -1,4 +1,11 @@
 <?php
+/**
+ * file_name:job.php
+ * @author: Saurabh Agarwal
+ * created_on: 22-Apr-2013
+ * description:  used add,edit,delete a job.
+ * functions: getDatabaseHandler,addNewJob,fetchAll,updateJob,deleteJob,fetchJobDetails
+ * */
 
 class jobModel
 {
@@ -15,10 +22,7 @@ class jobModel
 	
 	function addNewJob($dataFromUser)
 	{
-		$dateOfLastApplying = $dataFromUser['dateOfLastApplying'];
-		//$year = $dataFromUser['yearOfLastApplying'];
-		//$month = $dataFromUser['monthOfLastApplying'];
-		//$day = $dataFromUser['dayOfLastApplying'];
+		$dateOfLastApplying =$dataFromUser['dateOfLastApplying'];
 		$errMsg=array();
 		if (require_once 'library/serverValidation.class.php')
 		{
@@ -29,8 +33,9 @@ class jobModel
 				$errMsg[]='Post name should be alphabetic only.';
 			if(($obj->numericValidation($dataFromUser['experience']))==0)	
 				$errMsg[]='Experience should be numeric only.';	
-			//if(($obj->dateValidator($day,$month,$year))==0)	
-			//	$errMsg[]='Invalid Last Applying Date.';	
+			
+			if(($obj->dateValidator($dateOfLastApplying))==0)	
+				$errMsg[]='Invalid Last Applying Date.';	
 			if(($obj->numericValidation($dataFromUser['expectedSalary']))==0)	
 				$errMsg[]='Salary should be numeric only.';	
 			$tempDataHolder = str_replace(' ','',$dataFromUser['jobDescription']);
@@ -54,7 +59,7 @@ class jobModel
 		{
 			$errMsg[]="File Not Found";
 		}
-		//return $dateOfLastApplying;
+		
 		if(empty($errMsg))
 		{		
 			$db = $this->getDatabaseHandler();
@@ -67,7 +72,7 @@ class jobModel
 			
 			$employerId = $result->fetch(PDO::FETCH_NUM);
 			
-			//$employerId=
+			
 			$data = array(
 					"name_of_post"=>$dataFromUser['postName'],
 					"experience_required"=>$dataFromUser['experience'],
@@ -131,7 +136,7 @@ class jobModel
 	
 	function updateJob($dataFromUser)
 	{
-		//echo $dataFromUser['jobId'];die("here");
+		
 		$errMsg=array();
 		if (require_once 'library/serverValidation.class.php')
 		{
@@ -166,7 +171,7 @@ class jobModel
 		{
 			$errMsg[]="File Not Found";
 		}
-		//return $dateOfLastApplying;
+		
 		if(empty($errMsg))
 		{		
 			$db = $this->getDatabaseHandler();
@@ -182,7 +187,7 @@ class jobModel
 					);
 			$where = array("id"=>$dataFromUser['jobId']);
 			$result = $db->update('jobs_available',$data,$where);
-			//var_dump($result);die("updateJobdataFromUser model");
+			
 			if ($result)
 				return 1;
 			else
@@ -203,7 +208,7 @@ class jobModel
 	{
 		$db = $this->getDatabaseHandler();
 		$result = $db->delete('jobs_available', array('id' => $dataFromUser));
-		//var_dump($result);
+		
 		if ($result)
 			return 1;
 		else
@@ -212,12 +217,12 @@ class jobModel
 	function fetchJobDetails($dataFromUser)
 	{
 		$db = $this->getDatabaseHandler();
-		//var_dump($dataFromUser);die();
+		
 		$data = array();
 		$data['tables']	= 'jobs_available';
 		$data['conditions']=array("id"=>$dataFromUser['jobId']);
 		$result = $db->select($data);
-		//var_dump($result);die();
+		
 		$arrResult = array();
 		while($row = $result->fetch(PDO::FETCH_ASSOC))
 		{
